@@ -7373,25 +7373,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\agustinr\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\Aug\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\agustinr\\Source\\Repos\\CIS580GameProject5\\CollectTheCoins\\CollectTheCoins\\CollectTheCoins\\CollectTheCoins.csproj",
+      "projectUniqueName": "C:\\Users\\Aug\\Source\\Repos\\CIS580GameProject5\\CollectTheCoins\\CollectTheCoins\\CollectTheCoins\\CollectTheCoins.csproj",
       "projectName": "CollectTheCoins",
-      "projectPath": "C:\\Users\\agustinr\\Source\\Repos\\CIS580GameProject5\\CollectTheCoins\\CollectTheCoins\\CollectTheCoins\\CollectTheCoins.csproj",
-      "packagesPath": "C:\\Users\\agustinr\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\agustinr\\Source\\Repos\\CIS580GameProject5\\CollectTheCoins\\CollectTheCoins\\CollectTheCoins\\obj\\",
+      "projectPath": "C:\\Users\\Aug\\Source\\Repos\\CIS580GameProject5\\CollectTheCoins\\CollectTheCoins\\CollectTheCoins\\CollectTheCoins.csproj",
+      "packagesPath": "C:\\Users\\Aug\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Aug\\Source\\Repos\\CIS580GameProject5\\CollectTheCoins\\CollectTheCoins\\CollectTheCoins\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\",
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "C:\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\agustinr\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Aug\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
@@ -7400,7 +7398,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "http://teamcity.monogame.net/guestAuth/app/nuget/feed/_Root/default/v3/index.json": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -7446,7 +7443,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
       }
     }
   }
