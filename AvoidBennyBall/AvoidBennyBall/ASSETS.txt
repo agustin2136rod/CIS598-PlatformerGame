@@ -1,0 +1,17 @@
+﻿timer.png: clock clipart PNG Designed By IYIKON from <a href="https://pngtree.com/">Pngtree.com</a>
+
+Content/slime.png - created by Nathan Bean for this tutorial, released under public domain
+
+Content/arial.spritefont - received from CollisionExample Demo from Nathan Bean (unknown main source)
+
+Content/ball.png - received from HelloGame Demo from Nathan Bean (https://k-state.instructure.com/courses/105838/pages/1-dot-4-game-initialization?module_item_id=2696558)
+
+Collisions/BoundingCircle.cs - received from CollisionExample demo from Nathan Bean
+
+Collisions/CollisionHelper.cs - received from CollisionExample demo from Nathan Bean
+
+SlimeGhostSprite.cs - received from CollisionExample demo from Nathan Bean
+
+Content/music.mp3 - received from freesfx.co.uk - "Chaso Bizzaro" - https://freesfx.co.uk/Category/Horror/223
+
+Content/Hit_Hurt5 - received from Bfxr and was custom made by me
