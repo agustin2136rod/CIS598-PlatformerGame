@@ -42,10 +42,10 @@ namespace Platformer2D
         /// <returns>True if the circle and rectangle overlap. False otherwise.</returns>
         public bool Intersects(Rectangle rectangle)
         {
-            Vector2 v = new Vector2(MathHelper.Clamp(Center.X, rectangle.Left, rectangle.Right),
+            Vector2 tempVector = new Vector2(MathHelper.Clamp(Center.X, rectangle.Left, rectangle.Right),
                                     MathHelper.Clamp(Center.Y, rectangle.Top, rectangle.Bottom));
 
-            Vector2 direction = Center - v;
+            Vector2 direction = Center - tempVector;
             float distanceSquared = direction.LengthSquared();
 
             return ((distanceSquared > 0) && (distanceSquared < Radius * Radius));

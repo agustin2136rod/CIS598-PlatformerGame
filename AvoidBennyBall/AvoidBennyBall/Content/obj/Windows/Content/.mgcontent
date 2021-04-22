@@ -4,20 +4,20 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/Aug/source/repos/CIS580GameProject5/AvoidBennyBall/AvoidBennyBall/Content/arial.spritefont</File>
-    <File>C:/Users/Aug/source/repos/CIS580GameProject5/AvoidBennyBall/AvoidBennyBall/Content/background.png</File>
-    <File>C:/Users/Aug/source/repos/CIS580GameProject5/AvoidBennyBall/AvoidBennyBall/Content/ball.png</File>
-    <File>C:/Users/Aug/source/repos/CIS580GameProject5/AvoidBennyBall/AvoidBennyBall/Content/blank.png</File>
-    <File>C:/Users/Aug/source/repos/CIS580GameProject5/AvoidBennyBall/AvoidBennyBall/Content/gamefont.spritefont</File>
-    <File>C:/Users/Aug/source/repos/CIS580GameProject5/AvoidBennyBall/AvoidBennyBall/Content/GameOnVideo ‑ Made with FlexClip.mp4</File>
-    <File>C:/Users/Aug/source/repos/CIS580GameProject5/AvoidBennyBall/AvoidBennyBall/Content/gradient.png</File>
-    <File>C:/Users/Aug/source/repos/CIS580GameProject5/AvoidBennyBall/AvoidBennyBall/Content/Hit_Hurt5.wav</File>
-    <File>C:/Users/Aug/source/repos/CIS580GameProject5/AvoidBennyBall/AvoidBennyBall/Content/liftoff_of_smap.mp4</File>
-    <File>C:/Users/Aug/source/repos/CIS580GameProject5/AvoidBennyBall/AvoidBennyBall/Content/menufont.spritefont</File>
-    <File>C:/Users/Aug/source/repos/CIS580GameProject5/AvoidBennyBall/AvoidBennyBall/Content/music.mp3</File>
-    <File>C:/Users/Aug/source/repos/CIS580GameProject5/AvoidBennyBall/AvoidBennyBall/Content/slime.png</File>
-    <File>C:/Users/Aug/source/repos/CIS580GameProject5/AvoidBennyBall/AvoidBennyBall/Content/splash.png</File>
-    <File>C:/Users/Aug/source/repos/CIS580GameProject5/AvoidBennyBall/AvoidBennyBall/Content/timer.png</File>
+    <File>C:/Users/agustinr/Source/Repos/CIS580GameProject5/AvoidBennyBall/AvoidBennyBall/Content/arial.spritefont</File>
+    <File>C:/Users/agustinr/Source/Repos/CIS580GameProject5/AvoidBennyBall/AvoidBennyBall/Content/background.png</File>
+    <File>C:/Users/agustinr/Source/Repos/CIS580GameProject5/AvoidBennyBall/AvoidBennyBall/Content/ball.png</File>
+    <File>C:/Users/agustinr/Source/Repos/CIS580GameProject5/AvoidBennyBall/AvoidBennyBall/Content/blank.png</File>
+    <File>C:/Users/agustinr/Source/Repos/CIS580GameProject5/AvoidBennyBall/AvoidBennyBall/Content/gamefont.spritefont</File>
+    <File>C:/Users/agustinr/Source/Repos/CIS580GameProject5/AvoidBennyBall/AvoidBennyBall/Content/GameOnVideo ‑ Made with FlexClip.mp4</File>
+    <File>C:/Users/agustinr/Source/Repos/CIS580GameProject5/AvoidBennyBall/AvoidBennyBall/Content/gradient.png</File>
+    <File>C:/Users/agustinr/Source/Repos/CIS580GameProject5/AvoidBennyBall/AvoidBennyBall/Content/Hit_Hurt5.wav</File>
+    <File>C:/Users/agustinr/Source/Repos/CIS580GameProject5/AvoidBennyBall/AvoidBennyBall/Content/liftoff_of_smap.mp4</File>
+    <File>C:/Users/agustinr/Source/Repos/CIS580GameProject5/AvoidBennyBall/AvoidBennyBall/Content/menufont.spritefont</File>
+    <File>C:/Users/agustinr/Source/Repos/CIS580GameProject5/AvoidBennyBall/AvoidBennyBall/Content/music.mp3</File>
+    <File>C:/Users/agustinr/Source/Repos/CIS580GameProject5/AvoidBennyBall/AvoidBennyBall/Content/slime.png</File>
+    <File>C:/Users/agustinr/Source/Repos/CIS580GameProject5/AvoidBennyBall/AvoidBennyBall/Content/splash.png</File>
+    <File>C:/Users/agustinr/Source/Repos/CIS580GameProject5/AvoidBennyBall/AvoidBennyBall/Content/timer.png</File>
   </SourceFiles>
   <DestFiles>
     <File xsi:nil="true" />

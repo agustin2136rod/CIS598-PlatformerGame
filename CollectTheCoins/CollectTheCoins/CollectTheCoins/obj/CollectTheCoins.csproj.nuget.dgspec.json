@@ -1,23 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Aug\\source\\repos\\CIS580GameProject5\\CollectTheCoins\\CollectTheCoins\\CollectTheCoins\\CollectTheCoins.csproj": {}
+    "C:\\Users\\agustinr\\Source\\Repos\\CIS580GameProject5\\CollectTheCoins\\CollectTheCoins\\CollectTheCoins\\CollectTheCoins.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Aug\\source\\repos\\CIS580GameProject5\\CollectTheCoins\\CollectTheCoins\\CollectTheCoins\\CollectTheCoins.csproj": {
+    "C:\\Users\\agustinr\\Source\\Repos\\CIS580GameProject5\\CollectTheCoins\\CollectTheCoins\\CollectTheCoins\\CollectTheCoins.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Aug\\source\\repos\\CIS580GameProject5\\CollectTheCoins\\CollectTheCoins\\CollectTheCoins\\CollectTheCoins.csproj",
+        "projectUniqueName": "C:\\Users\\agustinr\\Source\\Repos\\CIS580GameProject5\\CollectTheCoins\\CollectTheCoins\\CollectTheCoins\\CollectTheCoins.csproj",
         "projectName": "CollectTheCoins",
-        "projectPath": "C:\\Users\\Aug\\source\\repos\\CIS580GameProject5\\CollectTheCoins\\CollectTheCoins\\CollectTheCoins\\CollectTheCoins.csproj",
-        "packagesPath": "C:\\Users\\Aug\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Aug\\source\\repos\\CIS580GameProject5\\CollectTheCoins\\CollectTheCoins\\CollectTheCoins\\obj\\",
+        "projectPath": "C:\\Users\\agustinr\\Source\\Repos\\CIS580GameProject5\\CollectTheCoins\\CollectTheCoins\\CollectTheCoins\\CollectTheCoins.csproj",
+        "packagesPath": "C:\\Users\\agustinr\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\agustinr\\Source\\Repos\\CIS580GameProject5\\CollectTheCoins\\CollectTheCoins\\CollectTheCoins\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Aug\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\agustinr\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -26,6 +27,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "http://teamcity.monogame.net/guestAuth/app/nuget/feed/_Root/default/v3/index.json": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -71,7 +73,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }
