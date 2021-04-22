@@ -4,10 +4,11 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/Aug/Source/Repos/CIS580GameProject5/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/backgrounds/layer1.png</File>
-    <File>C:/Users/Aug/Source/Repos/CIS580GameProject5/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/backgrounds/layer2.png</File>
-    <File>C:/Users/Aug/Source/Repos/CIS580GameProject5/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/backgrounds/layer3.png</File>
-    <File>C:/Users/Aug/Source/Repos/CIS580GameProject5/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/backgrounds/layer4.png</File>
+    <File>C:/Users/Aug/Source/Repos/CIS580GameProject5/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/arial.spritefont</File>
+    <File>C:/Users/Aug/Source/Repos/CIS580GameProject5/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/backgrounds/Layer0_0.png</File>
+    <File>C:/Users/Aug/Source/Repos/CIS580GameProject5/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/backgrounds/Layer0_1.png</File>
+    <File>C:/Users/Aug/Source/Repos/CIS580GameProject5/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/backgrounds/Layer0_2.png</File>
+    <File>C:/Users/Aug/Source/Repos/CIS580GameProject5/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/backgrounds/Layer0_3.png</File>
     <File>C:/Users/Aug/Source/Repos/CIS580GameProject5/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/sprites/blocks/BlockA0.png</File>
     <File>C:/Users/Aug/Source/Repos/CIS580GameProject5/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/sprites/blocks/BlockA1.png</File>
     <File>C:/Users/Aug/Source/Repos/CIS580GameProject5/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/sprites/blocks/BlockA2.png</File>
@@ -17,6 +18,7 @@
     <File>C:/Users/Aug/Source/Repos/CIS580GameProject5/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/sprites/blocks/BlockA6.png</File>
     <File>C:/Users/Aug/Source/Repos/CIS580GameProject5/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/sprites/blocks/BlockB0.png</File>
     <File>C:/Users/Aug/Source/Repos/CIS580GameProject5/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/sprites/blocks/BlockB1.png</File>
+    <File>C:/Users/Aug/Source/Repos/CIS580GameProject5/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/sprites/blocks/FinishFlag.png</File>
     <File>C:/Users/Aug/Source/Repos/CIS580GameProject5/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/sprites/coins/coins.png</File>
     <File>C:/Users/Aug/Source/Repos/CIS580GameProject5/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/sprites/player/celeb.png</File>
     <File>C:/Users/Aug/Source/Repos/CIS580GameProject5/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/sprites/player/die.png</File>
@@ -25,6 +27,8 @@
     <File>C:/Users/Aug/Source/Repos/CIS580GameProject5/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/sprites/player/run.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
