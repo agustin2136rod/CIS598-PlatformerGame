@@ -1,4 +1,7 @@
-﻿using System;
+﻿/* Player.cs
+ * Author: Agustin Rodriguez
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
 using CollectTheCoins.Handlers;
@@ -9,8 +12,14 @@ using Microsoft.Xna.Framework.Input;
 
 namespace CollectTheCoins
 {
+    /// <summary>
+    /// class to represent the player in the game
+    /// </summary>
     public class Player
     {
+        /// <summary>
+        /// Setup variables for the class
+        /// </summary>
         private TextureHandler idleAnimation;
         private TextureHandler runAnimation;
         private TextureHandler jumpAnimation;
@@ -43,23 +52,41 @@ namespace CollectTheCoins
         private const float AccelerometerScale = 1.5f;
         private const Buttons JumpButton = Buttons.A;
 
+        //variables to detect movement of player
         private float movement;
         private bool jumping;
         private bool hasJumped;
         private float jumpTime;
         private float oldBottom;
 
-
+        /// <summary>
+        /// getter for the level player is on
+        /// </summary>
         public LevelHandler Level { get { return level; } }
 
+        /// <summary>
+        /// getter for if the player is alive
+        /// </summary>
         public bool Alive { get { return alive; } }
 
+        /// <summary>
+        /// getter for the position of the player
+        /// </summary>
         public Vector2 Position { get { return position; } }
 
+        /// <summary>
+        /// getter for velocity of the player
+        /// </summary>
         public Vector2 Velocity {  get { return velocity; } }
 
+        /// <summary>
+        /// getter for whether the player is on the ground or not
+        /// </summary>
         public bool OnGround { get { return onGround; } }
 
+        /// <summary>
+        /// Method to get the bounds of a rectangle
+        /// </summary>
         public Rectangle BoundingRectangle
         {
             get
@@ -71,6 +98,11 @@ namespace CollectTheCoins
             }
         }
 
+        /// <summary>
+        /// Constructor for the Player class
+        /// </summary>
+        /// <param name="level">level the player is on</param>
+        /// <param name="position">position of the player</param>
         public Player(LevelHandler level, Vector2 position)
         {
             this.level = level;
@@ -78,6 +110,9 @@ namespace CollectTheCoins
             Reset(position);
         }
 
+        /// <summary>
+        /// method to load content of the player class
+        /// </summary>
         public void LoadContent()
         {
             idleAnimation = new TextureHandler(Level.Content.Load<Texture2D>("sprites/player/idle"), 0.1f, true);
@@ -95,6 +130,10 @@ namespace CollectTheCoins
             
         }
 
+        /// <summary>
+        /// Method to reset the position of the player
+        /// </summary>
+        /// <param name="position">position of the player</param>
         public void Reset(Vector2 position)
         {
             this.position = position;
@@ -103,6 +142,12 @@ namespace CollectTheCoins
             spritePlayer.Play(idleAnimation);
         }
 
+        /// <summary>
+        /// Method to update the player during the game
+        /// </summary>
+        /// <param name="gameTime">elapsed game time</param>
+        /// <param name="keyboardState">tracks which keys are pressed</param>
+        /// <param name="orientation">screen orientation</param>
         public void Update(GameTime gameTime, KeyboardState keyboardState, DisplayOrientation orientation)
         {
             GetInput(keyboardState, orientation);
@@ -125,13 +170,17 @@ namespace CollectTheCoins
             jumping = false;
         }
 
+        /// <summary>
+        /// Method to get input from the user to control the player
+        /// </summary>
+        /// <param name="keyboardState">which keys are being pressed</param>
+        /// <param name="orientation">screen orientation</param>
         public void GetInput(KeyboardState keyboardState, DisplayOrientation orientation)
         {
             if (Math.Abs(movement) < 0.5f)
             {
                 movement = 0.0f;
             }
-
 
             if (keyboardState.IsKeyDown(Keys.Left) || keyboardState.IsKeyDown(Keys.A))
             {
@@ -145,6 +194,10 @@ namespace CollectTheCoins
             jumping = keyboardState.IsKeyDown(Keys.Space) || keyboardState.IsKeyDown(Keys.Up) || keyboardState.IsKeyDown(Keys.W);
         }
 
+        /// <summary>
+        /// Method to add physics standards to the player for motion
+        /// </summary>
+        /// <param name="gameTime">elapsed game time</param>
         public void ApplyPhysics(GameTime gameTime)
         {
             float timeElapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
@@ -169,6 +222,12 @@ namespace CollectTheCoins
             if (Position.Y == oldPosition.Y) velocity.Y = 0;
         }
 
+        /// <summary>
+        /// Method to make the player jump 
+        /// </summary>
+        /// <param name="velocityInY">velocity in the Y direction</param>
+        /// <param name="gameTime">elapsed game time</param>
+        /// <returns></returns>
         private float Jump(float velocityInY, GameTime gameTime)
         {
             if (jumping)
@@ -203,6 +262,9 @@ namespace CollectTheCoins
             return velocityInY;
         }
 
+        /// <summary>
+        /// Method to handle collisions for the player
+        /// </summary>
         private void HandleCollision()
         {
             Rectangle bounds = BoundingRectangle;
@@ -217,7 +279,6 @@ namespace CollectTheCoins
             {
                 for (int x = leftBlock; x <= rightBlock; ++x)
                 {
-                    // If this tile is collidable,
                     BlockCollision collision = Level.GetCollision(x, y);
                     if (collision != BlockCollision.Passable)
                     {
@@ -228,30 +289,21 @@ namespace CollectTheCoins
                         {
                             float absDepthX = Math.Abs(depth.X);
                             float absDepthY = Math.Abs(depth.Y);
-
-                            // Resolve the collision along the shallow axis.
                             if (absDepthY < absDepthX || collision == BlockCollision.Platform)
                             {
-                                // If we crossed the top of a tile, we are on the ground.
                                 if (oldBottom <= blockBounds.Top)
                                     onGround = true;
 
-                                // Ignore platforms, unless we are on the ground.
                                 if (collision == BlockCollision.Impassable || OnGround)
                                 {
-                                    // Resolve the collision along the Y axis.
                                     position = new Vector2(Position.X, Position.Y + depth.Y);
-
-                                    // Perform further collisions with the new bounds.
                                     bounds = BoundingRectangle;
                                 }
                             }
-                            else if (collision == BlockCollision.Impassable) // Ignore platforms.
+                            else if (collision == BlockCollision.Impassable)
                             {
                                 // Resolve the collision along the X axis.
                                 position = new Vector2(Position.X + depth.X, Position.Y);
-
-                                // Perform further collisions with the new bounds.
                                 bounds = BoundingRectangle;
                             }
                         }
@@ -261,11 +313,19 @@ namespace CollectTheCoins
             oldBottom = bounds.Bottom;
         }
 
+        /// <summary>
+        /// Method when the player reaches the exit
+        /// </summary>
         public void ReachedExit()
         {
             spritePlayer.Play(celebrateAnimation);
         }
 
+        /// <summary>
+        /// Method to draw the player on the screen
+        /// </summary>
+        /// <param name="gameTime">elapsed game time</param>
+        /// <param name="spriteBatch">the sprite batch</param>
         public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
             if (Velocity.X > 0) flip = SpriteEffects.FlipHorizontally;

@@ -1,4 +1,7 @@
-﻿using System;
+﻿/* TexturePlayer.cs
+ * Author: Agustin Rodriguez
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
 using Microsoft.Xna.Framework;
@@ -6,20 +9,35 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace CollectTheCoins
 {
+    /// <summary>
+    /// Classes to draw the animations while playing the game
+    /// </summary>
     public struct TexturePlayer
     {
-
+        //private variables
         TextureHandler textureHandler;
         private int index;
         private float time;
 
-
+        /// <summary>
+        /// getter for the TextureHandler
+        /// </summary>
         public TextureHandler TextureHandler { get { return textureHandler; } }
 
+        /// <summary>
+        /// getter for the index
+        /// </summary>
         public int Index { get { return index; } }
 
+        /// <summary>
+        /// Getter for the Origin
+        /// </summary>
         public Vector2 Origin { get { return new Vector2(textureHandler.Width / 2.0f, textureHandler.Height); } }
 
+        /// <summary>
+        /// Method to play an animation
+        /// </summary>
+        /// <param name="textureHandler">Animation handler</param>
         public void Play(TextureHandler textureHandler)
         {
             if (this.TextureHandler == textureHandler)
@@ -31,6 +49,13 @@ namespace CollectTheCoins
             time = 0.0f;
         }
 
+        /// <summary>
+        /// Method to draw on the gamescreen
+        /// </summary>
+        /// <param name="gameTime">elapsed game time</param>
+        /// <param name="spriteBatch">the spritebatch</param>
+        /// <param name="position">the position to draw at</param>
+        /// <param name="spriteEffects">the sprite effects</param>
         public void Draw(GameTime gameTime, SpriteBatch spriteBatch, Vector2 position, SpriteEffects spriteEffects)
         {
             time += (float)gameTime.ElapsedGameTime.TotalSeconds;

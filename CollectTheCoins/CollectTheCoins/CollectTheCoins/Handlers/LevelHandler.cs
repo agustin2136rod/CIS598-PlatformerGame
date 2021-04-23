@@ -1,4 +1,7 @@
-﻿using System;
+﻿/* LevelHandler.cs
+ * Author: Agustin Rodriguez
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
 using Microsoft.Xna.Framework;
@@ -10,34 +13,62 @@ using Microsoft.Xna.Framework.Input;
 
 namespace CollectTheCoins.Handlers
 {
+    /// <summary>
+    /// class to represent each level
+    /// </summary>
     public class LevelHandler : IDisposable
     {
+        //set up all variables
         private Block[,] blocks;
         private SoundEffect coinCollected;
         private Texture2D[] backgrounds;
+        private Vector2 startPosition;
+        bool atExit;
+        private Point exit = InvalidPosition;
+        private static readonly Point InvalidPosition = new Point(-1, -1);
         ContentManager content;
         private const int EntityLayer = 3;
         Player player;
         private List<CoinHandler> coins = new List<CoinHandler>();
-        private Vector2 startPosition;
-        bool atExit;
         TimeSpan timeLeft;
-        private Point exit = InvalidPosition;
-        private static readonly Point InvalidPosition = new Point(-1, -1);
 
+        /// <summary>
+        /// getter for the coins
+        /// </summary>
         public List<CoinHandler> Coins { get { return coins; } }
 
+        /// <summary>
+        /// getter for the player
+        /// </summary>
         public Player Player {  get { return player; } }
 
+        /// <summary>
+        /// random generator
+        /// </summary>
         private Random random = new Random(354668);
 
+        /// <summary>
+        /// getter for the at exit
+        /// </summary>
         public bool AtExit { get { return atExit; } }
 
+        /// <summary>
+        /// getter for the time left in a level
+        /// </summary>
         public TimeSpan TimeLeft { get { return timeLeft; } }
 
+        /// <summary>
+        /// getter for the content manager
+        /// </summary>
         public ContentManager Content { get { return content; } }
 
         #region Load
+        /// <summary>
+        /// construcor for the class
+        /// </summary>
+        /// <param name="serviceProvider">the service provider</param>
+        /// <param name="stream">Stream service</param>
+        /// <param name="index">the index</param>
         public LevelHandler(IServiceProvider serviceProvider, Stream stream, int index)
         {
             content = new ContentManager(serviceProvider, "Content");
@@ -54,6 +85,10 @@ namespace CollectTheCoins.Handlers
             coinCollected = Content.Load<SoundEffect>("sounds/coinPickup");
         }
 
+        /// <summary>
+        /// Methhod to load the blocks for the current level
+        /// </summary>
+        /// <param name="stream">the stream service</param>
         private void LoadBlocks(Stream stream)
         {
             int width;
@@ -84,6 +119,13 @@ namespace CollectTheCoins.Handlers
             }
         }
 
+        /// <summary>
+        /// Method to load a block 
+        /// </summary>
+        /// <param name="type">name of the block</param>
+        /// <param name="x">x position</param>
+        /// <param name="y">y position</param>
+        /// <returns>Returns a block </returns>
         private Block LoadBlock(char type, int x, int y)
         {
             switch (type)
@@ -122,17 +164,36 @@ namespace CollectTheCoins.Handlers
             }
         }
 
+        /// <summary>
+        /// method to load the block 
+        /// </summary>
+        /// <param name="blockName">the name of the block </param>
+        /// <param name="blockCollision">the block collision type </param>
+        /// <returns>The loaded Block</returns>
         private Block LoadBlock(string blockName, BlockCollision blockCollision)
         {
             return new Block(Content.Load<Texture2D>("sprites/blocks/" + blockName), blockCollision);
         }
 
+        /// <summary>
+        /// Method to load a random block 
+        /// </summary>
+        /// <param name="name">name of block </param>
+        /// <param name="count">number for the random generator</param>
+        /// <param name="blockCollision">block collision type</param>
+        /// <returns>Block </returns>
         private Block LoadVarietyBlock(string name, int count, BlockCollision blockCollision)
         {
             int index = random.Next(count);
             return LoadBlock(name + index, blockCollision);
         }
 
+        /// <summary>
+        /// Method to load the starting block 
+        /// </summary>
+        /// <param name="x">x position</param>
+        /// <param name="y">y position</param>
+        /// <returns>The starting block </returns>
         private Block LoadStartBlock(int x, int y)
         {
             startPosition = RectangleExtensionHandler.GetBottomCenter(GetBounds(x, y));
@@ -140,6 +201,12 @@ namespace CollectTheCoins.Handlers
             return new Block(null, BlockCollision.Passable);
         }
 
+        /// <summary>
+        /// Method to load the exit block 
+        /// </summary>
+        /// <param name="x">x position</param>
+        /// <param name="y">y position</param>
+        /// <returns>the exit block </returns>
         private Block LoadExitBlock(int x, int y)
         {
             exit = GetBounds(x, y).Center;
@@ -147,6 +214,12 @@ namespace CollectTheCoins.Handlers
             return LoadBlock("FinishFlag", BlockCollision.Passable);
         }
 
+        /// <summary>
+        /// Method to load a block with a coin on it
+        /// </summary>
+        /// <param name="x">x position</param>
+        /// <param name="y">y position</param>
+        /// <returns>the block with a coin on it</returns>
         private Block LoadCoinBlock(int x, int y)
         {
             Point position = GetBounds(x, y).Center;
@@ -154,12 +227,21 @@ namespace CollectTheCoins.Handlers
             return new Block(null, BlockCollision.Passable);
         }
 
+        /// <summary>
+        /// Method to dispose the level
+        /// </summary>
         public void Dispose()
         {
             Content.Unload();
         }
         #endregion
 
+        /// <summary>
+        /// Method to get a collision
+        /// </summary>
+        /// <param name="x">x position</param>
+        /// <param name="y">y position</param>
+        /// <returns>BlockCollision</returns>
         public BlockCollision GetCollision(int x, int y)
         {
             if (x < 0 || x >= Width)
@@ -173,15 +255,33 @@ namespace CollectTheCoins.Handlers
             return blocks[x, y].Collision;
         }
 
+        /// <summary>
+        /// Method to get the bounds of a rectangle
+        /// </summary>
+        /// <param name="x">x position</param>
+        /// <param name="y">y position</param>
+        /// <returns></returns>
         public Rectangle GetBounds(int x, int y)
         {
             return new Rectangle(x * Block.Width, y * Block.Height, Block.Width, Block.Height);
         }
 
+        /// <summary>
+        /// getter for the width
+        /// </summary>
         public int Width { get { return blocks.GetLength(0); } }
 
+        /// <summary>
+        /// getter for the height
+        /// </summary>
         public int Height { get { return blocks.GetLength(1); } }
 
+        /// <summary>
+        /// Method to update the level
+        /// </summary>
+        /// <param name="gameTime">elapsed game time</param>
+        /// <param name="keyboardState">which keys are being pressed</param>
+        /// <param name="orientation">the screen orientation</param>
         public void Update (GameTime gameTime, KeyboardState keyboardState, DisplayOrientation orientation)
         {
             if (TimeLeft == TimeSpan.Zero)
@@ -211,6 +311,10 @@ namespace CollectTheCoins.Handlers
             }
         }
 
+        /// <summary>
+        /// Method to update the coins for the level
+        /// </summary>
+        /// <param name="gameTime">elapsed game time</param>
         public void UpdateCoins(GameTime gameTime)
         {
             for (int i = 0; i < coins.Count; i++)
@@ -226,6 +330,9 @@ namespace CollectTheCoins.Handlers
             }
         }
 
+        /// <summary>
+        /// method that is triggered when the player reaches the exit
+        /// </summary>
         private void ExitReached()
         {
             if (coins.Count == 0)
@@ -235,11 +342,19 @@ namespace CollectTheCoins.Handlers
             }
         }
 
+        /// <summary>
+        /// Method to start the level
+        /// </summary>
         public void Start()
         {
             Player.Reset(startPosition);
         }
 
+        /// <summary>
+        /// Method to draw all the content for the level
+        /// </summary>
+        /// <param name="gameTime">elapsed game time</param>
+        /// <param name="spriteBatch">the sprite batch</param>
         public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
             for (int i = 0; i <= EntityLayer; i++)
@@ -261,6 +376,10 @@ namespace CollectTheCoins.Handlers
             }
         }
 
+        /// <summary>
+        /// method to draw the blocks 
+        /// </summary>
+        /// <param name="spriteBatch">the spriteb batch</param>
         public void DrawBlocks(SpriteBatch spriteBatch)
         {
             for (int i = 0; i < Height; i++)

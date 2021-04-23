@@ -1,2 +1,59 @@
 ﻿Content/sprites/blocks/FinishFlag.png - Icon made by Smashicons from www.flaticon.com
 
+Content/backgrounds/Layer0_0.png - Artwork created by Luis Zuno(@ansimuz)
+
+Content/backgrounds/Layer0_1.png - Artwork created by Luis Zuno(@ansimuz)
+
+Content/backgrounds/Layer0_2.png - Artwork created by Luis Zuno(@ansimuz)
+
+Content/backgrounds/Layer0_3.png - Artwork created by Luis Zuno(@ansimuz)
+
+Content/Levels/0.txt - I created this on my own
+
+Content/sounds/coinPickup.wav - I created this using Bfxr
+
+Content/sounds/jumpSound.wav - I created this using Bfxr
+
+Content/sounds/music.mp3 - received from freesfx.coluk - "Chaso Bizzaro" - https://freesfx.co.uk/Category/Horror/223
+
+Content/sprites/blocks/BlockA0.png - Orange-Brown concrete wall by Tiziana https://opengameart.org/content/orange-concrete-wall-512px
+
+Content/sprites/blocks/BlockA1.png - Orange-Brown concrete wall by Tiziana https://opengameart.org/content/orange-concrete-wall-512px
+
+Content/sprites/blocks/BlockA2.png - Orange-Brown concrete wall by Tiziana https://opengameart.org/content/orange-concrete-wall-512px
+
+Content/sprites/blocks/BlockA3.png - Orange-Brown concrete wall by Tiziana https://opengameart.org/content/orange-concrete-wall-512px
+
+Content/sprites/blocks/BlockA4.png - Orange-Brown concrete wall by Tiziana https://opengameart.org/content/orange-concrete-wall-512px
+
+Content/sprites/blocks/BlockA5.png - Orange-Brown concrete wall by Tiziana https://opengameart.org/content/orange-concrete-wall-512px
+
+Content/sprites/blocks/BlockA6.png - Orange-Brown concrete wall by Tiziana https://opengameart.org/content/orange-concrete-wall-512px
+
+Content/sprites/blocks/BlockB0.png - Orange-Brown concrete wall by Tiziana https://opengameart.org/content/orange-concrete-wall-512px
+
+Content/sprites/blocks/BlockB1.png - Orange-Brown concrete wall by Tiziana https://opengameart.org/content/orange-concrete-wall-512px
+
+Content/sprites/blocks/BlockA0.png - Orange-Brown concrete wall by Tiziana https://opengameart.org/content/orange-concrete-wall-512px
+
+Content/sprites/blocks/FinishFlag.png - black and white flag PNG Designed By 588ku from <a href="https://pngtree.com/">Pngtree.com</a>
+
+Content/sprites/coins/coins.png - created by puddin of OpenGameArt.org (https://opengameart.org/content/rotating-coin) and released under the public domain
+
+Content/sprites/player/idle.png - created by Aswino of OpenGameArt.org (https://opengameart.org/content/cowboy-0) and released under the public domain
+
+Content/sprites/player/celeb.png - created by Aswino of OpenGameArt.org (https://opengameart.org/content/cowboy-0) and released under the public domain
+
+Content/sprites/player/die.png - created by Aswino of OpenGameArt.org (https://opengameart.org/content/cowboy-0) and released under the public domain
+
+Content/sprites/player/jump.png - created by Aswino of OpenGameArt.org (https://opengameart.org/content/cowboy-0) and released under the public domain
+
+Content/sprites/player/run.png - created by Aswino of OpenGameArt.org (https://opengameart.org/content/cowboy-0) and released under the public domain
+
+Content/fail.png - created by myself
+
+Content/Instructions.png - created by myself
+
+Content/Winner.png - created by myself
+
+Content/arial.spritefont - recieved from CollisionExample demo from Nathan Bean (unknown main source)

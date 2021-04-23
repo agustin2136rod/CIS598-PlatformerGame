@@ -1,4 +1,7 @@
-﻿using Microsoft.Xna.Framework;
+﻿/* Game1.cs
+ * Author: Agustin Rodriguez 
+ */
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
@@ -10,16 +13,18 @@ using System.IO;
 
 namespace CollectTheCoins
 {
+    /// <summary>
+    /// This class deals with the mechanics of starting and running the game
+    /// </summary>
     public class Game1 : Game
     {
+        //declare all variables that will be used within this game. 
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
         Vector2 screenSize = new Vector2(800, 480);
         private Matrix globalTransformation;
         int bufferWidth, bufferHeight;
-
         private SpriteFont font;
-
         private int levelIndex = -1;
         private LevelHandler level;
         private bool continuePressed;
@@ -27,12 +32,13 @@ namespace CollectTheCoins
         private Texture2D instructions;
         private Texture2D fail;
         private Song backgroundMusic;
-
         private KeyboardState keyboardState;
         private const int numberOfLevels = 1;
         private bool seenInstructions = false;
 
-
+        /// <summary>
+        /// Constructor for the class
+        /// </summary>
         public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);
@@ -43,6 +49,9 @@ namespace CollectTheCoins
             //Accelerometer.Initialize();
         }
 
+        /// <summary>
+        /// Not used
+        /// </summary>
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
@@ -50,6 +59,9 @@ namespace CollectTheCoins
             base.Initialize();
         }
 
+        /// <summary>
+        /// Method to Load the content that is utilized within the game
+        /// </summary>
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
@@ -66,6 +78,9 @@ namespace CollectTheCoins
             LoadLevel();
         }
 
+        /// <summary>
+        /// Method to scale the presentation window for the game. It adjusts to your screen size and sets it accordingly
+        /// </summary>
         public void ScalePresentation()
         {
             bufferWidth = GraphicsDevice.PresentationParameters.BackBufferWidth;
@@ -76,6 +91,10 @@ namespace CollectTheCoins
             globalTransformation = Matrix.CreateScale(screenScalingFactor);
         }
 
+        /// <summary>
+        /// Method to update the game as it is being played. 
+        /// </summary>
+        /// <param name="gameTime">elapsed time for the game</param>
         protected override void Update(GameTime gameTime)
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
@@ -90,6 +109,10 @@ namespace CollectTheCoins
             base.Update(gameTime);
         }
 
+        /// <summary>
+        /// Method to handle input from the player 
+        /// </summary>
+        /// <param name="gameTime">elapsed time for the game</param>
         private void HandleInput(GameTime gameTime)
         {
             keyboardState = Keyboard.GetState();
@@ -122,6 +145,9 @@ namespace CollectTheCoins
             continuePressed = proceed;
         }
 
+        /// <summary>
+        /// Method to load each level 
+        /// </summary>
         private void LoadLevel()
         {
             levelIndex = (levelIndex + 1) % numberOfLevels;
@@ -134,12 +160,19 @@ namespace CollectTheCoins
             }
         }
 
+        /// <summary>
+        /// Method to reload a level
+        /// </summary>
         private void ReloadCurrentLevel()
         {
             --levelIndex;
             LoadLevel();
         }
 
+        /// <summary>
+        /// Method to draw the content on the gameplay screen
+        /// </summary>
+        /// <param name="gameTime">the elapsed time of the game</param>
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
@@ -153,6 +186,9 @@ namespace CollectTheCoins
             base.Draw(gameTime);
         }
 
+        /// <summary>
+        /// Secondary method of drawing
+        /// </summary>
         private void DrawHud()
         {
             
