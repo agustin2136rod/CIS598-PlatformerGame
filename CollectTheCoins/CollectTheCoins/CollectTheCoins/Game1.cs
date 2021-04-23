@@ -5,7 +5,6 @@ using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Input.Touch;
 using Microsoft.Xna.Framework.Content;
 using CollectTheCoins.Handlers;
-using Platformer2D;
 using System;
 using System.IO;
 
