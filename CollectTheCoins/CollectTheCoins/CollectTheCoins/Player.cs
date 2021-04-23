@@ -17,6 +17,7 @@ namespace CollectTheCoins
         private TextureHandler jumpAnimation;
         private TextureHandler celebrateAnimation;
         private SpriteEffects flip = SpriteEffects.None;
+        private SoundEffect jumpSound;
         private TexturePlayer spritePlayer;
         LevelHandler level;
         private bool alive;
@@ -84,6 +85,7 @@ namespace CollectTheCoins
             runAnimation = new TextureHandler(Level.Content.Load<Texture2D>("sprites/player/run"), 0.1f, true);
             jumpAnimation = new TextureHandler(Level.Content.Load<Texture2D>("sprites/player/jump"), 0.1f, false);
             celebrateAnimation = new TextureHandler(Level.Content.Load<Texture2D>("sprites/player/celeb"), 0.1f, false);
+            jumpSound = Level.Content.Load<SoundEffect>("sounds/jumpSound");
 
             int width = (int)(idleAnimation.Width * 0.4);
             int left = (idleAnimation.Width - width) / 2;
@@ -91,7 +93,7 @@ namespace CollectTheCoins
             int top = idleAnimation.Height - height;
             bounds = new Rectangle(left, top, width, height);
 
-            //LOAD SOUNDS HERE
+            
         }
 
         public void Reset(Vector2 position)
@@ -102,9 +104,9 @@ namespace CollectTheCoins
             spritePlayer.Play(idleAnimation);
         }
 
-        public void Update(GameTime gameTime, KeyboardState keyboardState, AccelerometerState accelerometer, DisplayOrientation orientation)
+        public void Update(GameTime gameTime, KeyboardState keyboardState, DisplayOrientation orientation)
         {
-            GetInput(keyboardState, accelerometer, orientation);
+            GetInput(keyboardState, orientation);
 
             ApplyPhysics(gameTime);
 
@@ -124,22 +126,13 @@ namespace CollectTheCoins
             jumping = false;
         }
 
-        public void GetInput(KeyboardState keyboardState, AccelerometerState accelerometer, DisplayOrientation orientation)
+        public void GetInput(KeyboardState keyboardState, DisplayOrientation orientation)
         {
             if (Math.Abs(movement) < 0.5f)
             {
                 movement = 0.0f;
             }
 
-            if (Math.Abs(accelerometer.Acceleration.Y) > 0.10f)
-            {
-                movement = MathHelper.Clamp(-accelerometer.Acceleration.Y * AccelerometerScale, -1f, 1f);
-
-                if (orientation == DisplayOrientation.LandscapeRight)
-                {
-                    movement = -movement;
-                }
-            }
 
             if (keyboardState.IsKeyDown(Keys.Left) || keyboardState.IsKeyDown(Keys.A))
             {
@@ -185,7 +178,7 @@ namespace CollectTheCoins
                 if ((!hasJumped && OnGround) || jumpTime > 0.0f)
                 {
                     if (jumpTime == 0.0f)
-                        //jumpSound.Play();
+                        jumpSound.Play();
 
                     jumpTime += (float)gameTime.ElapsedGameTime.TotalSeconds;
                     spritePlayer.Play(jumpAnimation);

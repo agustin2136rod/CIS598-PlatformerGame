@@ -24,11 +24,14 @@ namespace CollectTheCoins
         private int levelIndex = -1;
         private LevelHandler level;
         private bool continuePressed;
+        private Texture2D win;
+        private Texture2D instructions;
+        private Texture2D fail;
+        private Song backgroundMusic;
 
         private KeyboardState keyboardState;
-        private AccelerometerState accelerometerState;
-
         private const int numberOfLevels = 1;
+        private bool seenInstructions = false;
 
 
         public Game1()
@@ -55,7 +58,12 @@ namespace CollectTheCoins
             // TODO: use this.Content to load your game content here
 
             font = Content.Load<SpriteFont>("arial");
+            win = Content.Load<Texture2D>("Winner");
+            instructions = Content.Load<Texture2D>("Instructions");
+            fail = Content.Load<Texture2D>("fail");
             ScalePresentation();
+            backgroundMusic = Content.Load<Song>("sounds/music");
+            MediaPlayer.Play(backgroundMusic);
             LoadLevel();
         }
 
@@ -76,7 +84,7 @@ namespace CollectTheCoins
 
             HandleInput(gameTime);
 
-            level.Update(gameTime, keyboardState, accelerometerState, Window.CurrentOrientation);
+            level.Update(gameTime, keyboardState, Window.CurrentOrientation);
 
             // TODO: Add your update logic here
 
@@ -86,21 +94,29 @@ namespace CollectTheCoins
         private void HandleInput(GameTime gameTime)
         {
             keyboardState = Keyboard.GetState();
-            accelerometerState = PhysicsHandler.GetState();
+
             bool proceed = keyboardState.IsKeyDown(Keys.Space);
+            if (proceed) seenInstructions = true;
 
             if (!continuePressed && proceed)
             {
                 if (!level.Player.Alive)
                 {
                     level.Start();
+                    MediaPlayer.Play(backgroundMusic);
                 }
                 else if (level.TimeLeft == TimeSpan.Zero)
                 {
                     if (level.AtExit)
+                    {
                         LoadLevel();
+                        MediaPlayer.Play(backgroundMusic);
+                    }
                     else
+                    {
                         ReloadCurrentLevel();
+                    }
+
                 }
             }
 
@@ -140,14 +156,32 @@ namespace CollectTheCoins
 
         private void DrawHud()
         {
+            
             Rectangle title = GraphicsDevice.Viewport.TitleSafeArea;
             Vector2 hudSpot = new Vector2(title.X, title.Y);
 
             Vector2 center = new Vector2(screenSize.X / 2, screenSize.Y / 2);
 
-            string time = "TIME: " + level.TimeLeft.Minutes.ToString("00") + level.TimeLeft.Seconds.ToString("00");
+            string time = "TIME: " + level.TimeLeft.Minutes.ToString("00") + ":" + level.TimeLeft.Seconds.ToString("00");
             Color colorOfTime = Color.Red;
             _spriteBatch.DrawString(font, time, hudSpot, colorOfTime);
+            Vector2 winSize = new Vector2(win.Width, win.Height);
+            if (!seenInstructions)
+            {
+                _spriteBatch.Draw(instructions, center - winSize / 2, Color.White);
+            }
+
+            if (level.AtExit && level.Coins.Count == 0)
+            {
+                _spriteBatch.Draw(win, center - winSize / 2, Color.White);
+                MediaPlayer.Stop();
+            }
+
+            if (level.TimeLeft == TimeSpan.Zero && !level.AtExit)
+            {
+                _spriteBatch.Draw(fail, center - winSize / 2, Color.White);
+                MediaPlayer.Stop();
+            }
         }
     }
 }

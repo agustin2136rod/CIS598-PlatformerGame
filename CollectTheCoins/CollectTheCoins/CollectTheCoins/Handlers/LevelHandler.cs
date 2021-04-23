@@ -13,6 +13,7 @@ namespace CollectTheCoins.Handlers
     public class LevelHandler : IDisposable
     {
         private Block[,] blocks;
+        private SoundEffect coinCollected;
         private Texture2D[] backgrounds;
         ContentManager content;
         private const int EntityLayer = 3;
@@ -23,6 +24,8 @@ namespace CollectTheCoins.Handlers
         TimeSpan timeLeft;
         private Point exit = InvalidPosition;
         private static readonly Point InvalidPosition = new Point(-1, -1);
+
+        public List<CoinHandler> Coins { get { return coins; } }
 
         public Player Player {  get { return player; } }
 
@@ -39,7 +42,7 @@ namespace CollectTheCoins.Handlers
         {
             content = new ContentManager(serviceProvider, "Content");
 
-            timeLeft = TimeSpan.FromMinutes(2.0);
+            timeLeft = TimeSpan.FromMinutes(1.0);
 
             LoadBlocks(stream);
 
@@ -48,7 +51,7 @@ namespace CollectTheCoins.Handlers
             backgrounds[1] = Content.Load<Texture2D>("backgrounds/Layer0_1");
             backgrounds[2] = Content.Load<Texture2D>("backgrounds/Layer0_2");
             backgrounds[3] = Content.Load<Texture2D>("backgrounds/Layer0_3");
-
+            coinCollected = Content.Load<SoundEffect>("sounds/coinPickup");
         }
 
         private void LoadBlocks(Stream stream)
@@ -179,16 +182,21 @@ namespace CollectTheCoins.Handlers
 
         public int Height { get { return blocks.GetLength(1); } }
 
-        public void Update (GameTime gameTime, KeyboardState keyboardState, AccelerometerState acceleromaterState, DisplayOrientation orientation)
+        public void Update (GameTime gameTime, KeyboardState keyboardState, DisplayOrientation orientation)
         {
             if (TimeLeft == TimeSpan.Zero)
             {
                 Player.ApplyPhysics(gameTime);
             }
+            else if (atExit)
+            {
+                int secondsLeft = Math.Min((int)Math.Round(gameTime.ElapsedGameTime.TotalSeconds * 100.0f), (int)Math.Ceiling(TimeLeft.TotalSeconds));
+                timeLeft -= TimeSpan.FromSeconds(secondsLeft);
+            }
             else
             {
                 timeLeft -= gameTime.ElapsedGameTime;
-                Player.Update(gameTime, keyboardState, acceleromaterState, orientation);
+                Player.Update(gameTime, keyboardState, orientation);
                 UpdateCoins(gameTime);
 
                 if (Player.Alive && Player.OnGround && Player.BoundingRectangle.Contains(exit))
@@ -212,21 +220,19 @@ namespace CollectTheCoins.Handlers
 
                 if (coin.BoundingCircle.CollidesWith(Player.BoundingRectangle))
                 {
+                    coinCollected.Play();
                     coins.RemoveAt(i--);
-                    CoinCollected(coin, Player);
                 }
             }
         }
 
-        public void CoinCollected(CoinHandler coin, Player player)
-        {
-            //coin.OnCollected(player);
-        }
-
         private void ExitReached()
         {
-            Player.ReachedExit();
-            atExit = true;
+            if (coins.Count == 0)
+            {
+                Player.ReachedExit();
+                atExit = true;
+            }
         }
 
         public void Start()

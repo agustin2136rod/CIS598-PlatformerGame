@@ -9,6 +9,11 @@
     <File>C:/Users/Aug/source/repos/CIS580GameProject5/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/backgrounds/Layer0_1.png</File>
     <File>C:/Users/Aug/source/repos/CIS580GameProject5/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/backgrounds/Layer0_2.png</File>
     <File>C:/Users/Aug/source/repos/CIS580GameProject5/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/backgrounds/Layer0_3.png</File>
+    <File>C:/Users/Aug/source/repos/CIS580GameProject5/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/fail.png</File>
+    <File>C:/Users/Aug/source/repos/CIS580GameProject5/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/Instructions.png</File>
+    <File>C:/Users/Aug/source/repos/CIS580GameProject5/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/sounds/coinPickup.wav</File>
+    <File>C:/Users/Aug/source/repos/CIS580GameProject5/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/sounds/jumpSound.wav</File>
+    <File>C:/Users/Aug/source/repos/CIS580GameProject5/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/sounds/music.mp3</File>
     <File>C:/Users/Aug/source/repos/CIS580GameProject5/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/sprites/blocks/BlockA0.png</File>
     <File>C:/Users/Aug/source/repos/CIS580GameProject5/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/sprites/blocks/BlockA1.png</File>
     <File>C:/Users/Aug/source/repos/CIS580GameProject5/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/sprites/blocks/BlockA2.png</File>
@@ -25,8 +30,15 @@
     <File>C:/Users/Aug/source/repos/CIS580GameProject5/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/sprites/player/idle.png</File>
     <File>C:/Users/Aug/source/repos/CIS580GameProject5/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/sprites/player/jump.png</File>
     <File>C:/Users/Aug/source/repos/CIS580GameProject5/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/sprites/player/run.png</File>
+    <File>C:/Users/Aug/source/repos/CIS580GameProject5/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/Winner.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

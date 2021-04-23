@@ -1,3 +1,6 @@
+C:\Users\Aug\Source\Repos\CIS580GameProject5\CollectTheCoins\CollectTheCoins\CollectTheCoins\bin\Debug\netcoreapp3.1\Content\backgrounds\layer4.xnb
+C:\Users\Aug\Source\Repos\CIS580GameProject5\CollectTheCoins\CollectTheCoins\CollectTheCoins\bin\Debug\netcoreapp3.1\Content\sprites\player\run.xnb
+C:\Users\Aug\Source\Repos\CIS580GameProject5\CollectTheCoins\CollectTheCoins\CollectTheCoins\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.CSharp.dll
 C:\Users\Aug\Source\Repos\CIS580GameProject5\CollectTheCoins\CollectTheCoins\CollectTheCoins\bin\Debug\netcoreapp3.1\Content\arial.xnb
 C:\Users\Aug\Source\Repos\CIS580GameProject5\CollectTheCoins\CollectTheCoins\CollectTheCoins\bin\Debug\netcoreapp3.1\Content\backgrounds\Layer0_0.xnb
 C:\Users\Aug\Source\Repos\CIS580GameProject5\CollectTheCoins\CollectTheCoins\CollectTheCoins\bin\Debug\netcoreapp3.1\Content\backgrounds\Layer0_1.xnb
@@ -6,8 +9,13 @@ C:\Users\Aug\Source\Repos\CIS580GameProject5\CollectTheCoins\CollectTheCoins\Col
 C:\Users\Aug\Source\Repos\CIS580GameProject5\CollectTheCoins\CollectTheCoins\CollectTheCoins\bin\Debug\netcoreapp3.1\Content\backgrounds\layer1.xnb
 C:\Users\Aug\Source\Repos\CIS580GameProject5\CollectTheCoins\CollectTheCoins\CollectTheCoins\bin\Debug\netcoreapp3.1\Content\backgrounds\layer2.xnb
 C:\Users\Aug\Source\Repos\CIS580GameProject5\CollectTheCoins\CollectTheCoins\CollectTheCoins\bin\Debug\netcoreapp3.1\Content\backgrounds\layer3.xnb
-C:\Users\Aug\Source\Repos\CIS580GameProject5\CollectTheCoins\CollectTheCoins\CollectTheCoins\bin\Debug\netcoreapp3.1\Content\backgrounds\layer4.xnb
+C:\Users\Aug\Source\Repos\CIS580GameProject5\CollectTheCoins\CollectTheCoins\CollectTheCoins\bin\Debug\netcoreapp3.1\Content\fail.xnb
+C:\Users\Aug\Source\Repos\CIS580GameProject5\CollectTheCoins\CollectTheCoins\CollectTheCoins\bin\Debug\netcoreapp3.1\Content\Instructions.xnb
 C:\Users\Aug\Source\Repos\CIS580GameProject5\CollectTheCoins\CollectTheCoins\CollectTheCoins\bin\Debug\netcoreapp3.1\Content\Levels\0.txt
+C:\Users\Aug\Source\Repos\CIS580GameProject5\CollectTheCoins\CollectTheCoins\CollectTheCoins\bin\Debug\netcoreapp3.1\Content\sounds\coinPickup
+C:\Users\Aug\Source\Repos\CIS580GameProject5\CollectTheCoins\CollectTheCoins\CollectTheCoins\bin\Debug\netcoreapp3.1\Content\sounds\jumpSound
+C:\Users\Aug\Source\Repos\CIS580GameProject5\CollectTheCoins\CollectTheCoins\CollectTheCoins\bin\Debug\netcoreapp3.1\Content\sounds\music.wma
+C:\Users\Aug\Source\Repos\CIS580GameProject5\CollectTheCoins\CollectTheCoins\CollectTheCoins\bin\Debug\netcoreapp3.1\Content\sounds\music.xnb
 C:\Users\Aug\Source\Repos\CIS580GameProject5\CollectTheCoins\CollectTheCoins\CollectTheCoins\bin\Debug\netcoreapp3.1\Content\sprites\blocks\BlockA0.xnb
 C:\Users\Aug\Source\Repos\CIS580GameProject5\CollectTheCoins\CollectTheCoins\CollectTheCoins\bin\Debug\netcoreapp3.1\Content\sprites\blocks\BlockA1.xnb
 C:\Users\Aug\Source\Repos\CIS580GameProject5\CollectTheCoins\CollectTheCoins\CollectTheCoins\bin\Debug\netcoreapp3.1\Content\sprites\blocks\BlockA2.xnb
@@ -17,11 +25,14 @@ C:\Users\Aug\Source\Repos\CIS580GameProject5\CollectTheCoins\CollectTheCoins\Col
 C:\Users\Aug\Source\Repos\CIS580GameProject5\CollectTheCoins\CollectTheCoins\CollectTheCoins\bin\Debug\netcoreapp3.1\Content\sprites\blocks\BlockA6.xnb
 C:\Users\Aug\Source\Repos\CIS580GameProject5\CollectTheCoins\CollectTheCoins\CollectTheCoins\bin\Debug\netcoreapp3.1\Content\sprites\blocks\BlockB0.xnb
 C:\Users\Aug\Source\Repos\CIS580GameProject5\CollectTheCoins\CollectTheCoins\CollectTheCoins\bin\Debug\netcoreapp3.1\Content\sprites\blocks\BlockB1.xnb
+C:\Users\Aug\Source\Repos\CIS580GameProject5\CollectTheCoins\CollectTheCoins\CollectTheCoins\bin\Debug\netcoreapp3.1\Content\sprites\blocks\FinishFlag.xnb
+C:\Users\Aug\Source\Repos\CIS580GameProject5\CollectTheCoins\CollectTheCoins\CollectTheCoins\bin\Debug\netcoreapp3.1\Content\sprites\coins\coins.png
+C:\Users\Aug\Source\Repos\CIS580GameProject5\CollectTheCoins\CollectTheCoins\CollectTheCoins\bin\Debug\netcoreapp3.1\Content\sprites\coins\coins.xnb
 C:\Users\Aug\Source\Repos\CIS580GameProject5\CollectTheCoins\CollectTheCoins\CollectTheCoins\bin\Debug\netcoreapp3.1\Content\sprites\player\celeb.xnb
 C:\Users\Aug\Source\Repos\CIS580GameProject5\CollectTheCoins\CollectTheCoins\CollectTheCoins\bin\Debug\netcoreapp3.1\Content\sprites\player\die.xnb
 C:\Users\Aug\Source\Repos\CIS580GameProject5\CollectTheCoins\CollectTheCoins\CollectTheCoins\bin\Debug\netcoreapp3.1\Content\sprites\player\idle.xnb
 C:\Users\Aug\Source\Repos\CIS580GameProject5\CollectTheCoins\CollectTheCoins\CollectTheCoins\bin\Debug\netcoreapp3.1\Content\sprites\player\jump.xnb
-C:\Users\Aug\Source\Repos\CIS580GameProject5\CollectTheCoins\CollectTheCoins\CollectTheCoins\bin\Debug\netcoreapp3.1\Content\sprites\player\run.xnb
+C:\Users\Aug\Source\Repos\CIS580GameProject5\CollectTheCoins\CollectTheCoins\CollectTheCoins\bin\Debug\netcoreapp3.1\Content\Winner.xnb
 C:\Users\Aug\Source\Repos\CIS580GameProject5\CollectTheCoins\CollectTheCoins\CollectTheCoins\bin\Debug\netcoreapp3.1\CollectTheCoins.exe
 C:\Users\Aug\Source\Repos\CIS580GameProject5\CollectTheCoins\CollectTheCoins\CollectTheCoins\bin\Debug\netcoreapp3.1\CollectTheCoins.deps.json
 C:\Users\Aug\Source\Repos\CIS580GameProject5\CollectTheCoins\CollectTheCoins\CollectTheCoins\bin\Debug\netcoreapp3.1\CollectTheCoins.runtimeconfig.json
@@ -29,7 +40,6 @@ C:\Users\Aug\Source\Repos\CIS580GameProject5\CollectTheCoins\CollectTheCoins\Col
 C:\Users\Aug\Source\Repos\CIS580GameProject5\CollectTheCoins\CollectTheCoins\CollectTheCoins\bin\Debug\netcoreapp3.1\CollectTheCoins.dll
 C:\Users\Aug\Source\Repos\CIS580GameProject5\CollectTheCoins\CollectTheCoins\CollectTheCoins\bin\Debug\netcoreapp3.1\CollectTheCoins.pdb
 C:\Users\Aug\Source\Repos\CIS580GameProject5\CollectTheCoins\CollectTheCoins\CollectTheCoins\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.dll
-C:\Users\Aug\Source\Repos\CIS580GameProject5\CollectTheCoins\CollectTheCoins\CollectTheCoins\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.CSharp.dll
 C:\Users\Aug\Source\Repos\CIS580GameProject5\CollectTheCoins\CollectTheCoins\CollectTheCoins\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.VisualBasic.dll
 C:\Users\Aug\Source\Repos\CIS580GameProject5\CollectTheCoins\CollectTheCoins\CollectTheCoins\bin\Debug\netcoreapp3.1\Microsoft.VisualBasic.dll
 C:\Users\Aug\Source\Repos\CIS580GameProject5\CollectTheCoins\CollectTheCoins\CollectTheCoins\bin\Debug\netcoreapp3.1\MonoGame.Framework.dll
@@ -50,7 +60,6 @@ C:\Users\Aug\Source\Repos\CIS580GameProject5\CollectTheCoins\CollectTheCoins\Col
 C:\Users\Aug\Source\Repos\CIS580GameProject5\CollectTheCoins\CollectTheCoins\CollectTheCoins\bin\Debug\netcoreapp3.1\runtimes\win7-arm\native\libuv.dll
 C:\Users\Aug\Source\Repos\CIS580GameProject5\CollectTheCoins\CollectTheCoins\CollectTheCoins\bin\Debug\netcoreapp3.1\runtimes\win7-x64\native\libuv.dll
 C:\Users\Aug\Source\Repos\CIS580GameProject5\CollectTheCoins\CollectTheCoins\CollectTheCoins\bin\Debug\netcoreapp3.1\runtimes\win7-x86\native\libuv.dll
-C:\Users\Aug\Source\Repos\CIS580GameProject5\CollectTheCoins\CollectTheCoins\CollectTheCoins\obj\Debug\netcoreapp3.1\CollectTheCoins.csprojAssemblyReference.cache
 C:\Users\Aug\Source\Repos\CIS580GameProject5\CollectTheCoins\CollectTheCoins\CollectTheCoins\obj\Debug\netcoreapp3.1\CollectTheCoins.AssemblyInfoInputs.cache
 C:\Users\Aug\Source\Repos\CIS580GameProject5\CollectTheCoins\CollectTheCoins\CollectTheCoins\obj\Debug\netcoreapp3.1\CollectTheCoins.AssemblyInfo.cs
 C:\Users\Aug\Source\Repos\CIS580GameProject5\CollectTheCoins\CollectTheCoins\CollectTheCoins\obj\Debug\netcoreapp3.1\CollectTheCoins.csproj.CoreCompileInputs.cache
@@ -58,6 +67,5 @@ C:\Users\Aug\Source\Repos\CIS580GameProject5\CollectTheCoins\CollectTheCoins\Col
 C:\Users\Aug\Source\Repos\CIS580GameProject5\CollectTheCoins\CollectTheCoins\CollectTheCoins\obj\Debug\netcoreapp3.1\CollectTheCoins.dll
 C:\Users\Aug\Source\Repos\CIS580GameProject5\CollectTheCoins\CollectTheCoins\CollectTheCoins\obj\Debug\netcoreapp3.1\CollectTheCoins.pdb
 C:\Users\Aug\Source\Repos\CIS580GameProject5\CollectTheCoins\CollectTheCoins\CollectTheCoins\obj\Debug\netcoreapp3.1\CollectTheCoins.genruntimeconfig.cache
-C:\Users\Aug\Source\Repos\CIS580GameProject5\CollectTheCoins\CollectTheCoins\CollectTheCoins\bin\Debug\netcoreapp3.1\Content\sprites\coins\coins.png
-C:\Users\Aug\Source\Repos\CIS580GameProject5\CollectTheCoins\CollectTheCoins\CollectTheCoins\bin\Debug\netcoreapp3.1\Content\sprites\coins\coins.xnb
-C:\Users\Aug\Source\Repos\CIS580GameProject5\CollectTheCoins\CollectTheCoins\CollectTheCoins\bin\Debug\netcoreapp3.1\Content\sprites\blocks\FinishFlag.xnb
+C:\Users\Aug\Source\Repos\CIS580GameProject5\CollectTheCoins\CollectTheCoins\CollectTheCoins\bin\Debug\netcoreapp3.1\Content\sounds\coinPickup.xnb
+C:\Users\Aug\Source\Repos\CIS580GameProject5\CollectTheCoins\CollectTheCoins\CollectTheCoins\bin\Debug\netcoreapp3.1\Content\sounds\jumpSound.xnb
