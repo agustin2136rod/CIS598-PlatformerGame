@@ -31,9 +31,10 @@ namespace CollectTheCoins
         private Texture2D win;
         private Texture2D instructions;
         private Texture2D fail;
+        private Texture2D done;
         private Song backgroundMusic;
         private KeyboardState keyboardState;
-        private const int numberOfLevels = 1;
+        private const int numberOfLevels = 4;
         private bool seenInstructions = false;
 
         /// <summary>
@@ -72,9 +73,11 @@ namespace CollectTheCoins
             win = Content.Load<Texture2D>("Winner");
             instructions = Content.Load<Texture2D>("Instructions");
             fail = Content.Load<Texture2D>("fail");
+            done = Content.Load<Texture2D>("Done");
             ScalePresentation();
             backgroundMusic = Content.Load<Song>("sounds/music");
             MediaPlayer.Play(backgroundMusic);
+            MediaPlayer.IsRepeating = true;
             LoadLevel();
         }
 
@@ -206,7 +209,7 @@ namespace CollectTheCoins
                 _spriteBatch.Draw(instructions, center - winSize / 2, Color.White);
             }
 
-            if (level.AtExit && level.Coins.Count == 0)
+            if (level.AtExit && level.Coins.Count == 0 && levelIndex != 3)
             {
                 _spriteBatch.Draw(win, center - winSize / 2, Color.White);
                 MediaPlayer.Stop();
@@ -215,6 +218,12 @@ namespace CollectTheCoins
             if (level.TimeLeft == TimeSpan.Zero && !level.AtExit)
             {
                 _spriteBatch.Draw(fail, center - winSize / 2, Color.White);
+                MediaPlayer.Stop();
+            }
+
+            if (level.AtExit && level.Coins.Count == 0 && levelIndex == 3)
+            {
+                _spriteBatch.Draw(done, center - winSize / 2, Color.White);
                 MediaPlayer.Stop();
             }
         }

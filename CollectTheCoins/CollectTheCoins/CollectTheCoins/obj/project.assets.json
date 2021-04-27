@@ -7317,25 +7317,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Agustin R\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\Aug\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Agustin R\\Source\\Repos\\CIS580GameProject5\\CollectTheCoins\\CollectTheCoins\\CollectTheCoins\\CollectTheCoins.csproj",
+      "projectUniqueName": "C:\\Users\\Aug\\Source\\Repos\\CIS580GameProject5\\CollectTheCoins\\CollectTheCoins\\CollectTheCoins\\CollectTheCoins.csproj",
       "projectName": "CollectTheCoins",
-      "projectPath": "C:\\Users\\Agustin R\\Source\\Repos\\CIS580GameProject5\\CollectTheCoins\\CollectTheCoins\\CollectTheCoins\\CollectTheCoins.csproj",
-      "packagesPath": "C:\\Users\\Agustin R\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Agustin R\\Source\\Repos\\CIS580GameProject5\\CollectTheCoins\\CollectTheCoins\\CollectTheCoins\\obj\\",
+      "projectPath": "C:\\Users\\Aug\\Source\\Repos\\CIS580GameProject5\\CollectTheCoins\\CollectTheCoins\\CollectTheCoins\\CollectTheCoins.csproj",
+      "packagesPath": "C:\\Users\\Aug\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Aug\\Source\\Repos\\CIS580GameProject5\\CollectTheCoins\\CollectTheCoins\\CollectTheCoins\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\",
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "C:\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\Agustin R\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Aug\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],

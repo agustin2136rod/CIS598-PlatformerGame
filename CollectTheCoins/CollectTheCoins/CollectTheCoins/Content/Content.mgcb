@@ -68,6 +68,18 @@
 /processorParam:TextureFormat=Color
 /build:backgrounds/Layer0_3.png
 
+#begin Done.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Done.png
+
 #begin fail.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -94,6 +106,15 @@
 
 #begin Levels/0.txt
 /copy:Levels/0.txt
+
+#begin Levels/1.txt
+/copy:Levels/1.txt
+
+#begin Levels/2.txt
+/copy:Levels/2.txt
+
+#begin Levels/3.txt
+/copy:Levels/3.txt
 
 #begin sounds/coinPickup.wav
 /importer:WavImporter

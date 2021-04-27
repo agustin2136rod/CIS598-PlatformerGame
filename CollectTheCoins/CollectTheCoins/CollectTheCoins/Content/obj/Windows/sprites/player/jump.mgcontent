@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <SourceFile>C:/Users/Aug/source/repos/CIS580GameProject5/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/sprites/player/jump.png</SourceFile>
-  <SourceTime>2021-04-22T13:25:35.2107262-05:00</SourceTime>
+  <SourceTime>2021-04-27T09:30:56.5648054-05:00</SourceTime>
   <DestFile>C:/Users/Aug/source/repos/CIS580GameProject5/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/bin/Windows/sprites/player/jump.xnb</DestFile>
-  <DestTime>2021-04-22T20:11:45.5744474-05:00</DestTime>
+  <DestTime>2021-04-27T10:00:01.6439275-05:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T16:17:54-05:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

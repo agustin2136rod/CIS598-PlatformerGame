@@ -142,3 +142,7 @@ C:\Users\Aug\Source\Repos\CIS580GameProject5\CollectTheCoins\CollectTheCoins\Col
 C:\Users\Aug\Source\Repos\CIS580GameProject5\CollectTheCoins\CollectTheCoins\CollectTheCoins\obj\Debug\netcoreapp3.1\CollectTheCoins.dll
 C:\Users\Aug\Source\Repos\CIS580GameProject5\CollectTheCoins\CollectTheCoins\CollectTheCoins\obj\Debug\netcoreapp3.1\CollectTheCoins.pdb
 C:\Users\Aug\Source\Repos\CIS580GameProject5\CollectTheCoins\CollectTheCoins\CollectTheCoins\obj\Debug\netcoreapp3.1\CollectTheCoins.genruntimeconfig.cache
+C:\Users\Aug\Source\Repos\CIS580GameProject5\CollectTheCoins\CollectTheCoins\CollectTheCoins\bin\Debug\netcoreapp3.1\Content\Levels\1.txt
+C:\Users\Aug\Source\Repos\CIS580GameProject5\CollectTheCoins\CollectTheCoins\CollectTheCoins\bin\Debug\netcoreapp3.1\Content\Levels\2.txt
+C:\Users\Aug\Source\Repos\CIS580GameProject5\CollectTheCoins\CollectTheCoins\CollectTheCoins\bin\Debug\netcoreapp3.1\Content\Levels\3.txt
+C:\Users\Aug\Source\Repos\CIS580GameProject5\CollectTheCoins\CollectTheCoins\CollectTheCoins\bin\Debug\netcoreapp3.1\Content\Done.xnb
