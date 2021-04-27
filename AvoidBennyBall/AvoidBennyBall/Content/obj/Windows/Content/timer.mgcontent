@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/agustinr/Source/Repos/CIS580GameProject5/AvoidBennyBall/AvoidBennyBall/Content/timer.png</SourceFile>
-  <SourceTime>2021-04-22T20:35:16.2133895-05:00</SourceTime>
-  <DestFile>C:/Users/agustinr/Source/Repos/CIS580GameProject5/AvoidBennyBall/AvoidBennyBall/Content/bin/Windows/Content/timer.xnb</DestFile>
-  <DestTime>2021-04-22T20:35:43.9838324-05:00</DestTime>
+  <SourceFile>C:/Users/Aug/Source/Repos/CIS580GameProject5/AvoidBennyBall/AvoidBennyBall/Content/timer.png</SourceFile>
+  <SourceTime>2021-04-27T09:30:56.143729-05:00</SourceTime>
+  <DestFile>C:/Users/Aug/Source/Repos/CIS580GameProject5/AvoidBennyBall/AvoidBennyBall/Content/bin/Windows/Content/timer.xnb</DestFile>
+  <DestTime>2021-04-27T09:31:00.7937239-05:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T16:17:54-05:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
