@@ -146,3 +146,5 @@ C:\Users\Aug\Source\Repos\CIS580GameProject5\CollectTheCoins\CollectTheCoins\Col
 C:\Users\Aug\Source\Repos\CIS580GameProject5\CollectTheCoins\CollectTheCoins\CollectTheCoins\bin\Debug\netcoreapp3.1\Content\Levels\2.txt
 C:\Users\Aug\Source\Repos\CIS580GameProject5\CollectTheCoins\CollectTheCoins\CollectTheCoins\bin\Debug\netcoreapp3.1\Content\Levels\3.txt
 C:\Users\Aug\Source\Repos\CIS580GameProject5\CollectTheCoins\CollectTheCoins\CollectTheCoins\bin\Debug\netcoreapp3.1\Content\Done.xnb
+C:\Users\Aug\source\repos\CIS580GameProject5\CollectTheCoins\CollectTheCoins\CollectTheCoins\bin\Debug\netcoreapp3.1\Content\sounds\BoxCat Games - Epic Song.wma
+C:\Users\Aug\source\repos\CIS580GameProject5\CollectTheCoins\CollectTheCoins\CollectTheCoins\bin\Debug\netcoreapp3.1\Content\sounds\BoxCat Games - Epic Song.xnb

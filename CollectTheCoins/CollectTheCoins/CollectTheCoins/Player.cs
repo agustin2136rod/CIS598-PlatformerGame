@@ -236,7 +236,7 @@ namespace CollectTheCoins
                 if ((!hasJumped && OnGround) || jumpTime > 0.0f)
                 {
                     if (jumpTime == 0.0f)
-                        jumpSound.Play();
+                        jumpSound.Play(0.2f, 0f, 0f);
 
                     jumpTime += (float)gameTime.ElapsedGameTime.TotalSeconds;
                     spritePlayer.Play(jumpAnimation);

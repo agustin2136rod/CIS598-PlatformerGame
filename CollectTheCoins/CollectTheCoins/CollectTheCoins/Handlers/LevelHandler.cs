@@ -73,7 +73,7 @@ namespace CollectTheCoins.Handlers
         {
             content = new ContentManager(serviceProvider, "Content");
 
-            timeLeft = TimeSpan.FromMinutes(1.0);
+            timeLeft = TimeSpan.FromMinutes(0.75);
 
             LoadBlocks(stream);
 
@@ -324,7 +324,7 @@ namespace CollectTheCoins.Handlers
 
                 if (coin.BoundingCircle.CollidesWith(Player.BoundingRectangle))
                 {
-                    coinCollected.Play();
+                    coinCollected.Play(0.2f, 0f, 0f);
                     coins.RemoveAt(i--);
                 }
             }

@@ -12,6 +12,7 @@
     <File>C:/Users/Aug/source/repos/CIS580GameProject5/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/Done.png</File>
     <File>C:/Users/Aug/source/repos/CIS580GameProject5/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/fail.png</File>
     <File>C:/Users/Aug/source/repos/CIS580GameProject5/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/Instructions.png</File>
+    <File>C:/Users/Aug/source/repos/CIS580GameProject5/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/sounds/BoxCat Games - Epic Song.mp3</File>
     <File>C:/Users/Aug/source/repos/CIS580GameProject5/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/sounds/coinPickup.wav</File>
     <File>C:/Users/Aug/source/repos/CIS580GameProject5/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/sounds/jumpSound.wav</File>
     <File>C:/Users/Aug/source/repos/CIS580GameProject5/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/sounds/music.mp3</File>
@@ -34,6 +35,7 @@
     <File>C:/Users/Aug/source/repos/CIS580GameProject5/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/Winner.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

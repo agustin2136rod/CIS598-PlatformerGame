@@ -75,7 +75,8 @@ namespace CollectTheCoins
             fail = Content.Load<Texture2D>("fail");
             done = Content.Load<Texture2D>("Done");
             ScalePresentation();
-            backgroundMusic = Content.Load<Song>("sounds/music");
+            backgroundMusic = Content.Load<Song>("sounds/BoxCat Games - Epic Song");
+            MediaPlayer.Volume -= 0.7f;
             MediaPlayer.Play(backgroundMusic);
             MediaPlayer.IsRepeating = true;
             LoadLevel();
