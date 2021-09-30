@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "SswBMvj/VPt13nB/PIHD2ZkhAfcUEqzdzSrbzKGdVNrT5VEqZgy0ByfI80h5JV2D16UuKwGY357vVAQXb8FBLg==",
+  "dgSpecHash": "7gUXLyfMxX5Awzzxzu84Q7aUXtfkEmwW1jEgbm+dtTNulbhhmID35zn1qf1EXTG7wGydN8Fr+zwI27kZ9k/x9g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Aug\\source\\repos\\CIS580GameProject5\\CollectTheCoins\\CollectTheCoins\\CollectTheCoins\\CollectTheCoins.csproj",
+  "projectFilePath": "C:\\Users\\Aug\\Source\\Repos\\CIS580GameProject5\\CollectTheCoins\\CollectTheCoins\\CollectTheCoins\\CollectTheCoins.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Aug\\.nuget\\packages\\libuv\\1.9.1\\libuv.1.9.1.nupkg.sha512",
     "C:\\Users\\Aug\\.nuget\\packages\\microsoft.codeanalysis.analyzers\\1.1.0\\microsoft.codeanalysis.analyzers.1.1.0.nupkg.sha512",

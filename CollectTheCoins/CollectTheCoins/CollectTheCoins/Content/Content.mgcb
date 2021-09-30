@@ -116,6 +116,18 @@
 #begin Levels/3.txt
 /copy:Levels/3.txt
 
+#begin Pixel.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Pixel.png
+
 #begin sounds/BoxCat Games - Epic Song.mp3
 /importer:Mp3Importer
 /processor:SongProcessor

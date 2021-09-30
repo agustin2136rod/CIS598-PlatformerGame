@@ -28,6 +28,7 @@ namespace CollectTheCoins
         private double animationTimer;
         private int animationFrame;
         LevelHandler level;
+        private Texture2D pixel;
 
         /// <summary>
         /// getter for the level
@@ -51,8 +52,9 @@ namespace CollectTheCoins
         /// </summary>
         public void LoadContent()
         {
+            pixel = level.Content.Load<Texture2D>("Pixel");
             texture = level.Content.Load<Texture2D>("sprites/coins/coins");
-            origin = new Vector2(texture.Width / 2.0f, texture.Height / 2.0f);
+            origin = new Vector2(texture.Width / 16.0f, texture.Height / 2.0f);
         }
 
         /// <summary>
@@ -74,13 +76,13 @@ namespace CollectTheCoins
         /// </summary>
         public BoundingCircle BoundingCircle
         {
-            get { return new BoundingCircle(Position, Block.Width / 0.8f); }
+            get { return new BoundingCircle(Position, origin.X); }
         }
 
         /// <summary>
         /// Position of the coin
         /// </summary>
-        public Vector2 Position { get { return basePosition + new Vector2(58.0f, bounce); } }
+        public Vector2 Position { get { return basePosition + new Vector2(0.0f, bounce); } }
 
         /// <summary>
         /// method to draw each coin on the game screen
@@ -97,6 +99,7 @@ namespace CollectTheCoins
                 animationTimer -= ANIMATION_SPEED;
             }
             var source = new Rectangle(animationFrame * 16, 0, 16, 16);
+            spriteBatch.Draw(pixel, BoundingCircle, Color.White);
             spriteBatch.Draw(texture, Position, source, Color, 0.0f, origin, 1.0f, SpriteEffects.None, 0.0f);
         }
     }

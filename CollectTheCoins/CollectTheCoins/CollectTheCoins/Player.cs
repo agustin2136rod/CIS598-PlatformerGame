@@ -33,6 +33,7 @@ namespace CollectTheCoins
         private Vector2 velocity;
         private bool onGround;
         private Rectangle bounds;
+        private Texture2D pixel;
 
         // Constants for controlling horizontal movement
         private const float MoveAcceleration = 13000.0f;
@@ -93,8 +94,9 @@ namespace CollectTheCoins
             {
                 int left = (int)Math.Round(Position.X - spritePlayer.Origin.X) + bounds.X;
                 int top = (int)Math.Round(Position.Y - spritePlayer.Origin.Y) + bounds.Y;
+                Rectangle box = new Rectangle(left, top, bounds.Width, bounds.Height);
 
-                return new Rectangle(left, top, bounds.Width, bounds.Height);
+                return box;
             }
         }
 
@@ -115,6 +117,8 @@ namespace CollectTheCoins
         /// </summary>
         public void LoadContent()
         {
+            //could use this as a global variable while debugging throughout the creation process
+            pixel = Level.Content.Load<Texture2D>("Pixel");
             idleAnimation = new TextureHandler(Level.Content.Load<Texture2D>("sprites/player/idle"), 0.1f, true);
             runAnimation = new TextureHandler(Level.Content.Load<Texture2D>("sprites/player/run"), 0.1f, true);
             jumpAnimation = new TextureHandler(Level.Content.Load<Texture2D>("sprites/player/jump"), 0.1f, false);
@@ -330,7 +334,9 @@ namespace CollectTheCoins
         {
             if (Velocity.X > 0) flip = SpriteEffects.FlipHorizontally;
             else if (Velocity.X < 0) flip = SpriteEffects.None;
-
+#if DEBUG
+            spriteBatch.Draw(pixel, BoundingRectangle, Color.White);
+#endif
             spritePlayer.Draw(gameTime, spriteBatch, Position, flip);
         }
     }

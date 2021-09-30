@@ -23,6 +23,17 @@ namespace CollectTheCoins.Collisions
         /// </summary>
         public float Radius;
 
+        public static implicit operator Rectangle(BoundingCircle circle)
+        {
+            return new Rectangle()
+            {
+                X = (int)(circle.Center.X - circle.Radius), 
+                Y = (int)(circle.Center.Y - circle.Radius),
+                Width = (int)(2 * circle.Radius), 
+                Height = (int)(2 * circle.Radius)
+            };
+        } 
+
         /// <summary>
         /// Constructs a new bounding circle
         /// </summary>
