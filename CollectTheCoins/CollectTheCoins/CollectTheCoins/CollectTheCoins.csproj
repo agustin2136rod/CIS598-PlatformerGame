@@ -21,6 +21,7 @@
     <MonoGameContentReference Include="Content\Content.mgcb" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Content\NewFolder\" />
     <Folder Include="Content\sounds\" />
   </ItemGroup>
 </Project>

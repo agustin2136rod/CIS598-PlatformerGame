@@ -10,6 +10,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Audio;
 using System.IO;
 using Microsoft.Xna.Framework.Input;
+using CollectTheCoins.GameAssets;
 
 namespace CollectTheCoins.Handlers
 {
@@ -31,6 +32,7 @@ namespace CollectTheCoins.Handlers
         Player player;
         private List<CoinHandler> coins = new List<CoinHandler>();
         TimeSpan timeLeft;
+        BatSprite[] bats = null;
 
         /// <summary>
         /// getter for the coins
@@ -72,9 +74,7 @@ namespace CollectTheCoins.Handlers
         public LevelHandler(IServiceProvider serviceProvider, Stream stream, int index)
         {
             content = new ContentManager(serviceProvider, "Content");
-
             timeLeft = TimeSpan.FromMinutes(0.75);
-
             LoadBlocks(stream);
 
             backgrounds = new Texture2D[4];
@@ -83,6 +83,17 @@ namespace CollectTheCoins.Handlers
             backgrounds[2] = Content.Load<Texture2D>("backgrounds/Layer0_2");
             backgrounds[3] = Content.Load<Texture2D>("backgrounds/Layer0_3");
             coinCollected = Content.Load<SoundEffect>("sounds/coinPickup");
+
+            if (index == 0)
+            {
+                bats = new BatSprite[]
+                {
+                    new BatSprite() {Position = new Vector2(515, 160), Direction = Direction.Down },
+                    new BatSprite() {Position = new Vector2(165, 250), Direction = Direction.Up},
+                    new BatSprite() {Position = new Vector2(715, 155), Direction = Direction.Left}
+                };
+                foreach (var bat in bats) bat.LoadContent(Content);
+            }
         }
 
         /// <summary>
@@ -297,7 +308,13 @@ namespace CollectTheCoins.Handlers
             {
                 timeLeft -= gameTime.ElapsedGameTime;
                 Player.Update(gameTime, keyboardState, orientation);
+                if (bats != null) 
+                {
+                    foreach (var bat in bats) bat.Update(gameTime);
+
+                }
                 UpdateCoins(gameTime);
+                UpdateBats(gameTime);
 
                 if (Player.Alive && Player.OnGround && Player.BoundingRectangle.Contains(exit))
                 {
@@ -308,6 +325,18 @@ namespace CollectTheCoins.Handlers
             if (timeLeft < TimeSpan.Zero)
             {
                 timeLeft = TimeSpan.Zero;
+            }
+        }
+
+        public void UpdateBats(GameTime gameTime)
+        {
+            foreach (BatSprite bat in bats)
+            {
+                if (bat.BoundingRectangle.CollidesWith(Player.PlayerRectangle))
+                {
+                    //TODO: ask what should I do about collision
+                    timeLeft = TimeSpan.Zero;
+                }
             }
         }
 
@@ -369,6 +398,7 @@ namespace CollectTheCoins.Handlers
             }
 
             Player.Draw(gameTime, spriteBatch);
+            if (bats != null) foreach (var bat in bats) bat.Draw(gameTime, spriteBatch);
 
             for (int i = EntityLayer + 1; i < backgrounds.Length; i++)
             {

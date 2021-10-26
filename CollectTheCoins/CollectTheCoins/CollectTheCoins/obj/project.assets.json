@@ -7323,11 +7323,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Aug\\Source\\Repos\\CIS580GameProject5\\CollectTheCoins\\CollectTheCoins\\CollectTheCoins\\CollectTheCoins.csproj",
+      "projectUniqueName": "C:\\Users\\Aug\\Source\\Repos\\CIS598-PlatformerGame\\CollectTheCoins\\CollectTheCoins\\CollectTheCoins\\CollectTheCoins.csproj",
       "projectName": "CollectTheCoins",
-      "projectPath": "C:\\Users\\Aug\\Source\\Repos\\CIS580GameProject5\\CollectTheCoins\\CollectTheCoins\\CollectTheCoins\\CollectTheCoins.csproj",
+      "projectPath": "C:\\Users\\Aug\\Source\\Repos\\CIS598-PlatformerGame\\CollectTheCoins\\CollectTheCoins\\CollectTheCoins\\CollectTheCoins.csproj",
       "packagesPath": "C:\\Users\\Aug\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Aug\\Source\\Repos\\CIS580GameProject5\\CollectTheCoins\\CollectTheCoins\\CollectTheCoins\\obj\\",
+      "outputPath": "C:\\Users\\Aug\\Source\\Repos\\CIS598-PlatformerGame\\CollectTheCoins\\CollectTheCoins\\CollectTheCoins\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"

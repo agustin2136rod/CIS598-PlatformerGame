@@ -4,6 +4,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using CollectTheCoins.Collisions;
 using CollectTheCoins.Handlers;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
@@ -99,6 +100,12 @@ namespace CollectTheCoins
                 return box;
             }
         }
+
+        /// <summary>
+        /// getter for a BoundingRectangle type
+        /// </summary>
+        public BoundingRectangle PlayerRectangle { get { return new BoundingRectangle(BoundingRectangle.X, BoundingRectangle.Y, BoundingRectangle.Width, BoundingRectangle.Y); } }
+
 
         /// <summary>
         /// Constructor for the Player class
