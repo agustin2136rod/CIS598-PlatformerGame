@@ -24,6 +24,7 @@ namespace CollectTheCoins.Handlers
         private SoundEffect coinCollected;
         private Texture2D[] backgrounds;
         private Vector2 startPosition;
+        private List<SpikesSprite> spikes = new List<SpikesSprite>();
         bool atExit;
         private Point exit = InvalidPosition;
         private static readonly Point InvalidPosition = new Point(-1, -1);
@@ -42,7 +43,7 @@ namespace CollectTheCoins.Handlers
         /// <summary>
         /// getter for the player
         /// </summary>
-        public Player Player {  get { return player; } }
+        public Player Player { get { return player; } }
 
         /// <summary>
         /// random generator
@@ -153,6 +154,10 @@ namespace CollectTheCoins.Handlers
                 case 'C':
                     return LoadCoinBlock(x, y);
 
+                // spike
+                case 'S':
+                    return LoadSpikeBlock(x, y);
+
                 // Platform block
                 case '~':
                     return LoadVarietyBlock("BlockB", 2, BlockCollision.Platform);
@@ -238,6 +243,13 @@ namespace CollectTheCoins.Handlers
             return new Block(null, BlockCollision.Passable);
         }
 
+        private Block LoadSpikeBlock(int x, int y)
+        {
+            Point position = GetBounds(x, y).Center;
+            spikes.Add(new SpikesSprite(Content, new Vector2(position.X - (float) 17.5, position.Y - 4)));
+            return new Block(null, BlockCollision.Passable);
+        }
+
         /// <summary>
         /// Method to dispose the level
         /// </summary>
@@ -314,7 +326,16 @@ namespace CollectTheCoins.Handlers
 
                 }
                 UpdateCoins(gameTime);
-                UpdateBats(gameTime);
+
+                if (bats != null)
+                {
+                    UpdateBats(gameTime);
+                }
+
+                if (spikes != null)
+                {
+                    UpdateSpikes(gameTime);
+                }
 
                 if (Player.Alive && Player.OnGround && Player.BoundingRectangle.Contains(exit))
                 {
@@ -335,6 +356,18 @@ namespace CollectTheCoins.Handlers
                 if (bat.BoundingRectangle.CollidesWith(Player.PlayerRectangle))
                 {
                     //TODO: ask what should I do about collision
+                    timeLeft = TimeSpan.Zero;
+                }
+            }
+        }
+
+        public void UpdateSpikes(GameTime gameTime)
+        {
+            foreach (SpikesSprite spike in spikes)
+            {
+                if (spike.BoundingRectangle.CollidesWith(Player.PlayerRectangle))
+                {
+                    //TODO: ask what should I do about collision 
                     timeLeft = TimeSpan.Zero;
                 }
             }
@@ -390,11 +423,20 @@ namespace CollectTheCoins.Handlers
             {
                 spriteBatch.Draw(backgrounds[i], Vector2.Zero, Color.White);
             }
+            
             DrawBlocks(spriteBatch);
 
             foreach (CoinHandler coin in coins)
             {
                 coin.Draw(gameTime, spriteBatch);
+            }
+
+            if (spikes != null)
+            {
+                foreach (SpikesSprite spike in spikes)
+                {
+                    spike.Draw(gameTime, spriteBatch);
+                }
             }
 
             Player.Draw(gameTime, spriteBatch);

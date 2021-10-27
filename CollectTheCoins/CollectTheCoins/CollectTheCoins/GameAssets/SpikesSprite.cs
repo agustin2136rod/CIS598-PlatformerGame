@@ -31,6 +31,23 @@ namespace CollectTheCoins.GameAssets
         public BoundingRectangle BoundingRectangle;
 
         /// <summary>
+        /// handle texture content
+        /// </summary>
+        public ContentManager ContentManager;
+
+        /// <summary>
+        /// constructor for a spike object
+        /// </summary>
+        /// <param name="content">the content manager</param>
+        /// <param name="position">the position of the spike</param>
+        public SpikesSprite(ContentManager content, Vector2 position)
+        {
+            Position = position;
+            BoundingRectangle = new BoundingRectangle(Position, 35, 20);
+            ContentManager = content;
+            LoadContent(content);
+        }
+        /// <summary>
         /// loads spikes sprite texture
         /// </summary>
         /// <param name="content">ContentManager to load with</param>
@@ -42,28 +59,16 @@ namespace CollectTheCoins.GameAssets
         }
 
         /// <summary>
-        /// Updates the spikes sprite to fly in a pattern
-        /// </summary>
-        /// <param name="gameTime">game time</param>
-        public void Update(GameTime gameTime)
-        {
-            BoundingRectangle.X = Position.X;
-            BoundingRectangle.Y = Position.Y;
-        }
-
-        /// <summary>
         /// Draws the animated bat sprite
         /// </summary>
         /// <param name="gameTime">game tme</param>
         /// <param name="spriteBatch">SpriteBatch to draw with</param>
         public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
-            //TODO: figure out where to draw the spikes. Idea: could be drawn the same way the coins are drawn on top of a block. 
-            //spriteBatch.Draw()
-            //spriteBatch.Draw(texture, Position, source, Color.White);
+            spriteBatch.Draw(texture, Position, Color.White);
 #if DEBUG
-            Rectangle rectangle = new Rectangle((int)BoundingRectangle.X, (int)BoundingRectangle.Y, 32, 32);
-            spriteBatch.Draw(pixel, rectangle, Color.White);
+            //Rectangle rectangle = new Rectangle((int)BoundingRectangle.X, (int)BoundingRectangle.Y, 35, 20);
+            //spriteBatch.Draw(pixel, rectangle, Color.White);
 #endif
         }
     }
