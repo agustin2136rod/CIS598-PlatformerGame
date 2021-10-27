@@ -62,6 +62,9 @@ namespace CollectTheCoins.GameAssets
         /// </summary>
         public Vector2 Position;
 
+        /// <summary>
+        /// bounding box for the bat
+        /// </summary>
         public BoundingRectangle BoundingRectangle;
 
         /// <summary>

@@ -52,6 +52,8 @@ Content/sprites/player/run.png - created by Aswino of OpenGameArt.org (https://o
 
 Content/sprites/obstacles/bat.png - created by bagzie of OpenGameArt.org (https://opengameart.org/content/bat-sprite) and released under the public domain 
 
+Content/sprites/obstacles/spikes.png - created by idoh40 of OpenGameArt.org (https://opengameart.org/content/spikes) and released under the public domain 
+
 Content/fail.png - created by myself
 
 Content/Instructions.png - created by myself
