@@ -84,7 +84,7 @@ namespace CollectTheCoins.Handlers
             backgrounds[3] = Content.Load<Texture2D>("backgrounds/Layer0_3");
             coinCollected = Content.Load<SoundEffect>("sounds/coinPickup");
 
-            if (index == 0)
+            if (index == 2)
             {
                 bats = new BatSprite[]
                 {
