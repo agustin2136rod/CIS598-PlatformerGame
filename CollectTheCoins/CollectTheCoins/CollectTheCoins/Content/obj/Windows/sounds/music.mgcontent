@@ -3,7 +3,7 @@
   <SourceFile>C:/Users/Aug/source/repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/sounds/music.mp3</SourceFile>
   <SourceTime>2021-10-26T15:42:30.2066953-05:00</SourceTime>
   <DestFile>C:/Users/Aug/source/repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/bin/Windows/sounds/music.xnb</DestFile>
-  <DestTime>2021-11-03T00:38:45.4729904-05:00</DestTime>
+  <DestTime>2021-11-03T01:30:50.859359-05:00</DestTime>
   <Importer>Mp3Importer</Importer>
   <ImporterTime>2020-08-10T16:17:54-05:00</ImporterTime>
   <Processor>SongProcessor</Processor>
