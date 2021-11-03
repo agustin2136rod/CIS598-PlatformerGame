@@ -230,3 +230,4 @@ C:\Users\Aug\Source\Repos\CIS598-PlatformerGame\CollectTheCoins\CollectTheCoins\
 C:\Users\Aug\Source\Repos\CIS598-PlatformerGame\CollectTheCoins\CollectTheCoins\CollectTheCoins\obj\Debug\netcoreapp3.1\CollectTheCoins.genruntimeconfig.cache
 C:\Users\Aug\Source\Repos\CIS598-PlatformerGame\CollectTheCoins\CollectTheCoins\CollectTheCoins\bin\Debug\netcoreapp3.1\Content\sprites\obstacles\bat.xnb
 C:\Users\Aug\source\repos\CIS598-PlatformerGame\CollectTheCoins\CollectTheCoins\CollectTheCoins\bin\Debug\netcoreapp3.1\Content\sprites\obstacles\spikes.xnb
+C:\Users\Aug\source\repos\CIS598-PlatformerGame\CollectTheCoins\CollectTheCoins\CollectTheCoins\bin\Debug\netcoreapp3.1\Content\sprites\obstacles\dragon.xnb

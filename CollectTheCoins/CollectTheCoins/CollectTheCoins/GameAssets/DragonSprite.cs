@@ -1,34 +1,32 @@
-﻿/* BatSprite.cs
- * Written By Nathan Bean
- */ 
-using System;
-using System.Collections.Generic;
-using System.Text;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Content;
+﻿/* DragonSprite.cs
+ * Written By: Agustin Rodriguez
+ */
+
 using CollectTheCoins.Collisions;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace CollectTheCoins.GameAssets
 {
     /// <summary>
-    /// Enum to handle the direction the bat flies in 
+    /// Enum to handle the direction the dragon flies in 
     /// </summary>
-    public enum BatDirection
+    public enum DragonDirection
     {
-        Down = 0, 
-        Right = 1, 
-        Up = 2, 
+        Up = 0,
+        Right = 1,
+        Down = 2,
         Left = 3,
     }
-    
+
     /// <summary>
-    /// A class representing a bat sprite to act as an obstacle for the player
+    /// Class to represent a dragon enemy in the game 
     /// </summary>
-    public class BatSprite
+    public class DragonSprite
     {
         /// <summary>
-        /// Variable to represent the bat sprite
+        /// Variable to represent the dragon sprite
         /// </summary>
         private Texture2D texture;
 
@@ -38,7 +36,7 @@ namespace CollectTheCoins.GameAssets
         private Texture2D pixel;
 
         /// <summary>
-        /// keep count of the time the bat flies in each direction
+        /// keep count of the time the dragon flies in each direction
         /// </summary>
         private double directionTimer;
 
@@ -48,38 +46,38 @@ namespace CollectTheCoins.GameAssets
         private double animationTimer;
 
         /// <summary>
-        /// the frame the bat is currently in 
+        /// the frame the dragon is currently in 
         /// </summary>
         private short animationFrame = 1;
 
         /// <summary>
-        /// direction of the bat
+        /// direction of the dragon
         /// </summary>
-        public BatDirection Direction;
+        public DragonDirection Direction;
 
         /// <summary>
-        /// position of the bat
+        /// position of the dragon
         /// </summary>
         public Vector2 Position;
 
         /// <summary>
-        /// bounding box for the bat
+        /// bounding box for the dragon
         /// </summary>
         public BoundingRectangle BoundingRectangle;
 
         /// <summary>
-        /// loads bat sprite texture
+        /// loads dragon sprite texture
         /// </summary>
         /// <param name="content">ContentManager to load with</param>
         public void LoadContent(ContentManager content)
         {
-            texture = content.Load<Texture2D>("sprites/obstacles/bat");
-            BoundingRectangle = new BoundingRectangle(Position, 32, 32);
+            texture = content.Load<Texture2D>("sprites/obstacles/dragon");
+            BoundingRectangle = new BoundingRectangle(Position, 144, 128);
             pixel = content.Load<Texture2D>("Pixel");
         }
 
         /// <summary>
-        /// Updates the bat sprite to fly in a pattern
+        /// Updates the dragon sprite to fly in a pattern
         /// </summary>
         /// <param name="gameTime">game time</param>
         public void Update(GameTime gameTime)
@@ -92,44 +90,46 @@ namespace CollectTheCoins.GameAssets
             {
                 switch (Direction)
                 {
-                    case BatDirection.Up:
-                        Direction = BatDirection.Down;
+                    case DragonDirection.Up:
+                        Direction = DragonDirection.Down;
                         break;
-                    case BatDirection.Down:
-                        Direction = BatDirection.Right;
+                    case DragonDirection.Down:
+                        Direction = DragonDirection.Right;
                         break;
-                    case BatDirection.Right:
-                        Direction = BatDirection.Left;
+                    case DragonDirection.Right:
+                        Direction = DragonDirection.Left;
                         break;
-                    case BatDirection.Left:
-                        Direction = BatDirection.Up;
+                    case DragonDirection.Left:
+                        Direction = DragonDirection.Up;
                         break;
                 }
                 directionTimer -= 2.0;
 
             }
-            //Move the bat in the direction it is flying
+            //Move the dragon in the direction it is flying
             switch (Direction)
             {
-                case BatDirection.Up:
-                    Position += new Vector2(0, -1) * 80 * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                case DragonDirection.Up:
+                    Position += new Vector2(0, -1) * 40 * (float)gameTime.ElapsedGameTime.TotalSeconds;
                     break;
-                case BatDirection.Down:
-                    Position += new Vector2(0, 1) * 80 * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                case DragonDirection.Down:
+                    Position += new Vector2(0, 1) * 40 * (float)gameTime.ElapsedGameTime.TotalSeconds;
                     break;
-                case BatDirection.Left:
-                    Position += new Vector2(-1, 0) * 80 * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                case DragonDirection.Left:
+                    Position += new Vector2(-1, 0) * 40 * (float)gameTime.ElapsedGameTime.TotalSeconds;
                     break;
-                case BatDirection.Right:
-                    Position += new Vector2(1, 0) * 80 * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                case DragonDirection.Right:
+                    Position += new Vector2(1, 0) * 40 * (float)gameTime.ElapsedGameTime.TotalSeconds;
                     break;
             }
+
+            //update dragon bounding box
             BoundingRectangle.X = Position.X;
             BoundingRectangle.Y = Position.Y;
         }
 
         /// <summary>
-        /// Draws the animated bat sprite
+        /// Draws the animated dragon sprite
         /// </summary>
         /// <param name="gameTime">game tme</param>
         /// <param name="spriteBatch">SpriteBatch to draw with</param>
@@ -142,7 +142,7 @@ namespace CollectTheCoins.GameAssets
             if (animationTimer > 0.3)
             {
                 animationFrame++;
-                if (animationFrame > 3)
+                if (animationFrame > 2)
                 {
                     animationFrame = 1;
                 }
@@ -150,11 +150,11 @@ namespace CollectTheCoins.GameAssets
             }
 
             //draw the sprite
-            var source = new Rectangle(animationFrame * 32, (int)Direction * 32, 32, 32);
+            var source = new Rectangle(animationFrame * 144, (int)Direction * 128, 144, 128);
             spriteBatch.Draw(texture, Position, source, Color.White);
 #if DEBUG
-            Rectangle rectangle = new Rectangle((int) BoundingRectangle.X, (int) BoundingRectangle.Y, 32, 32);
-            spriteBatch.Draw(pixel, rectangle, Color.White);
+            //Rectangle rectangle = new Rectangle((int)BoundingRectangle.X, (int)BoundingRectangle.Y, 144, 128);
+            //spriteBatch.Draw(pixel, rectangle, Color.White);
 #endif
         }
     }

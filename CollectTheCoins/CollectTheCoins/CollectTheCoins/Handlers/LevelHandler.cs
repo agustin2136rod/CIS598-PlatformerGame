@@ -34,6 +34,7 @@ namespace CollectTheCoins.Handlers
         private List<CoinHandler> coins = new List<CoinHandler>();
         TimeSpan timeLeft;
         BatSprite[] bats = null;
+        DragonSprite dragon = null;
 
         /// <summary>
         /// getter for the coins
@@ -85,13 +86,19 @@ namespace CollectTheCoins.Handlers
             backgrounds[3] = Content.Load<Texture2D>("backgrounds/Layer0_3");
             coinCollected = Content.Load<SoundEffect>("sounds/coinPickup");
 
+            if (index == 0)
+            {
+                dragon = new DragonSprite() { Position = new Vector2(515, 160), Direction = DragonDirection.Down };
+                dragon.LoadContent(Content);
+            }
+
             if (index == 2)
             {
                 bats = new BatSprite[]
                 {
-                    new BatSprite() {Position = new Vector2(515, 160), Direction = Direction.Down },
-                    new BatSprite() {Position = new Vector2(165, 250), Direction = Direction.Up},
-                    new BatSprite() {Position = new Vector2(715, 155), Direction = Direction.Left}
+                    new BatSprite() {Position = new Vector2(515, 160), Direction = BatDirection.Down },
+                    new BatSprite() {Position = new Vector2(165, 250), Direction = BatDirection.Up},
+                    new BatSprite() {Position = new Vector2(715, 155), Direction = BatDirection.Left}
                 };
                 foreach (var bat in bats) bat.LoadContent(Content);
             }
@@ -323,18 +330,20 @@ namespace CollectTheCoins.Handlers
                 if (bats != null) 
                 {
                     foreach (var bat in bats) bat.Update(gameTime);
-
+                    UpdateBats();
                 }
+
                 UpdateCoins(gameTime);
 
-                if (bats != null)
+                if (dragon != null)
                 {
-                    UpdateBats(gameTime);
+                    dragon.Update(gameTime);
+                    UpdateDragon();
                 }
 
                 if (spikes != null)
                 {
-                    UpdateSpikes(gameTime);
+                    UpdateSpikes();
                 }
 
                 if (Player.Alive && Player.OnGround && Player.BoundingRectangle.Contains(exit))
@@ -349,7 +358,10 @@ namespace CollectTheCoins.Handlers
             }
         }
 
-        public void UpdateBats(GameTime gameTime)
+        /// <summary>
+        /// method to check if a bat collides with the player
+        /// </summary>
+        public void UpdateBats()
         {
             foreach (BatSprite bat in bats)
             {
@@ -361,7 +373,22 @@ namespace CollectTheCoins.Handlers
             }
         }
 
-        public void UpdateSpikes(GameTime gameTime)
+        /// <summary>
+        /// Method to check if the dragon collides with the player
+        /// </summary>
+        public void UpdateDragon()
+        {
+            if (dragon.BoundingRectangle.CollidesWith(Player.PlayerRectangle))
+            {
+                //TODO: ask what should I do about collision
+                timeLeft = TimeSpan.Zero;
+            }
+        }
+
+        /// <summary>
+        /// Method to check if a player collides with a set of spikes
+        /// </summary>
+        public void UpdateSpikes()
         {
             foreach (SpikesSprite spike in spikes)
             {
@@ -440,7 +467,10 @@ namespace CollectTheCoins.Handlers
             }
 
             Player.Draw(gameTime, spriteBatch);
+
             if (bats != null) foreach (var bat in bats) bat.Draw(gameTime, spriteBatch);
+
+            if (dragon != null) dragon.Draw(gameTime, spriteBatch);
 
             for (int i = EntityLayer + 1; i < backgrounds.Length; i++)
             {

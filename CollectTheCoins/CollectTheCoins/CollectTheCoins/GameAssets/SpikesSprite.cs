@@ -1,4 +1,7 @@
-﻿using CollectTheCoins.Collisions;
+﻿/* SpikesSprite.cs
+ * Written By: Agustin Rodriguez
+ */
+using CollectTheCoins.Collisions;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
