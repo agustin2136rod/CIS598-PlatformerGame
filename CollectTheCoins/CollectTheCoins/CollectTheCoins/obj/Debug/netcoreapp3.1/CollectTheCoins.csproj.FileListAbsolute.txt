@@ -220,7 +220,6 @@ C:\Users\Aug\Source\Repos\CIS598-PlatformerGame\CollectTheCoins\CollectTheCoins\
 C:\Users\Aug\Source\Repos\CIS598-PlatformerGame\CollectTheCoins\CollectTheCoins\CollectTheCoins\bin\Debug\netcoreapp3.1\runtimes\win7-arm\native\libuv.dll
 C:\Users\Aug\Source\Repos\CIS598-PlatformerGame\CollectTheCoins\CollectTheCoins\CollectTheCoins\bin\Debug\netcoreapp3.1\runtimes\win7-x64\native\libuv.dll
 C:\Users\Aug\Source\Repos\CIS598-PlatformerGame\CollectTheCoins\CollectTheCoins\CollectTheCoins\bin\Debug\netcoreapp3.1\runtimes\win7-x86\native\libuv.dll
-C:\Users\Aug\Source\Repos\CIS598-PlatformerGame\CollectTheCoins\CollectTheCoins\CollectTheCoins\obj\Debug\netcoreapp3.1\CollectTheCoins.csprojAssemblyReference.cache
 C:\Users\Aug\Source\Repos\CIS598-PlatformerGame\CollectTheCoins\CollectTheCoins\CollectTheCoins\obj\Debug\netcoreapp3.1\CollectTheCoins.AssemblyInfoInputs.cache
 C:\Users\Aug\Source\Repos\CIS598-PlatformerGame\CollectTheCoins\CollectTheCoins\CollectTheCoins\obj\Debug\netcoreapp3.1\CollectTheCoins.AssemblyInfo.cs
 C:\Users\Aug\Source\Repos\CIS598-PlatformerGame\CollectTheCoins\CollectTheCoins\CollectTheCoins\obj\Debug\netcoreapp3.1\CollectTheCoins.csproj.CoreCompileInputs.cache
@@ -238,3 +237,4 @@ C:\Users\agustinr\Source\Repos\CIS598-PlatformerGame\CollectTheCoins\CollectTheC
 C:\Users\agustinr\Source\Repos\CIS598-PlatformerGame\CollectTheCoins\CollectTheCoins\CollectTheCoins\obj\Debug\netcoreapp3.1\CollectTheCoins.dll
 C:\Users\agustinr\Source\Repos\CIS598-PlatformerGame\CollectTheCoins\CollectTheCoins\CollectTheCoins\obj\Debug\netcoreapp3.1\CollectTheCoins.pdb
 C:\Users\Aug\source\repos\CIS598-PlatformerGame\CollectTheCoins\CollectTheCoins\CollectTheCoins\bin\Debug\netcoreapp3.1\Content\sprites\obstacles\minotaur.xnb
+C:\Users\Aug\source\repos\CIS598-PlatformerGame\CollectTheCoins\CollectTheCoins\CollectTheCoins\bin\Debug\netcoreapp3.1\Content\sprites\obstacles\warrior.xnb

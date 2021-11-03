@@ -58,6 +58,8 @@ Content/sprites/obstacles/dragon.png - created by AntumDeluge of OpenGameArt.org
 
 Content/sprites/obstacles/minotaur.png - created by AntumDeluge of OpenGameArt.org (https://opengameart.org/content/minotaur-2) and released under the public domain 
 
+Content/sprites/obstacles/warrior.png - created by AntumDeluge of OpenGameArt.org (https://opengameart.org/content/dark-soldier-rework) and released under the public domain 
+
 Content/fail.png - created by myself
 
 Content/Instructions.png - created by myself

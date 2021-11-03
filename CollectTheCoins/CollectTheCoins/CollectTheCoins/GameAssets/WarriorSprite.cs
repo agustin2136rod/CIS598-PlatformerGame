@@ -1,20 +1,17 @@
-﻿/* MinotaurSprite.cs
- * Written By: Agustin Rodriguez
- */
-using System;
-using System.Collections.Generic;
-using System.Text;
-using CollectTheCoins.Collisions;
+﻿using CollectTheCoins.Collisions;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace CollectTheCoins.GameAssets
 {
     /// <summary>
     /// Enum to handle the direction the minotaur walks in 
     /// </summary>
-    public enum MinotaurDirection
+    public enum WarriorDirection
     {
         Up = 0,
         Right = 1,
@@ -25,7 +22,7 @@ namespace CollectTheCoins.GameAssets
     /// <summary>
     /// Class to represent a minotaur sprite enemy
     /// </summary>
-    public class MinotaurSprite
+    public class WarriorSprite
     {
         /// <summary>
         /// Variable to represent the minotaur sprite
@@ -50,7 +47,7 @@ namespace CollectTheCoins.GameAssets
         /// <summary>
         /// direction of the Minotaur
         /// </summary>
-        public MinotaurDirection Direction;
+        public WarriorDirection Direction;
 
         /// <summary>
         /// position of the minotaur
@@ -65,7 +62,7 @@ namespace CollectTheCoins.GameAssets
         /// <summary>
         /// end at exit block 
         /// </summary>
-        public Vector2 endPosition; 
+        public Vector2 endPosition;
 
         /// <summary>
         /// bounding box for the minotaur
@@ -78,7 +75,7 @@ namespace CollectTheCoins.GameAssets
         /// <param name="content">ContentManager to load with</param>
         public void LoadContent(ContentManager content, Vector2 start, Vector2 end)
         {
-            texture = content.Load<Texture2D>("sprites/obstacles/minotaur");
+            texture = content.Load<Texture2D>("sprites/obstacles/warrior");
             BoundingRectangle = new BoundingRectangle(Position, 48, 64);
             pixel = content.Load<Texture2D>("Pixel");
             startPosition = start;
@@ -96,11 +93,11 @@ namespace CollectTheCoins.GameAssets
             {
                 switch (Direction)
                 {
-                    case MinotaurDirection.Right:
-                        Direction = MinotaurDirection.Left;
+                    case WarriorDirection.Right:
+                        Direction = WarriorDirection.Left;
                         break;
-                    case MinotaurDirection.Left:
-                        Direction = MinotaurDirection.Right;
+                    case WarriorDirection.Left:
+                        Direction = WarriorDirection.Right;
                         break;
                 }
             }
@@ -108,10 +105,10 @@ namespace CollectTheCoins.GameAssets
             //Move the minotaur in the direction it is walking 
             switch (Direction)
             {
-                case MinotaurDirection.Left:
+                case WarriorDirection.Left:
                     Position += new Vector2(-1, 0) * 80 * (float)gameTime.ElapsedGameTime.TotalSeconds;
                     break;
-                case MinotaurDirection.Right:
+                case WarriorDirection.Right:
                     Position += new Vector2(1, 0) * 80 * (float)gameTime.ElapsedGameTime.TotalSeconds;
                     break;
             }
@@ -147,9 +144,8 @@ namespace CollectTheCoins.GameAssets
             spriteBatch.Draw(texture, Position, source, Color.White);
 #if DEBUG
             Rectangle rectangle = new Rectangle((int)BoundingRectangle.X, (int)BoundingRectangle.Y, 48, 64);
-            spriteBatch.Draw(pixel, rectangle, Color.White);
+            //spriteBatch.Draw(pixel, rectangle, Color.White);
 #endif
         }
-
     }
 }

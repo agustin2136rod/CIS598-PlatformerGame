@@ -25,7 +25,7 @@ namespace CollectTheCoins
         private Matrix globalTransformation;
         int bufferWidth, bufferHeight;
         private SpriteFont font;
-        private int levelIndex = 0;
+        private int levelIndex = 2;
         private LevelHandler level;
         private bool continuePressed;
         private Texture2D win;
@@ -141,11 +141,11 @@ namespace CollectTheCoins
                     else
                     {
                         ReloadCurrentLevel();
+                        MediaPlayer.Play(backgroundMusic);
                     }
 
                 }
             }
-
             continuePressed = proceed;
         }
 

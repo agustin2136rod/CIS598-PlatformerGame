@@ -37,6 +37,7 @@ namespace CollectTheCoins.Handlers
         BatSprite[] bats = null;
         DragonSprite dragon = null;
         MinotaurSprite minotaur = null;
+        WarriorSprite warrior = null;
 
         /// <summary>
         /// getter for the coins
@@ -67,6 +68,16 @@ namespace CollectTheCoins.Handlers
         /// getter for the content manager
         /// </summary>
         public ContentManager Content { get { return content; } }
+
+        /// <summary>
+        /// getter for the width
+        /// </summary>
+        public int Width { get { return blocks.GetLength(0); } }
+
+        /// <summary>
+        /// getter for the height
+        /// </summary>
+        public int Height { get { return blocks.GetLength(1); } }
 
         #region Load
         /// <summary>
@@ -109,6 +120,12 @@ namespace CollectTheCoins.Handlers
                     new BatSprite() {Position = new Vector2(715, 155), Direction = BatDirection.Left}
                 };
                 foreach (var bat in bats) bat.LoadContent(Content);
+            }
+
+            if (index == 3)
+            {
+                warrior = new WarriorSprite() { Position = new Vector2(endPosition.X, endPosition.Y - 61), Direction = WarriorDirection.Left };
+                warrior.LoadContent(Content, endPosition, startPosition);
             }
         }
 
@@ -306,16 +323,6 @@ namespace CollectTheCoins.Handlers
         }
 
         /// <summary>
-        /// getter for the width
-        /// </summary>
-        public int Width { get { return blocks.GetLength(0); } }
-
-        /// <summary>
-        /// getter for the height
-        /// </summary>
-        public int Height { get { return blocks.GetLength(1); } }
-
-        /// <summary>
         /// Method to update the level
         /// </summary>
         /// <param name="gameTime">elapsed game time</param>
@@ -354,6 +361,12 @@ namespace CollectTheCoins.Handlers
                 {
                     minotaur.Update(gameTime);
                     UpdateMinotaur();
+                }
+
+                if (warrior != null)
+                {
+                    warrior.Update(gameTime);
+                    UpdateWarrior();
                 }
 
                 if (spikes != null)
@@ -406,6 +419,18 @@ namespace CollectTheCoins.Handlers
         public void UpdateMinotaur()
         {
             if (minotaur.BoundingRectangle.CollidesWith(Player.PlayerRectangle))
+            {
+                //TODO: ask what should I do about collision
+                timeLeft = TimeSpan.Zero;
+            }
+        }
+
+        /// <summary>
+        /// Method to check if the minotaur collides with the player
+        /// </summary>
+        public void UpdateWarrior()
+        {
+            if (warrior.BoundingRectangle.CollidesWith(Player.PlayerRectangle))
             {
                 //TODO: ask what should I do about collision
                 timeLeft = TimeSpan.Zero;
@@ -500,6 +525,8 @@ namespace CollectTheCoins.Handlers
             if (dragon != null) dragon.Draw(gameTime, spriteBatch);
 
             if (minotaur != null) minotaur.Draw(gameTime, spriteBatch);
+
+            if (warrior != null) warrior.Draw(gameTime, spriteBatch);
 
             for (int i = EntityLayer + 1; i < backgrounds.Length; i++)
             {
