@@ -24,6 +24,7 @@ namespace CollectTheCoins.Handlers
         private SoundEffect coinCollected;
         private Texture2D[] backgrounds;
         private Vector2 startPosition;
+        private Vector2 endPosition;
         private List<SpikesSprite> spikes = new List<SpikesSprite>();
         bool atExit;
         private Point exit = InvalidPosition;
@@ -35,6 +36,7 @@ namespace CollectTheCoins.Handlers
         TimeSpan timeLeft;
         BatSprite[] bats = null;
         DragonSprite dragon = null;
+        MinotaurSprite minotaur = null;
 
         /// <summary>
         /// getter for the coins
@@ -90,6 +92,12 @@ namespace CollectTheCoins.Handlers
             {
                 dragon = new DragonSprite() { Position = new Vector2(515, 160), Direction = DragonDirection.Down };
                 dragon.LoadContent(Content);
+            }
+
+            if (index == 1)
+            {
+                minotaur = new MinotaurSprite() { Position = new Vector2(endPosition.X, endPosition.Y - 64), Direction = MinotaurDirection.Left };
+                minotaur.LoadContent(Content, endPosition, startPosition);
             }
 
             if (index == 2)
@@ -233,6 +241,7 @@ namespace CollectTheCoins.Handlers
         private Block LoadExitBlock(int x, int y)
         {
             exit = GetBounds(x, y).Center;
+            endPosition = RectangleExtensionHandler.GetBottomCenter(GetBounds(x, y));
 
             return LoadBlock("FinishFlag", BlockCollision.Passable);
         }
@@ -341,6 +350,12 @@ namespace CollectTheCoins.Handlers
                     UpdateDragon();
                 }
 
+                if (minotaur != null)
+                {
+                    minotaur.Update(gameTime);
+                    UpdateMinotaur();
+                }
+
                 if (spikes != null)
                 {
                     UpdateSpikes();
@@ -379,6 +394,18 @@ namespace CollectTheCoins.Handlers
         public void UpdateDragon()
         {
             if (dragon.BoundingRectangle.CollidesWith(Player.PlayerRectangle))
+            {
+                //TODO: ask what should I do about collision
+                timeLeft = TimeSpan.Zero;
+            }
+        }
+
+        /// <summary>
+        /// Method to check if the minotaur collides with the player
+        /// </summary>
+        public void UpdateMinotaur()
+        {
+            if (minotaur.BoundingRectangle.CollidesWith(Player.PlayerRectangle))
             {
                 //TODO: ask what should I do about collision
                 timeLeft = TimeSpan.Zero;
@@ -471,6 +498,8 @@ namespace CollectTheCoins.Handlers
             if (bats != null) foreach (var bat in bats) bat.Draw(gameTime, spriteBatch);
 
             if (dragon != null) dragon.Draw(gameTime, spriteBatch);
+
+            if (minotaur != null) minotaur.Draw(gameTime, spriteBatch);
 
             for (int i = EntityLayer + 1; i < backgrounds.Length; i++)
             {

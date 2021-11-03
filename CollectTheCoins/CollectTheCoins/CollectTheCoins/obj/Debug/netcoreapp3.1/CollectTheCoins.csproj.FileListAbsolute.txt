@@ -237,3 +237,4 @@ C:\Users\agustinr\Source\Repos\CIS598-PlatformerGame\CollectTheCoins\CollectTheC
 C:\Users\agustinr\Source\Repos\CIS598-PlatformerGame\CollectTheCoins\CollectTheCoins\CollectTheCoins\obj\Debug\netcoreapp3.1\CollectTheCoins.csproj.CoreCompileInputs.cache
 C:\Users\agustinr\Source\Repos\CIS598-PlatformerGame\CollectTheCoins\CollectTheCoins\CollectTheCoins\obj\Debug\netcoreapp3.1\CollectTheCoins.dll
 C:\Users\agustinr\Source\Repos\CIS598-PlatformerGame\CollectTheCoins\CollectTheCoins\CollectTheCoins\obj\Debug\netcoreapp3.1\CollectTheCoins.pdb
+C:\Users\Aug\source\repos\CIS598-PlatformerGame\CollectTheCoins\CollectTheCoins\CollectTheCoins\bin\Debug\netcoreapp3.1\Content\sprites\obstacles\minotaur.xnb

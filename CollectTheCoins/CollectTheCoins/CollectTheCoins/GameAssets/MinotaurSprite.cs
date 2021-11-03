@@ -63,6 +63,16 @@ namespace CollectTheCoins.GameAssets
         public Vector2 Position;
 
         /// <summary>
+        /// start at exit block 
+        /// </summary>
+        public Vector2 startPosition;
+
+        /// <summary>
+        /// end at exit block 
+        /// </summary>
+        public Vector2 endPosition; 
+
+        /// <summary>
         /// bounding box for the minotaur
         /// </summary>
         public BoundingRectangle BoundingRectangle;
@@ -71,11 +81,13 @@ namespace CollectTheCoins.GameAssets
         /// loads minotaur sprite texture
         /// </summary>
         /// <param name="content">ContentManager to load with</param>
-        public void LoadContent(ContentManager content)
+        public void LoadContent(ContentManager content, Vector2 start, Vector2 end)
         {
             texture = content.Load<Texture2D>("sprites/obstacles/minotaur");
             BoundingRectangle = new BoundingRectangle(Position, 48, 64);
             pixel = content.Load<Texture2D>("Pixel");
+            startPosition = start;
+            endPosition = end;
         }
 
         /// <summary>
@@ -84,48 +96,32 @@ namespace CollectTheCoins.GameAssets
         /// <param name="gameTime">game time</param>
         public void Update(GameTime gameTime)
         {
-            //update the direction timer
-            directionTimer += gameTime.ElapsedGameTime.TotalSeconds;
-
-            //switch directions every two seconds
-            if (directionTimer > 2.0)
+            //switch directions if minotaur is at the end of the bounds 
+            if (Position.X <= endPosition.X || Position.X >= startPosition.X)
             {
                 switch (Direction)
                 {
-                    case MinotaurDirection.Up:
-                        Direction = MinotaurDirection.Down;
-                        break;
-                    case MinotaurDirection.Down:
-                        Direction = MinotaurDirection.Right;
-                        break;
                     case MinotaurDirection.Right:
                         Direction = MinotaurDirection.Left;
                         break;
                     case MinotaurDirection.Left:
-                        Direction = MinotaurDirection.Up;
+                        Direction = MinotaurDirection.Right;
                         break;
                 }
-                directionTimer -= 2.0;
-
             }
-            //Move the dragon in the direction it is flying
+
+            //Move the minotaur in the direction it is walking 
             switch (Direction)
             {
-                case MinotaurDirection.Up:
-                    Position += new Vector2(0, -1) * 40 * (float)gameTime.ElapsedGameTime.TotalSeconds;
-                    break;
-                case MinotaurDirection.Down:
-                    Position += new Vector2(0, 1) * 40 * (float)gameTime.ElapsedGameTime.TotalSeconds;
-                    break;
                 case MinotaurDirection.Left:
-                    Position += new Vector2(-1, 0) * 40 * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    Position += new Vector2(-1, 0) * 80 * (float)gameTime.ElapsedGameTime.TotalSeconds;
                     break;
                 case MinotaurDirection.Right:
-                    Position += new Vector2(1, 0) * 40 * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    Position += new Vector2(1, 0) * 80 * (float)gameTime.ElapsedGameTime.TotalSeconds;
                     break;
             }
 
-            //update dragon bounding box
+            //update minotaur bounding box
             BoundingRectangle.X = Position.X;
             BoundingRectangle.Y = Position.Y;
         }
@@ -152,11 +148,11 @@ namespace CollectTheCoins.GameAssets
             }
 
             //draw the sprite
-            var source = new Rectangle(animationFrame * 144, (int)Direction * 128, 144, 128);
+            var source = new Rectangle(animationFrame * 48, (int)Direction * 64, 48, 64);
             spriteBatch.Draw(texture, Position, source, Color.White);
 #if DEBUG
-            //Rectangle rectangle = new Rectangle((int)BoundingRectangle.X, (int)BoundingRectangle.Y, 144, 128);
-            //spriteBatch.Draw(pixel, rectangle, Color.White);
+            Rectangle rectangle = new Rectangle((int)BoundingRectangle.X, (int)BoundingRectangle.Y, 48, 64);
+            spriteBatch.Draw(pixel, rectangle, Color.White);
 #endif
         }
 
