@@ -25,7 +25,7 @@ namespace CollectTheCoins
         private Matrix globalTransformation;
         int bufferWidth, bufferHeight;
         private SpriteFont font;
-        private int levelIndex = 2;
+        private int levelIndex = -1;
         private LevelHandler level;
         private bool continuePressed;
         private Texture2D win;

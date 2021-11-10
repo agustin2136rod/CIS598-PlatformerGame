@@ -289,6 +289,10 @@ namespace CollectTheCoins.Handlers
         public void Dispose()
         {
             Content.Unload();
+            warrior = null;
+            minotaur = null;
+            dragon = null;
+            bats = null;
         }
         #endregion
 

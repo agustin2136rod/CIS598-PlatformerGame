@@ -104,7 +104,7 @@ namespace CollectTheCoins
         /// <summary>
         /// getter for a BoundingRectangle type
         /// </summary>
-        public BoundingRectangle PlayerRectangle { get { return new BoundingRectangle(BoundingRectangle.X, BoundingRectangle.Y, BoundingRectangle.Width, BoundingRectangle.Y); } }
+        public BoundingRectangle PlayerRectangle { get { return new BoundingRectangle(BoundingRectangle.X, BoundingRectangle.Y, BoundingRectangle.Width, BoundingRectangle.Height); } }
 
 
         /// <summary>
