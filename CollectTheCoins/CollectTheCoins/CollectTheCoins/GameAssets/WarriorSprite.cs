@@ -89,7 +89,7 @@ namespace CollectTheCoins.GameAssets
         public void Update(GameTime gameTime)
         {
             //switch directions if minotaur is at the end of the bounds 
-            if (Position.X <= endPosition.X || Position.X >= startPosition.X)
+            if (Position.X < endPosition.X || Position.X > startPosition.X)
             {
                 switch (Direction)
                 {

@@ -24,7 +24,6 @@ namespace CollectTheCoins.Handlers
         private SoundEffect coinCollected;
         private Texture2D[] backgrounds;
         private Vector2 startPosition;
-        private Vector2 endPosition;
         private List<SpikesSprite> spikes = new List<SpikesSprite>();
         bool atExit;
         private Point exit = InvalidPosition;
@@ -107,8 +106,8 @@ namespace CollectTheCoins.Handlers
 
             if (index == 1)
             {
-                minotaur = new MinotaurSprite() { Position = new Vector2(endPosition.X, endPosition.Y - 64), Direction = MinotaurDirection.Left };
-                minotaur.LoadContent(Content, endPosition, startPosition);
+                minotaur = new MinotaurSprite() { Position = new Vector2(725, 387), Direction = MinotaurDirection.Left };
+                minotaur.LoadContent(Content, new Vector2(725, 387), new Vector2(59, 387));
             }
 
             if (index == 2)
@@ -124,8 +123,8 @@ namespace CollectTheCoins.Handlers
 
             if (index == 3)
             {
-                warrior = new WarriorSprite() { Position = new Vector2(endPosition.X, endPosition.Y - 61), Direction = WarriorDirection.Left };
-                warrior.LoadContent(Content, endPosition, startPosition);
+                warrior = new WarriorSprite() { Position = new Vector2(725, 387), Direction = WarriorDirection.Right };
+                warrior.LoadContent(Content, new Vector2(725, 387), new Vector2(59, 387));
             }
         }
 
@@ -258,8 +257,6 @@ namespace CollectTheCoins.Handlers
         private Block LoadExitBlock(int x, int y)
         {
             exit = GetBounds(x, y).Center;
-            endPosition = RectangleExtensionHandler.GetBottomCenter(GetBounds(x, y));
-
             return LoadBlock("FinishFlag", BlockCollision.Passable);
         }
 
