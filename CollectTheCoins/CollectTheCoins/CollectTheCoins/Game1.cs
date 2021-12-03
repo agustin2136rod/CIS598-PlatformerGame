@@ -10,6 +10,7 @@ using Microsoft.Xna.Framework.Content;
 using CollectTheCoins.Handlers;
 using System;
 using System.IO;
+using CollectTheCoins.StateManagement;
 
 namespace CollectTheCoins
 {
@@ -20,6 +21,7 @@ namespace CollectTheCoins
     {
         //declare all variables that will be used within this game. 
         private GraphicsDeviceManager _graphics;
+        private readonly ScreenManager _screenManager;
         private SpriteBatch _spriteBatch;
         Vector2 screenSize = new Vector2(800, 480);
         private Matrix globalTransformation;
@@ -47,7 +49,20 @@ namespace CollectTheCoins
             Content.RootDirectory = "Content";
             _graphics.SupportedOrientations = DisplayOrientation.LandscapeLeft | DisplayOrientation.LandscapeRight;
             IsMouseVisible = false;
-            //Accelerometer.Initialize();
+
+            var screenFactory = new ScreenFactory();
+            Services.AddService(typeof(IScreenFactory), screenFactory);
+
+            _screenManager = new ScreenManager(this);
+            Components.Add(_screenManager);
+
+            AddInitializeScreens();
+        }
+
+        private void AddInitializeScreens()
+        {
+            _screenManager.AddScreen(new BackgroundScreen(), null);
+            _screenManager.AddScreen(new MainMenuScreen(), null);
         }
 
         /// <summary>
@@ -55,8 +70,6 @@ namespace CollectTheCoins
         /// </summary>
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
-
             base.Initialize();
         }
 
@@ -101,14 +114,9 @@ namespace CollectTheCoins
         /// <param name="gameTime">elapsed time for the game</param>
         protected override void Update(GameTime gameTime)
         {
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-                Exit();
-
             HandleInput(gameTime);
 
             level.Update(gameTime, keyboardState, Window.CurrentOrientation);
-
-            // TODO: Add your update logic here
 
             base.Update(gameTime);
         }
