@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/Aug/source/repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/sprites/blocks/BlockA2.png</SourceFile>
-  <SourceTime>2021-10-26T15:42:30.2086953-05:00</SourceTime>
-  <DestFile>C:/Users/Aug/source/repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/bin/Windows/sprites/blocks/BlockA2.xnb</DestFile>
-  <DestTime>2021-12-05T15:24:06.9420059-06:00</DestTime>
+  <SourceFile>C:/Users/Aug/source/repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/screens/gradient.png</SourceFile>
+  <SourceTime>2021-12-01T20:04:04.636197-06:00</SourceTime>
+  <DestFile>C:/Users/Aug/source/repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/bin/Windows/Content/screens/gradient.xnb</DestFile>
+  <DestTime>2021-12-05T15:24:04.6205302-06:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T16:17:54-05:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

@@ -11,6 +11,7 @@ using CollectTheCoins.Handlers;
 using System;
 using System.IO;
 using CollectTheCoins.StateManagement;
+using CollectTheCoins.Screens;
 
 namespace CollectTheCoins
 {

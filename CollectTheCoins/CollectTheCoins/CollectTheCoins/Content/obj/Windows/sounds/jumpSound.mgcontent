@@ -3,7 +3,7 @@
   <SourceFile>C:/Users/Aug/source/repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/sounds/jumpSound.wav</SourceFile>
   <SourceTime>2021-10-26T15:42:30.1866905-05:00</SourceTime>
   <DestFile>C:/Users/Aug/source/repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/bin/Windows/sounds/jumpSound.xnb</DestFile>
-  <DestTime>2021-12-02T18:03:58.5751251-06:00</DestTime>
+  <DestTime>2021-12-05T15:24:05.9457809-06:00</DestTime>
   <Importer>WavImporter</Importer>
   <ImporterTime>2020-08-10T16:17:54-05:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>
