@@ -6,14 +6,19 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.Xna.Framework;
 using CollectTheCoins.StateManagement;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace CollectTheCoins.Screens
 {
     // The main menu screen is the first thing displayed when the game starts up.
     public class MainMenuScreen : MenuScreen
     {
-        public MainMenuScreen() : base("Main Menu")
+        GameServiceContainer _services;
+
+        public MainMenuScreen(GameServiceContainer gameService) : base("Main Menu")
         {
+            _services = gameService;
+
             var playGameMenuEntry = new MenuEntry("Play Game");
             var optionsMenuEntry = new MenuEntry("Options");
             var exitMenuEntry = new MenuEntry("Exit");
@@ -29,7 +34,7 @@ namespace CollectTheCoins.Screens
 
         private void PlayGameMenuEntrySelected(object sender, PlayerEventIndexEventArgs e)
         {
-            LoadingScreen.Load(ScreenManager, true, e.PlayerIndex, new GameplayScreen());
+            LoadingScreen.Load(ScreenManager, true, e.PlayerIndex, new GameplayScreen(_services));
         }
 
         private void OptionsMenuEntrySelected(object sender, PlayerEventIndexEventArgs e)

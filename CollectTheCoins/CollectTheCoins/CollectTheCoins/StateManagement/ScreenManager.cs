@@ -65,8 +65,8 @@ namespace CollectTheCoins.StateManagement
         protected override void LoadContent()
         {
             SpriteBatch = new SpriteBatch(GraphicsDevice);
-            Font = _content.Load<SpriteFont>("menufont");
-            BlankTexture = _content.Load<Texture2D>("blank");
+            Font = _content.Load<SpriteFont>("arial");
+            BlankTexture = _content.Load<Texture2D>("screens/blank");
 
             // Tell each of the screens to load thier content 
             foreach (var screen in _screens)

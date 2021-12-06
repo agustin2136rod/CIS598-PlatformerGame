@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using CollectTheCoins.StateManagement;
+using Microsoft.Xna.Framework;
 
 namespace CollectTheCoins.Screens
 {
@@ -12,8 +13,12 @@ namespace CollectTheCoins.Screens
     // giving the player options to resume or quit.
     public class PauseMenuScreen : MenuScreen
     {
-        public PauseMenuScreen() : base("Paused")
+        private GameServiceContainer _services;
+
+        public PauseMenuScreen(GameServiceContainer gameService) : base("Paused")
         {
+            _services = gameService;
+
             var resumeGameMenuEntry = new MenuEntry("Resume Game");
             var quitGameMenuEntry = new MenuEntry("Quit Game");
 
@@ -37,7 +42,7 @@ namespace CollectTheCoins.Screens
         // This uses the loading screen to transition from the game back to the main menu screen.
         private void ConfirmQuitMessageBoxAccepted(object sender, PlayerEventIndexEventArgs e)
         {
-            LoadingScreen.Load(ScreenManager, false, null, new BackgroundScreen(), new MainMenuScreen());
+            LoadingScreen.Load(ScreenManager, false, null, new BackgroundScreen(), new MainMenuScreen(_services));
         }
     }
 }

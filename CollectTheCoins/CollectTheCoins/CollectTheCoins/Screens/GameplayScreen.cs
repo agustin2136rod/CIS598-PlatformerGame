@@ -10,6 +10,9 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using CollectTheCoins.StateManagement;
+using CollectTheCoins.Handlers;
+using System.IO;
+using Microsoft.Xna.Framework.Media;
 
 namespace CollectTheCoins.Screens
 {
@@ -17,21 +20,35 @@ namespace CollectTheCoins.Screens
     {
         private ContentManager _content;
         private SpriteFont _gameFont;
+        private GameServiceContainer _services;
+        private LevelHandler level;
+        private Song backgroundMusic;
         private Texture2D win;
+        private Texture2D fail;
+        private Texture2D done;
+        private Vector2 screenSize = new Vector2(800, 480);
+        private Matrix globalTransformation;
+        private int bufferWidth, bufferHeight;
+        private SpriteBatch _spriteBatch;
+        private bool seenInstructions = false;
+        private bool continuePressed;
+        private Texture2D instructions;
+        private KeyboardState keyboardState;
+        private int levelIndex = -1;
+        private const int numberOfLevels = 4;
         
-
-        private Vector2 _playerPosition = new Vector2(100, 100);
-        private Vector2 _enemyPosition = new Vector2(100, 100);
 
         private readonly Random _random = new Random();
 
         private float _pauseAlpha;
         private readonly InputAction _pauseAction;
 
-        public GameplayScreen()
+        public GameplayScreen(GameServiceContainer gameService)
         {
             TransitionOnTime = TimeSpan.FromSeconds(1.5);
             TransitionOffTime = TimeSpan.FromSeconds(0.5);
+
+            _services = gameService;
 
             _pauseAction = new InputAction(
                 new[] { Keys.Back, Keys.Escape }, true);
@@ -43,18 +60,37 @@ namespace CollectTheCoins.Screens
             if (_content == null)
                 _content = new ContentManager(ScreenManager.Game.Services, "Content");
 
+            _spriteBatch = new SpriteBatch(ScreenManager.GraphicsDevice);
+
             _gameFont = _content.Load<SpriteFont>("arial");
             win = _content.Load<Texture2D>("Winner");
-
-            // A real game would probably have more content than this sample, so
-            // it would take longer to load. We simulate that by delaying for a
-            // while, giving you a chance to admire the beautiful loading screen.
-            Thread.Sleep(1000);
+            instructions = _content.Load<Texture2D>("Instructions");
+            fail = _content.Load<Texture2D>("fail");
+            done = _content.Load<Texture2D>("Done");
+            ScalePresentation();
+            backgroundMusic = _content.Load<Song>("sounds/BoxCat Games - Epic Song");
+            MediaPlayer.Volume -= 0.7f;
+            MediaPlayer.Play(backgroundMusic);
+            MediaPlayer.IsRepeating = true;
+            LoadLevel();
 
             // once the load has finished, we use ResetElapsedTime to tell the game's
             // timing mechanism that we have just finished a very long frame, and that
             // it should not try to catch up.
             ScreenManager.Game.ResetElapsedTime();
+        }
+
+        /// <summary>
+        /// Method to scale the presentation window for the game. It adjusts to your screen size and sets it accordingly
+        /// </summary>
+        public void ScalePresentation()
+        {
+            bufferWidth = ScreenManager.GraphicsDevice.PresentationParameters.BackBufferWidth;
+            bufferHeight = ScreenManager.GraphicsDevice.PresentationParameters.BackBufferHeight;
+            float horScaling = bufferWidth / screenSize.X;
+            float verScaling = bufferHeight / screenSize.Y;
+            Vector3 screenScalingFactor = new Vector3(horScaling, verScaling, 1);
+            globalTransformation = Matrix.CreateScale(screenScalingFactor);
         }
 
 
@@ -72,32 +108,33 @@ namespace CollectTheCoins.Screens
         // stop updating when the pause menu is active, or if you tab away to a different application.
         public override void Update(GameTime gameTime, bool otherScreenHasFocus, bool coveredByOtherScreen)
         {
+            level.Update(gameTime, keyboardState);
+
             base.Update(gameTime, otherScreenHasFocus, false);
+        }
 
-            // Gradually fade in or out depending on whether we are covered by the pause screen.
-            if (coveredByOtherScreen)
-                _pauseAlpha = Math.Min(_pauseAlpha + 1f / 32, 1);
-            else
-                _pauseAlpha = Math.Max(_pauseAlpha - 1f / 32, 0);
+        /// <summary>
+        /// Method to load each level 
+        /// </summary>
+        private void LoadLevel()
+        {
+            levelIndex = (levelIndex + 1) % numberOfLevels;
+            if (level != null) level.Dispose();
 
-            if (IsActive)
+            string path = string.Format("Content/Levels/{0}.txt", levelIndex);
+            using (Stream fileStream = TitleContainer.OpenStream(path))
             {
-                // Apply some random jitter to make the enemy move around.
-                const float randomization = 10;
-
-                _enemyPosition.X += (float)(_random.NextDouble() - 0.5) * randomization;
-                _enemyPosition.Y += (float)(_random.NextDouble() - 0.5) * randomization;
-
-                // Apply a stabilizing force to stop the enemy moving off the screen.
-                var targetPosition = new Vector2(
-                    ScreenManager.GraphicsDevice.Viewport.Width / 2 - _gameFont.MeasureString("Insert Gameplay Here").X / 2,
-                    200);
-
-                _enemyPosition = Vector2.Lerp(_enemyPosition, targetPosition, 0.05f);
-
-                // This game isn't very fun! You could probably improve
-                // it by inserting something more interesting in this space :-)
+                level = new LevelHandler(_services, fileStream, levelIndex);
             }
+        }
+
+        /// <summary>
+        /// Method to reload a level
+        /// </summary>
+        private void ReloadCurrentLevel()
+        {
+            --levelIndex;
+            LoadLevel();
         }
 
         // Unlike the Update method, this will only be called when the gameplay screen is active.
@@ -109,34 +146,41 @@ namespace CollectTheCoins.Screens
             // Look up inputs for the active player profile.
             int playerIndex = (int)ControllingPlayer.Value;
 
-            var keyboardState = input.CurrentKeyboardStates[playerIndex];
+            keyboardState = input.CurrentKeyboardStates[playerIndex];
+
+            bool proceed = keyboardState.IsKeyDown(Keys.Space);
+            if (proceed) seenInstructions = true;
 
             PlayerIndex player;
             if (_pauseAction.Occurred(input, ControllingPlayer, out player))
             {
-                ScreenManager.AddScreen(new PauseMenuScreen(), ControllingPlayer);
+                ScreenManager.AddScreen(new PauseMenuScreen(_services), ControllingPlayer);
             }
             else
             {
-                // Otherwise move the player position.
-                var movement = Vector2.Zero;
+                if (!continuePressed && proceed)
+                {
+                    if (!level.Player.Alive)
+                    {
+                        level.Start();
+                        MediaPlayer.Play(backgroundMusic);
+                    }
+                    else if (level.TimeLeft == TimeSpan.Zero)
+                    {
+                        if (level.AtExit)
+                        {
+                            LoadLevel();
+                            MediaPlayer.Play(backgroundMusic);
+                        }
+                        else
+                        {
+                            ReloadCurrentLevel();
+                            MediaPlayer.Play(backgroundMusic);
+                        }
 
-                if (keyboardState.IsKeyDown(Keys.Left))
-                    movement.X--;
-
-                if (keyboardState.IsKeyDown(Keys.Right))
-                    movement.X++;
-
-                if (keyboardState.IsKeyDown(Keys.Up))
-                    movement.Y--;
-
-                if (keyboardState.IsKeyDown(Keys.Down))
-                    movement.Y++;
-
-                if (movement.Length() > 1)
-                    movement.Normalize();
-
-                _playerPosition += movement * 8f;
+                    }
+                }
+                continuePressed = proceed;
             }
         }
 
@@ -144,17 +188,12 @@ namespace CollectTheCoins.Screens
         {
             // This game has a blue background. Why? Because!
             ScreenManager.GraphicsDevice.Clear(ClearOptions.Target, Color.CornflowerBlue, 0, 0);
+           
 
-            // Our player and enemy are both actually just text strings.
-            var spriteBatch = ScreenManager.SpriteBatch;
-
-            spriteBatch.Begin();
-
-            spriteBatch.DrawString(_gameFont, "// TODO", _playerPosition, Color.Green);
-            spriteBatch.DrawString(_gameFont, "Insert Gameplay Here",
-                                   _enemyPosition, Color.DarkRed);
-
-            spriteBatch.End();
+            _spriteBatch.Begin(SpriteSortMode.Immediate, null, null, null, null, null, globalTransformation);
+            level.Draw(gameTime, _spriteBatch);
+            DrawHud();
+            _spriteBatch.End();
 
             // If the game is transitioning on or off, fade it out to black.
             if (TransitionPosition > 0 || _pauseAlpha > 0)
@@ -162,6 +201,45 @@ namespace CollectTheCoins.Screens
                 float alpha = MathHelper.Lerp(1f - TransitionAlpha, 1f, _pauseAlpha / 2);
 
                 ScreenManager.FadeBackBufferToBlack(alpha);
+            }
+        }
+
+        /// <summary>
+        /// Secondary method of drawing
+        /// </summary>
+        private void DrawHud()
+        {
+
+            Rectangle title = ScreenManager.GraphicsDevice.Viewport.TitleSafeArea;
+            Vector2 hudSpot = new Vector2(title.X, title.Y);
+
+            Vector2 center = new Vector2(screenSize.X / 2, screenSize.Y / 2);
+
+            string time = "TIME: " + level.TimeLeft.Minutes.ToString("00") + ":" + level.TimeLeft.Seconds.ToString("00");
+            Color colorOfTime = Color.Red;
+            _spriteBatch.DrawString(_gameFont, time, hudSpot, colorOfTime);
+            Vector2 winSize = new Vector2(win.Width, win.Height);
+            if (!seenInstructions)
+            {
+                _spriteBatch.Draw(instructions, center - winSize / 2, Color.White);
+            }
+
+            if (level.AtExit && level.Coins.Count == 0 && levelIndex != 3)
+            {
+                _spriteBatch.Draw(win, center - winSize / 2, Color.White);
+                MediaPlayer.Stop();
+            }
+
+            if (level.TimeLeft == TimeSpan.Zero && !level.AtExit)
+            {
+                _spriteBatch.Draw(fail, center - winSize / 2, Color.White);
+                MediaPlayer.Stop();
+            }
+
+            if (level.AtExit && level.Coins.Count == 0 && levelIndex == 3)
+            {
+                _spriteBatch.Draw(done, center - winSize / 2, Color.White);
+                MediaPlayer.Stop();
             }
         }
     }

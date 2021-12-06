@@ -329,7 +329,7 @@ namespace CollectTheCoins.Handlers
         /// <param name="gameTime">elapsed game time</param>
         /// <param name="keyboardState">which keys are being pressed</param>
         /// <param name="orientation">the screen orientation</param>
-        public void Update (GameTime gameTime, KeyboardState keyboardState, DisplayOrientation orientation)
+        public void Update (GameTime gameTime, KeyboardState keyboardState)
         {
             if (TimeLeft == TimeSpan.Zero)
             {
@@ -343,7 +343,7 @@ namespace CollectTheCoins.Handlers
             else
             {
                 timeLeft -= gameTime.ElapsedGameTime;
-                Player.Update(gameTime, keyboardState, orientation);
+                Player.Update(gameTime, keyboardState);
                 if (bats != null) 
                 {
                     foreach (var bat in bats) bat.Update(gameTime);

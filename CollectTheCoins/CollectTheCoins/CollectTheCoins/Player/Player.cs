@@ -159,9 +159,9 @@ namespace CollectTheCoins
         /// <param name="gameTime">elapsed game time</param>
         /// <param name="keyboardState">tracks which keys are pressed</param>
         /// <param name="orientation">screen orientation</param>
-        public void Update(GameTime gameTime, KeyboardState keyboardState, DisplayOrientation orientation)
+        public void Update(GameTime gameTime, KeyboardState keyboardState)
         {
-            GetInput(keyboardState, orientation);
+            GetInput(keyboardState);
 
             ApplyPhysics(gameTime);
 
@@ -186,7 +186,7 @@ namespace CollectTheCoins
         /// </summary>
         /// <param name="keyboardState">which keys are being pressed</param>
         /// <param name="orientation">screen orientation</param>
-        public void GetInput(KeyboardState keyboardState, DisplayOrientation orientation)
+        public void GetInput(KeyboardState keyboardState)
         {
             if (Math.Abs(movement) < 0.5f)
             {
