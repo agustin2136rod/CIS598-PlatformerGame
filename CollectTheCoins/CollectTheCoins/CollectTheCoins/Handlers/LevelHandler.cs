@@ -25,23 +25,34 @@ namespace CollectTheCoins.Handlers
         private Texture2D[] backgrounds;
         private Vector2 startPosition;
         private List<SpikesSprite> spikes = new List<SpikesSprite>();
-        bool atExit;
+        private bool atExit;
         private Point exit = InvalidPosition;
         private static readonly Point InvalidPosition = new Point(-1, -1);
-        ContentManager content;
+        private ContentManager content;
         private const int EntityLayer = 3;
-        Player player;
+        private Player player;
         private List<CoinHandler> coins = new List<CoinHandler>();
-        TimeSpan timeLeft;
-        BatSprite[] bats = null;
-        DragonSprite dragon = null;
-        MinotaurSprite minotaur = null;
-        WarriorSprite warrior = null;
+        private BatSprite[] bats = null;
+        private DragonSprite dragon = null;
+        private MinotaurSprite minotaur = null;
+        private WarriorSprite warrior = null;
+
+        private TimeHandler time;
+        private static LevelTimes timesForLevels = new LevelTimes();
+        private int[] levelTimes = timesForLevels.TimesForLevels;
+        private bool isTimePaused = false;
+        private bool timerRunning = false;
+
 
         /// <summary>
         /// getter for the coins
         /// </summary>
         public List<CoinHandler> Coins { get { return coins; } }
+
+        /// <summary>
+        /// getter to see if the timer is currently running 
+        /// </summary>
+        public bool TimerRunning { get { return timerRunning; } }
 
         /// <summary>
         /// getter for the player
@@ -59,9 +70,14 @@ namespace CollectTheCoins.Handlers
         public bool AtExit { get { return atExit; } }
 
         /// <summary>
+        /// getter to check if the game timer is paused
+        /// </summary>
+        public bool IsTimePaused { get { return isTimePaused; } }
+
+        /// <summary>
         /// getter for the time left in a level
         /// </summary>
-        public TimeSpan TimeLeft { get { return timeLeft; } }
+        public TimeSpan TimeLeft { get { return time.RemainingTime; } }
 
         /// <summary>
         /// getter for the content manager
@@ -88,7 +104,7 @@ namespace CollectTheCoins.Handlers
         public LevelHandler(IServiceProvider serviceProvider, Stream stream, int index)
         {
             content = new ContentManager(serviceProvider, "Content");
-            timeLeft = TimeSpan.FromMinutes(0.75);
+            time = new TimeHandler(TimeSpan.FromSeconds(levelTimes[index]));
             LoadBlocks(stream);
 
             backgrounds = new Texture2D[4];
@@ -126,6 +142,33 @@ namespace CollectTheCoins.Handlers
                 warrior = new WarriorSprite() { Position = new Vector2(725, 387), Direction = WarriorDirection.Right };
                 warrior.LoadContent(Content, new Vector2(725, 387), new Vector2(59, 387));
             }
+        }
+
+        /// <summary>
+        /// Method to start the level timer
+        /// </summary>
+        public void StartLevelTimer()
+        {
+            time.Start();
+            timerRunning = true;
+        }
+
+        /// <summary>
+        /// Method to pause the level timer
+        /// </summary>
+        public void PauseLevelTimer()
+        {
+            time.Pause();
+            isTimePaused = true;
+        }
+
+        /// <summary>
+        /// Method to resume the level timer
+        /// </summary>
+        public void ResumeLevelTimer()
+        {
+            time.Resume();
+            isTimePaused = false;
         }
 
         /// <summary>
@@ -331,59 +374,57 @@ namespace CollectTheCoins.Handlers
         /// <param name="orientation">the screen orientation</param>
         public void Update (GameTime gameTime, KeyboardState keyboardState)
         {
-            if (TimeLeft == TimeSpan.Zero)
+            if (time.RemainingTime == TimeSpan.Zero)
             {
                 Player.ApplyPhysics(gameTime);
             }
             else if (atExit)
             {
-                int secondsLeft = Math.Min((int)Math.Round(gameTime.ElapsedGameTime.TotalSeconds * 100.0f), (int)Math.Ceiling(TimeLeft.TotalSeconds));
-                timeLeft -= TimeSpan.FromSeconds(secondsLeft);
+                //int secondsLeft = Math.Min((int)Math.Round(gameTime.ElapsedGameTime.TotalSeconds * 100.0f), (int)Math.Ceiling(TimeLeft.TotalSeconds));
+                //timeLeft -= TimeSpan.FromSeconds(secondsLeft);
+                time.SetDuration(TimeSpan.Zero);
             }
             else
             {
-                timeLeft -= gameTime.ElapsedGameTime;
-                Player.Update(gameTime, keyboardState);
-                if (bats != null) 
+                if (!isTimePaused)
                 {
-                    foreach (var bat in bats) bat.Update(gameTime);
-                    UpdateBats();
+                    Player.Update(gameTime, keyboardState);
+                    if (bats != null)
+                    {
+                        foreach (var bat in bats) bat.Update(gameTime);
+                        UpdateBats();
+                    }
+
+                    UpdateCoins(gameTime);
+
+                    if (dragon != null)
+                    {
+                        dragon.Update(gameTime);
+                        UpdateDragon();
+                    }
+
+                    if (minotaur != null)
+                    {
+                        minotaur.Update(gameTime);
+                        UpdateMinotaur();
+                    }
+
+                    if (warrior != null)
+                    {
+                        warrior.Update(gameTime);
+                        UpdateWarrior();
+                    }
+
+                    if (spikes != null)
+                    {
+                        UpdateSpikes();
+                    }
+
+                    if (Player.Alive && Player.OnGround && Player.BoundingRectangle.Contains(exit))
+                    {
+                        ExitReached();
+                    }
                 }
-
-                UpdateCoins(gameTime);
-
-                if (dragon != null)
-                {
-                    dragon.Update(gameTime);
-                    UpdateDragon();
-                }
-
-                if (minotaur != null)
-                {
-                    minotaur.Update(gameTime);
-                    UpdateMinotaur();
-                }
-
-                if (warrior != null)
-                {
-                    warrior.Update(gameTime);
-                    UpdateWarrior();
-                }
-
-                if (spikes != null)
-                {
-                    UpdateSpikes();
-                }
-
-                if (Player.Alive && Player.OnGround && Player.BoundingRectangle.Contains(exit))
-                {
-                    ExitReached();
-                }
-            }
-
-            if (timeLeft < TimeSpan.Zero)
-            {
-                timeLeft = TimeSpan.Zero;
             }
         }
 
@@ -397,7 +438,8 @@ namespace CollectTheCoins.Handlers
                 if (bat.BoundingRectangle.CollidesWith(Player.PlayerRectangle))
                 {
                     //TODO: ask what should I do about collision
-                    timeLeft = TimeSpan.Zero;
+                    //timeLeft = TimeSpan.Zero;
+                    time.SetDuration(TimeSpan.Zero);
                 }
             }
         }
@@ -410,7 +452,8 @@ namespace CollectTheCoins.Handlers
             if (dragon.BoundingRectangle.CollidesWith(Player.PlayerRectangle))
             {
                 //TODO: ask what should I do about collision
-                timeLeft = TimeSpan.Zero;
+                //timeLeft = TimeSpan.Zero;
+                time.SetDuration(TimeSpan.Zero);
             }
         }
 
@@ -422,7 +465,8 @@ namespace CollectTheCoins.Handlers
             if (minotaur.BoundingRectangle.CollidesWith(Player.PlayerRectangle))
             {
                 //TODO: ask what should I do about collision
-                timeLeft = TimeSpan.Zero;
+                //timeLeft = TimeSpan.Zero;
+                time.SetDuration(TimeSpan.Zero);
             }
         }
 
@@ -434,7 +478,8 @@ namespace CollectTheCoins.Handlers
             if (warrior.BoundingRectangle.CollidesWith(Player.PlayerRectangle))
             {
                 //TODO: ask what should I do about collision
-                timeLeft = TimeSpan.Zero;
+                //timeLeft = TimeSpan.Zero;
+                time.SetDuration(TimeSpan.Zero);
             }
         }
 
@@ -448,7 +493,8 @@ namespace CollectTheCoins.Handlers
                 if (spike.BoundingRectangle.CollidesWith(Player.PlayerRectangle))
                 {
                     //TODO: ask what should I do about collision 
-                    timeLeft = TimeSpan.Zero;
+                    //timeLeft = TimeSpan.Zero;
+                    time.SetDuration(TimeSpan.Zero);
                 }
             }
         }
@@ -506,28 +552,31 @@ namespace CollectTheCoins.Handlers
             
             DrawBlocks(spriteBatch);
 
-            foreach (CoinHandler coin in coins)
+            if (!isTimePaused)
             {
-                coin.Draw(gameTime, spriteBatch);
-            }
-
-            if (spikes != null)
-            {
-                foreach (SpikesSprite spike in spikes)
+                foreach (CoinHandler coin in coins)
                 {
-                    spike.Draw(gameTime, spriteBatch);
+                    coin.Draw(gameTime, spriteBatch);
                 }
+
+                if (spikes != null)
+                {
+                    foreach (SpikesSprite spike in spikes)
+                    {
+                        spike.Draw(gameTime, spriteBatch);
+                    }
+                }
+
+                Player.Draw(gameTime, spriteBatch);
+
+                if (bats != null) foreach (var bat in bats) bat.Draw(gameTime, spriteBatch);
+
+                if (dragon != null) dragon.Draw(gameTime, spriteBatch);
+
+                if (minotaur != null) minotaur.Draw(gameTime, spriteBatch);
+
+                if (warrior != null) warrior.Draw(gameTime, spriteBatch);
             }
-
-            Player.Draw(gameTime, spriteBatch);
-
-            if (bats != null) foreach (var bat in bats) bat.Draw(gameTime, spriteBatch);
-
-            if (dragon != null) dragon.Draw(gameTime, spriteBatch);
-
-            if (minotaur != null) minotaur.Draw(gameTime, spriteBatch);
-
-            if (warrior != null) warrior.Draw(gameTime, spriteBatch);
 
             for (int i = EntityLayer + 1; i < backgrounds.Length; i++)
             {

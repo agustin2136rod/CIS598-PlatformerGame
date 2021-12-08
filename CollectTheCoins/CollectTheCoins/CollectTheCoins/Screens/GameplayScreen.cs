@@ -149,20 +149,32 @@ namespace CollectTheCoins.Screens
             keyboardState = input.CurrentKeyboardStates[playerIndex];
 
             bool proceed = keyboardState.IsKeyDown(Keys.Space);
-            if (proceed) seenInstructions = true;
+            if (proceed) 
+            {
+                seenInstructions = true;
+                level.StartLevelTimer();
+            }
 
             PlayerIndex player;
+
             if (_pauseAction.Occurred(input, ControllingPlayer, out player))
             {
                 ScreenManager.AddScreen(new PauseMenuScreen(_services), ControllingPlayer);
+                level.PauseLevelTimer();
             }
             else
             {
+                if (level.IsTimePaused)
+                {
+                    level.ResumeLevelTimer();
+
+                }
                 if (!continuePressed && proceed)
                 {
                     if (!level.Player.Alive)
                     {
                         level.Start();
+                        level.StartLevelTimer();
                         MediaPlayer.Play(backgroundMusic);
                     }
                     else if (level.TimeLeft == TimeSpan.Zero)
@@ -170,11 +182,13 @@ namespace CollectTheCoins.Screens
                         if (level.AtExit)
                         {
                             LoadLevel();
+                            level.StartLevelTimer();
                             MediaPlayer.Play(backgroundMusic);
                         }
                         else
                         {
                             ReloadCurrentLevel();
+                            level.StartLevelTimer();
                             MediaPlayer.Play(backgroundMusic);
                         }
 
@@ -214,10 +228,15 @@ namespace CollectTheCoins.Screens
             Vector2 hudSpot = new Vector2(title.X, title.Y);
 
             Vector2 center = new Vector2(screenSize.X / 2, screenSize.Y / 2);
-
-            string time = "TIME: " + level.TimeLeft.Minutes.ToString("00") + ":" + level.TimeLeft.Seconds.ToString("00");
-            Color colorOfTime = Color.Red;
-            _spriteBatch.DrawString(_gameFont, time, hudSpot, colorOfTime);
+            
+            if (level.TimerRunning)
+            {
+                string time = "TIME: " + level.TimeLeft.Minutes.ToString("00") + ":" + level.TimeLeft.Seconds.ToString("00");
+                Color colorOfTime = Color.Red;
+                _spriteBatch.DrawString(_gameFont, time, hudSpot, colorOfTime);
+            }
+            
+           
             Vector2 winSize = new Vector2(win.Width, win.Height);
             if (!seenInstructions)
             {
