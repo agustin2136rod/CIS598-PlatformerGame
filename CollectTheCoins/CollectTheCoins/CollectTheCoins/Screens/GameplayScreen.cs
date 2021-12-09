@@ -34,8 +34,8 @@ namespace CollectTheCoins.Screens
         private bool continuePressed;
         private Texture2D instructions;
         private KeyboardState keyboardState;
-        private int levelIndex = -1;
-        private const int numberOfLevels = 4;
+        private int levelIndex = 3;
+        private const int numberOfLevels = 6;
         
 
         private readonly Random _random = new Random();
@@ -152,7 +152,10 @@ namespace CollectTheCoins.Screens
             if (proceed) 
             {
                 seenInstructions = true;
-                level.StartLevelTimer();
+                if (!level.TimerRunning)
+                {
+                    level.StartLevelTimer();
+                }
             }
 
             PlayerIndex player;

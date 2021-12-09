@@ -36,6 +36,7 @@ namespace CollectTheCoins.Handlers
         private DragonSprite dragon = null;
         private MinotaurSprite minotaur = null;
         private WarriorSprite warrior = null;
+        private WarriorSprite warrior2 = null;
 
         private TimeHandler time;
         private static LevelTimes timesForLevels = new LevelTimes();
@@ -114,12 +115,6 @@ namespace CollectTheCoins.Handlers
             backgrounds[3] = Content.Load<Texture2D>("backgrounds/Layer0_3");
             coinCollected = Content.Load<SoundEffect>("sounds/coinPickup");
 
-            if (index == 0)
-            {
-                dragon = new DragonSprite() { Position = new Vector2(515, 160), Direction = DragonDirection.Down };
-                dragon.LoadContent(Content);
-            }
-
             if (index == 1)
             {
                 minotaur = new MinotaurSprite() { Position = new Vector2(725, 387), Direction = MinotaurDirection.Left };
@@ -141,6 +136,23 @@ namespace CollectTheCoins.Handlers
             {
                 warrior = new WarriorSprite() { Position = new Vector2(725, 387), Direction = WarriorDirection.Right };
                 warrior.LoadContent(Content, new Vector2(725, 387), new Vector2(59, 387));
+            }
+
+            if (index == 4)
+            {
+                minotaur = new MinotaurSprite() { Position = new Vector2(725, 387), Direction = MinotaurDirection.Left };
+                minotaur.LoadContent(Content, new Vector2(725, 387), new Vector2(59, 387));
+                warrior = new WarriorSprite() { Position = new Vector2(355, 291), Direction = WarriorDirection.Right };
+                warrior.LoadContent(Content, new Vector2(370, 291), new Vector2(2, 387));
+                warrior2 = new WarriorSprite() { Position = new Vector2(400, 67), Direction = WarriorDirection.Right };
+                warrior2.LoadContent(Content, new Vector2(745, 67), new Vector2(365, 67));
+                
+            }
+
+            if (index == 5)
+            {
+                dragon = new DragonSprite() { Position = new Vector2(400, 145), Direction = DragonDirection.Down };
+                dragon.LoadContent(Content);
             }
         }
 
@@ -333,6 +345,7 @@ namespace CollectTheCoins.Handlers
             minotaur = null;
             dragon = null;
             bats = null;
+            warrior2 = null;
         }
         #endregion
 
@@ -415,6 +428,12 @@ namespace CollectTheCoins.Handlers
                         UpdateWarrior();
                     }
 
+                    if (warrior2 != null)
+                    {
+                        warrior2.Update(gameTime);
+                        UpdateWarrior2();
+                    }
+
                     if (spikes != null)
                     {
                         UpdateSpikes();
@@ -476,6 +495,19 @@ namespace CollectTheCoins.Handlers
         public void UpdateWarrior()
         {
             if (warrior.BoundingRectangle.CollidesWith(Player.PlayerRectangle))
+            {
+                //TODO: ask what should I do about collision
+                //timeLeft = TimeSpan.Zero;
+                time.SetDuration(TimeSpan.Zero);
+            }
+        }
+
+        /// <summary>
+        /// Method to check if the minotaur collides with the player
+        /// </summary>
+        public void UpdateWarrior2()
+        {
+            if (warrior2.BoundingRectangle.CollidesWith(Player.PlayerRectangle))
             {
                 //TODO: ask what should I do about collision
                 //timeLeft = TimeSpan.Zero;
@@ -576,6 +608,8 @@ namespace CollectTheCoins.Handlers
                 if (minotaur != null) minotaur.Draw(gameTime, spriteBatch);
 
                 if (warrior != null) warrior.Draw(gameTime, spriteBatch);
+
+                if (warrior2 != null) warrior2.Draw(gameTime, spriteBatch);
             }
 
             for (int i = EntityLayer + 1; i < backgrounds.Length; i++)

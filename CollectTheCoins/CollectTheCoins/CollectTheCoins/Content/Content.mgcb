@@ -116,6 +116,12 @@
 #begin Levels/3.txt
 /copy:Levels/3.txt
 
+#begin Levels/4.txt
+/copy:Levels/4.txt
+
+#begin Levels/5.txt
+/copy:Levels/5.txt
+
 #begin Pixel.png
 /importer:TextureImporter
 /processor:TextureProcessor

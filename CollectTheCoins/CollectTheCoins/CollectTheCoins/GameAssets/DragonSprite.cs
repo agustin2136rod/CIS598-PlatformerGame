@@ -111,7 +111,7 @@ namespace CollectTheCoins.GameAssets
             {
                 case DragonDirection.Up:
                     //down
-                    Position += new Vector2(0, -1) * 60 * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    Position += new Vector2(0, -1) * 40 * (float)gameTime.ElapsedGameTime.TotalSeconds;
                     break;
                 case DragonDirection.Down:
                     //right

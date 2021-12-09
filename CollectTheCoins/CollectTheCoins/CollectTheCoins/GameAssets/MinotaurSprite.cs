@@ -146,8 +146,8 @@ namespace CollectTheCoins.GameAssets
             var source = new Rectangle(animationFrame * 48, (int)Direction * 64, 48, 64);
             spriteBatch.Draw(texture, Position, source, Color.White);
 #if DEBUG
-            Rectangle rectangle = new Rectangle((int)BoundingRectangle.X, (int)BoundingRectangle.Y, 48, 64);
-            spriteBatch.Draw(pixel, rectangle, Color.White);
+            //Rectangle rectangle = new Rectangle((int)BoundingRectangle.X, (int)BoundingRectangle.Y, 48, 64);
+            //spriteBatch.Draw(pixel, rectangle, Color.White);
 #endif
         }
 

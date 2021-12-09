@@ -242,3 +242,5 @@ C:\Users\Aug\source\repos\CIS598-PlatformerGame\CollectTheCoins\CollectTheCoins\
 C:\Users\Aug\source\repos\CIS598-PlatformerGame\CollectTheCoins\CollectTheCoins\CollectTheCoins\bin\Debug\netcoreapp3.1\Content\screens\gamebackground.xnb
 C:\Users\Aug\source\repos\CIS598-PlatformerGame\CollectTheCoins\CollectTheCoins\CollectTheCoins\bin\Debug\netcoreapp3.1\Content\screens\gradient.xnb
 C:\Users\Aug\source\repos\CIS598-PlatformerGame\CollectTheCoins\CollectTheCoins\CollectTheCoins\bin\Debug\netcoreapp3.1\Content\screens\blank.xnb
+C:\Users\Aug\source\repos\CIS598-PlatformerGame\CollectTheCoins\CollectTheCoins\CollectTheCoins\bin\Debug\netcoreapp3.1\Content\Levels\4.txt
+C:\Users\Aug\source\repos\CIS598-PlatformerGame\CollectTheCoins\CollectTheCoins\CollectTheCoins\bin\Debug\netcoreapp3.1\Content\Levels\5.txt
