@@ -68,6 +68,18 @@
 /processorParam:TextureFormat=Color
 /build:backgrounds/Layer0_3.png
 
+#begin died.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:died.png
+
 #begin Done.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -110,6 +122,9 @@
 #begin Levels/1.txt
 /copy:Levels/1.txt
 
+#begin Levels/10.txt
+/copy:Levels/10.txt
+
 #begin Levels/2.txt
 /copy:Levels/2.txt
 
@@ -121,6 +136,18 @@
 
 #begin Levels/5.txt
 /copy:Levels/5.txt
+
+#begin Levels/6.txt
+/copy:Levels/6.txt
+
+#begin Levels/7.txt
+/copy:Levels/7.txt
+
+#begin Levels/8.txt
+/copy:Levels/8.txt
+
+#begin Levels/9.txt
+/copy:Levels/9.txt
 
 #begin Pixel.png
 /importer:TextureImporter

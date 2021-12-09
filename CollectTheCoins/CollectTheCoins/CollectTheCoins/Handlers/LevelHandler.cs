@@ -34,6 +34,7 @@ namespace CollectTheCoins.Handlers
         private List<CoinHandler> coins = new List<CoinHandler>();
         private BatSprite[] bats = null;
         private DragonSprite dragon = null;
+        private DragonSprite dragon2 = null;
         private MinotaurSprite minotaur = null;
         private WarriorSprite warrior = null;
         private WarriorSprite warrior2 = null;
@@ -43,7 +44,12 @@ namespace CollectTheCoins.Handlers
         private int[] levelTimes = timesForLevels.TimesForLevels;
         private bool isTimePaused = false;
         private bool timerRunning = false;
+        private bool enemyCollidedWithCharacter = false;
 
+        /// <summary>
+        /// getter to determine whether a character collided with an enemy 
+        /// </summary>
+        public bool EnemyCollidedWithCharacter { get { return enemyCollidedWithCharacter; } }
 
         /// <summary>
         /// getter for the coins
@@ -153,6 +159,42 @@ namespace CollectTheCoins.Handlers
             {
                 dragon = new DragonSprite() { Position = new Vector2(400, 145), Direction = DragonDirection.Down };
                 dragon.LoadContent(Content);
+            }
+
+            if (index == 7)
+            {
+                bats = new BatSprite[]
+                {
+                    new BatSprite() {Position = new Vector2(515, 160), Direction = BatDirection.Down },
+                    new BatSprite() {Position = new Vector2(165, 250), Direction = BatDirection.Up},
+                    new BatSprite() {Position = new Vector2(715, 155), Direction = BatDirection.Left},
+                    new BatSprite() {Position = new Vector2(215, 200), Direction = BatDirection.Right},
+                };
+                foreach (var bat in bats) bat.LoadContent(Content);
+            }
+
+            if (index == 9)
+            {
+                dragon = new DragonSprite() { Position = new Vector2(400, 145), Direction = DragonDirection.Down };
+                dragon.LoadContent(Content);
+                dragon2 = new DragonSprite() { Position = new Vector2(200, 200), Direction = DragonDirection.Down };
+                dragon2.LoadContent(Content);
+            }
+
+            if (index == 10)
+            {
+                warrior = new WarriorSprite() { Position = new Vector2(725, 387), Direction = WarriorDirection.Left };
+                warrior.LoadContent(Content, new Vector2(725, 387), new Vector2(59, 387));
+                warrior2 = new WarriorSprite() { Position = new Vector2(400, 67), Direction = WarriorDirection.Right };
+                warrior2.LoadContent(Content, new Vector2(745, 67), new Vector2(365, 67));
+                minotaur = new MinotaurSprite() { Position = new Vector2(400, 195), Direction = MinotaurDirection.Left };
+                minotaur.LoadContent(Content, new Vector2(500, 195), new Vector2(2, 387));
+                bats = new BatSprite[]
+                {
+                    new BatSprite() {Position = new Vector2(515, 160), Direction = BatDirection.Down },
+                    new BatSprite() {Position = new Vector2(165, 200), Direction = BatDirection.Up},
+                };
+                foreach (var bat in bats) bat.LoadContent(Content);
             }
         }
 
@@ -344,8 +386,10 @@ namespace CollectTheCoins.Handlers
             warrior = null;
             minotaur = null;
             dragon = null;
+            dragon2 = null;
             bats = null;
             warrior2 = null;
+            enemyCollidedWithCharacter = false;
         }
         #endregion
 
@@ -416,6 +460,12 @@ namespace CollectTheCoins.Handlers
                         UpdateDragon();
                     }
 
+                    if (dragon2 != null)
+                    {
+                        dragon2.Update(gameTime);
+                        UpdateDragon2();
+                    }
+
                     if (minotaur != null)
                     {
                         minotaur.Update(gameTime);
@@ -456,8 +506,7 @@ namespace CollectTheCoins.Handlers
             {
                 if (bat.BoundingRectangle.CollidesWith(Player.PlayerRectangle))
                 {
-                    //TODO: ask what should I do about collision
-                    //timeLeft = TimeSpan.Zero;
+                    enemyCollidedWithCharacter = true;
                     time.SetDuration(TimeSpan.Zero);
                 }
             }
@@ -470,8 +519,19 @@ namespace CollectTheCoins.Handlers
         {
             if (dragon.BoundingRectangle.CollidesWith(Player.PlayerRectangle))
             {
-                //TODO: ask what should I do about collision
-                //timeLeft = TimeSpan.Zero;
+                enemyCollidedWithCharacter = true;
+                time.SetDuration(TimeSpan.Zero);
+            }
+        }
+
+        /// <summary>
+        /// Method to check if the second dragon collides with the player
+        /// </summary>
+        public void UpdateDragon2()
+        {
+            if (dragon2.BoundingRectangle.CollidesWith(Player.PlayerRectangle))
+            {
+                enemyCollidedWithCharacter = true;
                 time.SetDuration(TimeSpan.Zero);
             }
         }
@@ -483,8 +543,7 @@ namespace CollectTheCoins.Handlers
         {
             if (minotaur.BoundingRectangle.CollidesWith(Player.PlayerRectangle))
             {
-                //TODO: ask what should I do about collision
-                //timeLeft = TimeSpan.Zero;
+                enemyCollidedWithCharacter = true;
                 time.SetDuration(TimeSpan.Zero);
             }
         }
@@ -496,8 +555,7 @@ namespace CollectTheCoins.Handlers
         {
             if (warrior.BoundingRectangle.CollidesWith(Player.PlayerRectangle))
             {
-                //TODO: ask what should I do about collision
-                //timeLeft = TimeSpan.Zero;
+                enemyCollidedWithCharacter = true;
                 time.SetDuration(TimeSpan.Zero);
             }
         }
@@ -509,8 +567,7 @@ namespace CollectTheCoins.Handlers
         {
             if (warrior2.BoundingRectangle.CollidesWith(Player.PlayerRectangle))
             {
-                //TODO: ask what should I do about collision
-                //timeLeft = TimeSpan.Zero;
+                enemyCollidedWithCharacter = true;
                 time.SetDuration(TimeSpan.Zero);
             }
         }
@@ -524,8 +581,7 @@ namespace CollectTheCoins.Handlers
             {
                 if (spike.BoundingRectangle.CollidesWith(Player.PlayerRectangle))
                 {
-                    //TODO: ask what should I do about collision 
-                    //timeLeft = TimeSpan.Zero;
+                    enemyCollidedWithCharacter = true;
                     time.SetDuration(TimeSpan.Zero);
                 }
             }
@@ -604,6 +660,8 @@ namespace CollectTheCoins.Handlers
                 if (bats != null) foreach (var bat in bats) bat.Draw(gameTime, spriteBatch);
 
                 if (dragon != null) dragon.Draw(gameTime, spriteBatch);
+
+                if (dragon2 != null) dragon2.Draw(gameTime, spriteBatch);
 
                 if (minotaur != null) minotaur.Draw(gameTime, spriteBatch);
 

@@ -99,7 +99,7 @@ namespace CollectTheCoins
                 animationTimer -= ANIMATION_SPEED;
             }
             var source = new Rectangle(animationFrame * 16, 0, 16, 16);
-            spriteBatch.Draw(pixel, BoundingCircle, Color.White);
+            //spriteBatch.Draw(pixel, BoundingCircle, Color.White);
             spriteBatch.Draw(texture, Position, source, Color, 0.0f, origin, 1.0f, SpriteEffects.None, 0.0f);
         }
     }

@@ -3,7 +3,7 @@
   <SourceFile>C:/Users/Aug/source/repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/sounds/coinPickup.wav</SourceFile>
   <SourceTime>2021-10-26T15:42:30.1856901-05:00</SourceTime>
   <DestFile>C:/Users/Aug/source/repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/bin/Windows/sounds/coinPickup.xnb</DestFile>
-  <DestTime>2021-12-08T17:52:19.3766539-06:00</DestTime>
+  <DestTime>2021-12-09T15:52:57.7834416-06:00</DestTime>
   <Importer>WavImporter</Importer>
   <ImporterTime>2020-08-10T16:17:54-05:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>

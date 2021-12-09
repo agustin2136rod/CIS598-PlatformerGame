@@ -26,6 +26,7 @@ namespace CollectTheCoins.Screens
         private Texture2D win;
         private Texture2D fail;
         private Texture2D done;
+        private Texture2D died;
         private Vector2 screenSize = new Vector2(800, 480);
         private Matrix globalTransformation;
         private int bufferWidth, bufferHeight;
@@ -34,8 +35,8 @@ namespace CollectTheCoins.Screens
         private bool continuePressed;
         private Texture2D instructions;
         private KeyboardState keyboardState;
-        private int levelIndex = 3;
-        private const int numberOfLevels = 6;
+        private int levelIndex = -1;
+        private const int numberOfLevels = 11;
         
 
         private readonly Random _random = new Random();
@@ -67,6 +68,7 @@ namespace CollectTheCoins.Screens
             instructions = _content.Load<Texture2D>("Instructions");
             fail = _content.Load<Texture2D>("fail");
             done = _content.Load<Texture2D>("Done");
+            died = _content.Load<Texture2D>("died");
             ScalePresentation();
             backgroundMusic = _content.Load<Song>("sounds/BoxCat Games - Epic Song");
             MediaPlayer.Volume -= 0.7f;
@@ -194,7 +196,6 @@ namespace CollectTheCoins.Screens
                             level.StartLevelTimer();
                             MediaPlayer.Play(backgroundMusic);
                         }
-
                     }
                 }
                 continuePressed = proceed;
@@ -255,6 +256,12 @@ namespace CollectTheCoins.Screens
             if (level.TimeLeft == TimeSpan.Zero && !level.AtExit)
             {
                 _spriteBatch.Draw(fail, center - winSize / 2, Color.White);
+                MediaPlayer.Stop();
+            }
+
+            if (level.EnemyCollidedWithCharacter && level.TimeLeft == TimeSpan.Zero && !level.AtExit)
+            {
+                _spriteBatch.Draw(died, center - winSize / 2, Color.White);
                 MediaPlayer.Stop();
             }
 

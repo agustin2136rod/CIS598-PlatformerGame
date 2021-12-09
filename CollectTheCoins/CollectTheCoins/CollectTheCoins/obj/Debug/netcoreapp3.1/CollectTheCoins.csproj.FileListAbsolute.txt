@@ -244,3 +244,9 @@ C:\Users\Aug\source\repos\CIS598-PlatformerGame\CollectTheCoins\CollectTheCoins\
 C:\Users\Aug\source\repos\CIS598-PlatformerGame\CollectTheCoins\CollectTheCoins\CollectTheCoins\bin\Debug\netcoreapp3.1\Content\screens\blank.xnb
 C:\Users\Aug\source\repos\CIS598-PlatformerGame\CollectTheCoins\CollectTheCoins\CollectTheCoins\bin\Debug\netcoreapp3.1\Content\Levels\4.txt
 C:\Users\Aug\source\repos\CIS598-PlatformerGame\CollectTheCoins\CollectTheCoins\CollectTheCoins\bin\Debug\netcoreapp3.1\Content\Levels\5.txt
+C:\Users\Aug\source\repos\CIS598-PlatformerGame\CollectTheCoins\CollectTheCoins\CollectTheCoins\bin\Debug\netcoreapp3.1\Content\died.xnb
+C:\Users\Aug\source\repos\CIS598-PlatformerGame\CollectTheCoins\CollectTheCoins\CollectTheCoins\bin\Debug\netcoreapp3.1\Content\Levels\10.txt
+C:\Users\Aug\source\repos\CIS598-PlatformerGame\CollectTheCoins\CollectTheCoins\CollectTheCoins\bin\Debug\netcoreapp3.1\Content\Levels\6.txt
+C:\Users\Aug\source\repos\CIS598-PlatformerGame\CollectTheCoins\CollectTheCoins\CollectTheCoins\bin\Debug\netcoreapp3.1\Content\Levels\7.txt
+C:\Users\Aug\source\repos\CIS598-PlatformerGame\CollectTheCoins\CollectTheCoins\CollectTheCoins\bin\Debug\netcoreapp3.1\Content\Levels\8.txt
+C:\Users\Aug\source\repos\CIS598-PlatformerGame\CollectTheCoins\CollectTheCoins\CollectTheCoins\bin\Debug\netcoreapp3.1\Content\Levels\9.txt
