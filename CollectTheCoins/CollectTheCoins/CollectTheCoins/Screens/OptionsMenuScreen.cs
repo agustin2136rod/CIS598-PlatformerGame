@@ -12,83 +12,37 @@ namespace CollectTheCoins.Screens
     // in various hopefully useful ways.
     public class OptionsMenuScreen : MenuScreen
     {
-        private enum Ungulate
-        {
-            BactrianCamel,
-            Dromedary,
-            Llama,
-        }
-
-        private readonly MenuEntry _ungulateMenuEntry;
+        private readonly MenuEntry _creator;
         private readonly MenuEntry _languageMenuEntry;
-        private readonly MenuEntry _frobnicateMenuEntry;
-        private readonly MenuEntry _elfMenuEntry;
+        private readonly MenuEntry _repo;
 
-        private static Ungulate _currentUngulate = Ungulate.Dromedary;
-        private static readonly string[] Languages = { "C#", "French", "Deoxyribonucleic acid" };
-        private static int _currentLanguage;
-        private static bool _frobnicate = true;
-        private static int _elf = 23;
+        private static readonly string Language = "C#";
+        private static readonly string Repo = "https://github.com/agustin2136rod/CIS598-PlatformerGame";
 
-        public OptionsMenuScreen() : base("Options")
+        public OptionsMenuScreen() : base("Remarks")
         {
-            _ungulateMenuEntry = new MenuEntry(string.Empty);
+            _creator = new MenuEntry(string.Empty);
             _languageMenuEntry = new MenuEntry(string.Empty);
-            _frobnicateMenuEntry = new MenuEntry(string.Empty);
-            _elfMenuEntry = new MenuEntry(string.Empty);
+            _repo = new MenuEntry(string.Empty);
 
             SetMenuEntryText();
 
             var back = new MenuEntry("Back");
 
-            _ungulateMenuEntry.Selected += UngulateMenuEntrySelected;
-            _languageMenuEntry.Selected += LanguageMenuEntrySelected;
-            _frobnicateMenuEntry.Selected += FrobnicateMenuEntrySelected;
-            _elfMenuEntry.Selected += ElfMenuEntrySelected;
             back.Selected += OnCancel;
 
-            MenuEntries.Add(_ungulateMenuEntry);
+            MenuEntries.Add(_creator);
             MenuEntries.Add(_languageMenuEntry);
-            MenuEntries.Add(_frobnicateMenuEntry);
-            MenuEntries.Add(_elfMenuEntry);
+            MenuEntries.Add(_repo);
             MenuEntries.Add(back);
         }
 
         // Fills in the latest values for the options screen menu text.
         private void SetMenuEntryText()
         {
-            _ungulateMenuEntry.Text = $"Preferred ungulate: {_currentUngulate}";
-            _languageMenuEntry.Text = $"Language: {Languages[_currentLanguage]}";
-            _frobnicateMenuEntry.Text = $"Frobnicate: {(_frobnicate ? "on" : "off")}";
-            _elfMenuEntry.Text = $"elf: {_elf.ToString()}";
-        }
-
-        private void UngulateMenuEntrySelected(object sender, PlayerEventIndexEventArgs e)
-        {
-            _currentUngulate++;
-
-            if (_currentUngulate > Ungulate.Llama)
-                _currentUngulate = 0;
-
-            SetMenuEntryText();
-        }
-
-        private void LanguageMenuEntrySelected(object sender, PlayerEventIndexEventArgs e)
-        {
-            _currentLanguage = (_currentLanguage + 1) % Languages.Length;
-            SetMenuEntryText();
-        }
-
-        private void FrobnicateMenuEntrySelected(object sender, PlayerEventIndexEventArgs e)
-        {
-            _frobnicate = !_frobnicate;
-            SetMenuEntryText();
-        }
-
-        private void ElfMenuEntrySelected(object sender, PlayerEventIndexEventArgs e)
-        {
-            _elf++;
-            SetMenuEntryText();
+            _creator.Text = $"Game Creator: Agustin Rodriguez";
+            _languageMenuEntry.Text = $"Game Programming Language: {Language}";
+            _repo.Text = $"GitHub Repo: {Repo}";
         }
     }
 }

@@ -20,15 +20,15 @@ namespace CollectTheCoins.Screens
             _services = gameService;
 
             var playGameMenuEntry = new MenuEntry("Play Game");
-            var optionsMenuEntry = new MenuEntry("Options");
+            var RemarksMenuEntry = new MenuEntry("Remarks");
             var exitMenuEntry = new MenuEntry("Exit");
 
             playGameMenuEntry.Selected += PlayGameMenuEntrySelected;
-            optionsMenuEntry.Selected += OptionsMenuEntrySelected;
+            RemarksMenuEntry.Selected += RemarksMenuEntrySelected;
             exitMenuEntry.Selected += OnCancel;
 
             MenuEntries.Add(playGameMenuEntry);
-            MenuEntries.Add(optionsMenuEntry);
+            MenuEntries.Add(RemarksMenuEntry);
             MenuEntries.Add(exitMenuEntry);
         }
 
@@ -37,7 +37,7 @@ namespace CollectTheCoins.Screens
             LoadingScreen.Load(ScreenManager, true, e.PlayerIndex, new GameplayScreen(_services));
         }
 
-        private void OptionsMenuEntrySelected(object sender, PlayerEventIndexEventArgs e)
+        private void RemarksMenuEntrySelected(object sender, PlayerEventIndexEventArgs e)
         {
             ScreenManager.AddScreen(new OptionsMenuScreen(), e.PlayerIndex);
         }
