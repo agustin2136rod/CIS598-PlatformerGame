@@ -18,16 +18,27 @@ namespace CollectTheCoins.Screens
         private Texture2D _gradientTexture;
         private readonly InputAction _menuSelect;
         private readonly InputAction _menuCancel;
+        private bool _isInstructions;
+        private string usageText;
 
         public event EventHandler<PlayerEventIndexEventArgs> Accepted;
         public event EventHandler<PlayerEventIndexEventArgs> Cancelled;
 
         // Constructor lets the caller specify whether to include the standard
         // "A=ok, B=cancel" usage text prompt.
-        public MessageBoxScreen(string message, bool includeUsageText = true)
+        public MessageBoxScreen(string message, bool instructions, bool includeUsageText = true)
         {
-            const string usageText = "\nSpace, Enter = ok" +
+            _isInstructions = instructions;
+
+            if (_isInstructions)
+            {
+                usageText = "\nBackspace, Escape = cancel";
+            }
+            else
+            {
+                usageText = "\nSpace, Enter = ok" +
                                      "\nBackspace, Escape = cancel";
+            }
 
             if (includeUsageText)
                 _message = message + usageText;
@@ -64,15 +75,26 @@ namespace CollectTheCoins.Screens
             // controlling player, the InputState helper returns to us which player
             // actually provided the input. We pass that through to our Accepted and
             // Cancelled events, so they can tell which player triggered them.
-            if (_menuSelect.Occurred(input, ControllingPlayer, out playerIndex))
+            if (_isInstructions)
             {
-                Accepted?.Invoke(this, new PlayerEventIndexEventArgs(playerIndex));
-                ExitScreen();
+                if (_menuCancel.Occurred(input, ControllingPlayer, out playerIndex))
+                {
+                    Cancelled?.Invoke(this, new PlayerEventIndexEventArgs(playerIndex));
+                    ExitScreen();
+                }
             }
-            else if (_menuCancel.Occurred(input, ControllingPlayer, out playerIndex))
+            else
             {
-                Cancelled?.Invoke(this, new PlayerEventIndexEventArgs(playerIndex));
-                ExitScreen();
+                if (_menuSelect.Occurred(input, ControllingPlayer, out playerIndex))
+                {
+                    Accepted?.Invoke(this, new PlayerEventIndexEventArgs(playerIndex));
+                    ExitScreen();
+                }
+                else if (_menuCancel.Occurred(input, ControllingPlayer, out playerIndex))
+                {
+                    Cancelled?.Invoke(this, new PlayerEventIndexEventArgs(playerIndex));
+                    ExitScreen();
+                }
             }
         }
 

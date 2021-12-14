@@ -37,6 +37,7 @@ namespace CollectTheCoins.Screens
         private KeyboardState keyboardState;
         private int levelIndex = -1;
         private const int numberOfLevels = 11;
+        private VolumeHandler gameVolume;
         
 
         private readonly Random _random = new Random();
@@ -71,7 +72,8 @@ namespace CollectTheCoins.Screens
             died = _content.Load<Texture2D>("died");
             ScalePresentation();
             backgroundMusic = _content.Load<Song>("sounds/BoxCat Games - Epic Song");
-            MediaPlayer.Volume -= 0.7f;
+            gameVolume = new VolumeHandler(0.7f);
+            MediaPlayer.Volume = gameVolume.Volume;
             MediaPlayer.Play(backgroundMusic);
             MediaPlayer.IsRepeating = true;
             LoadLevel();
@@ -111,6 +113,7 @@ namespace CollectTheCoins.Screens
         public override void Update(GameTime gameTime, bool otherScreenHasFocus, bool coveredByOtherScreen)
         {
             level.Update(gameTime, keyboardState);
+            MediaPlayer.Volume = gameVolume.Volume;
 
             base.Update(gameTime, otherScreenHasFocus, false);
         }
@@ -164,7 +167,7 @@ namespace CollectTheCoins.Screens
 
             if (_pauseAction.Occurred(input, ControllingPlayer, out player))
             {
-                ScreenManager.AddScreen(new PauseMenuScreen(_services), ControllingPlayer);
+                ScreenManager.AddScreen(new PauseMenuScreen(_services, gameVolume), ControllingPlayer);
                 level.PauseLevelTimer();
             }
             else
@@ -172,7 +175,7 @@ namespace CollectTheCoins.Screens
                 if (level.IsTimePaused)
                 {
                     level.ResumeLevelTimer();
-
+                    MediaPlayer.Volume = gameVolume.Volume;
                 }
                 if (!continuePressed && proceed)
                 {
@@ -180,6 +183,7 @@ namespace CollectTheCoins.Screens
                     {
                         level.Start();
                         level.StartLevelTimer();
+                        MediaPlayer.Volume = gameVolume.Volume;
                         MediaPlayer.Play(backgroundMusic);
                     }
                     else if (level.TimeLeft == TimeSpan.Zero)
@@ -188,12 +192,14 @@ namespace CollectTheCoins.Screens
                         {
                             LoadLevel();
                             level.StartLevelTimer();
+                            MediaPlayer.Volume = gameVolume.Volume;
                             MediaPlayer.Play(backgroundMusic);
                         }
                         else
                         {
                             ReloadCurrentLevel();
                             level.StartLevelTimer();
+                            MediaPlayer.Volume = gameVolume.Volume;
                             MediaPlayer.Play(backgroundMusic);
                         }
                     }
@@ -230,14 +236,17 @@ namespace CollectTheCoins.Screens
 
             Rectangle title = ScreenManager.GraphicsDevice.Viewport.TitleSafeArea;
             Vector2 hudSpot = new Vector2(title.X, title.Y);
+            Vector2 levelLocation = new Vector2(hudSpot.X + 150, title.Y);
 
             Vector2 center = new Vector2(screenSize.X / 2, screenSize.Y / 2);
             
             if (level.TimerRunning)
             {
                 string time = "TIME: " + level.TimeLeft.Minutes.ToString("00") + ":" + level.TimeLeft.Seconds.ToString("00");
-                Color colorOfTime = Color.Red;
-                _spriteBatch.DrawString(_gameFont, time, hudSpot, colorOfTime);
+                string displayLevel = "LEVEL: " + (levelIndex + 1).ToString();
+                Color colorOfFont = Color.Red;
+                _spriteBatch.DrawString(_gameFont, time, hudSpot, colorOfFont);
+                _spriteBatch.DrawString(_gameFont, displayLevel, levelLocation, colorOfFont);
             }
             
            

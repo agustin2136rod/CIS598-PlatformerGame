@@ -45,7 +45,7 @@ namespace CollectTheCoins.Screens
         protected override void OnCancel(PlayerIndex playerIndex)
         {
             const string message = "Are you sure you want to exit?";
-            var confirmExitMessageBox = new MessageBoxScreen(message);
+            var confirmExitMessageBox = new MessageBoxScreen(message, false);
 
             confirmExitMessageBox.Accepted += ConfirmExitMessageBoxAccepted;
 
