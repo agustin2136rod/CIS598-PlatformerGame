@@ -111,19 +111,19 @@ namespace CollectTheCoins.GameAssets
             {
                 case DragonDirection.Up:
                     //down
-                    Position += new Vector2(0, -1) * 40 * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    Position += new Vector2(0, -1) * 60 * (float)gameTime.ElapsedGameTime.TotalSeconds;
                     break;
                 case DragonDirection.Down:
                     //right
-                    Position += new Vector2(0, 1) * 40 * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    Position += new Vector2(0, 1) * 60 * (float)gameTime.ElapsedGameTime.TotalSeconds;
                     break;
                 case DragonDirection.Left:
                     //up
-                    Position += new Vector2(-1, 0) * 40 * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    Position += new Vector2(-1, 0) * 60 * (float)gameTime.ElapsedGameTime.TotalSeconds;
                     break;
                 case DragonDirection.Right:
                     //left
-                    Position += new Vector2(1, 0) * 40 * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    Position += new Vector2(1, 0) * 60 * (float)gameTime.ElapsedGameTime.TotalSeconds;
                     break;
             }
 

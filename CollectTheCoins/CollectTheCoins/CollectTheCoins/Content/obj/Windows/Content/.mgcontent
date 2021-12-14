@@ -4,45 +4,45 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/agustinr/Source/Repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/arial.spritefont</File>
-    <File>C:/Users/agustinr/Source/Repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/backgrounds/Layer0_0.png</File>
-    <File>C:/Users/agustinr/Source/Repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/backgrounds/Layer0_1.png</File>
-    <File>C:/Users/agustinr/Source/Repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/backgrounds/Layer0_2.png</File>
-    <File>C:/Users/agustinr/Source/Repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/backgrounds/Layer0_3.png</File>
-    <File>C:/Users/agustinr/Source/Repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/died.png</File>
-    <File>C:/Users/agustinr/Source/Repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/Done.png</File>
-    <File>C:/Users/agustinr/Source/Repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/fail.png</File>
-    <File>C:/Users/agustinr/Source/Repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/Instructions.png</File>
-    <File>C:/Users/agustinr/Source/Repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/Pixel.png</File>
-    <File>C:/Users/agustinr/Source/Repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/screens/blank.png</File>
-    <File>C:/Users/agustinr/Source/Repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/screens/gamebackground.png</File>
-    <File>C:/Users/agustinr/Source/Repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/screens/gradient.png</File>
-    <File>C:/Users/agustinr/Source/Repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/sounds/BoxCat Games - Epic Song.mp3</File>
-    <File>C:/Users/agustinr/Source/Repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/sounds/coinPickup.wav</File>
-    <File>C:/Users/agustinr/Source/Repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/sounds/jumpSound.wav</File>
-    <File>C:/Users/agustinr/Source/Repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/sounds/music.mp3</File>
-    <File>C:/Users/agustinr/Source/Repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/sprites/blocks/BlockA0.png</File>
-    <File>C:/Users/agustinr/Source/Repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/sprites/blocks/BlockA1.png</File>
-    <File>C:/Users/agustinr/Source/Repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/sprites/blocks/BlockA2.png</File>
-    <File>C:/Users/agustinr/Source/Repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/sprites/blocks/BlockA3.png</File>
-    <File>C:/Users/agustinr/Source/Repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/sprites/blocks/BlockA4.png</File>
-    <File>C:/Users/agustinr/Source/Repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/sprites/blocks/BlockA5.png</File>
-    <File>C:/Users/agustinr/Source/Repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/sprites/blocks/BlockA6.png</File>
-    <File>C:/Users/agustinr/Source/Repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/sprites/blocks/BlockB0.png</File>
-    <File>C:/Users/agustinr/Source/Repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/sprites/blocks/BlockB1.png</File>
-    <File>C:/Users/agustinr/Source/Repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/sprites/blocks/FinishFlag.png</File>
-    <File>C:/Users/agustinr/Source/Repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/sprites/coins/coins.png</File>
-    <File>C:/Users/agustinr/Source/Repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/sprites/obstacles/bat.png</File>
-    <File>C:/Users/agustinr/Source/Repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/sprites/obstacles/dragon.png</File>
-    <File>C:/Users/agustinr/Source/Repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/sprites/obstacles/minotaur.png</File>
-    <File>C:/Users/agustinr/Source/Repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/sprites/obstacles/spikes.png</File>
-    <File>C:/Users/agustinr/Source/Repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/sprites/obstacles/warrior.png</File>
-    <File>C:/Users/agustinr/Source/Repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/sprites/player/celeb.png</File>
-    <File>C:/Users/agustinr/Source/Repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/sprites/player/die.png</File>
-    <File>C:/Users/agustinr/Source/Repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/sprites/player/idle.png</File>
-    <File>C:/Users/agustinr/Source/Repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/sprites/player/jump.png</File>
-    <File>C:/Users/agustinr/Source/Repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/sprites/player/run.png</File>
-    <File>C:/Users/agustinr/Source/Repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/Winner.png</File>
+    <File>C:/Users/Aug/source/repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/arial.spritefont</File>
+    <File>C:/Users/Aug/source/repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/backgrounds/Layer0_0.png</File>
+    <File>C:/Users/Aug/source/repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/backgrounds/Layer0_1.png</File>
+    <File>C:/Users/Aug/source/repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/backgrounds/Layer0_2.png</File>
+    <File>C:/Users/Aug/source/repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/backgrounds/Layer0_3.png</File>
+    <File>C:/Users/Aug/source/repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/died.png</File>
+    <File>C:/Users/Aug/source/repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/Done.png</File>
+    <File>C:/Users/Aug/source/repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/fail.png</File>
+    <File>C:/Users/Aug/source/repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/Instructions.png</File>
+    <File>C:/Users/Aug/source/repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/Pixel.png</File>
+    <File>C:/Users/Aug/source/repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/screens/blank.png</File>
+    <File>C:/Users/Aug/source/repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/screens/gamebackground.png</File>
+    <File>C:/Users/Aug/source/repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/screens/gradient.png</File>
+    <File>C:/Users/Aug/source/repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/sounds/BoxCat Games - Epic Song.mp3</File>
+    <File>C:/Users/Aug/source/repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/sounds/coinPickup.wav</File>
+    <File>C:/Users/Aug/source/repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/sounds/jumpSound.wav</File>
+    <File>C:/Users/Aug/source/repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/sounds/music.mp3</File>
+    <File>C:/Users/Aug/source/repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/sprites/blocks/BlockA0.png</File>
+    <File>C:/Users/Aug/source/repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/sprites/blocks/BlockA1.png</File>
+    <File>C:/Users/Aug/source/repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/sprites/blocks/BlockA2.png</File>
+    <File>C:/Users/Aug/source/repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/sprites/blocks/BlockA3.png</File>
+    <File>C:/Users/Aug/source/repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/sprites/blocks/BlockA4.png</File>
+    <File>C:/Users/Aug/source/repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/sprites/blocks/BlockA5.png</File>
+    <File>C:/Users/Aug/source/repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/sprites/blocks/BlockA6.png</File>
+    <File>C:/Users/Aug/source/repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/sprites/blocks/BlockB0.png</File>
+    <File>C:/Users/Aug/source/repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/sprites/blocks/BlockB1.png</File>
+    <File>C:/Users/Aug/source/repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/sprites/blocks/FinishFlag.png</File>
+    <File>C:/Users/Aug/source/repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/sprites/coins/coins.png</File>
+    <File>C:/Users/Aug/source/repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/sprites/obstacles/bat.png</File>
+    <File>C:/Users/Aug/source/repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/sprites/obstacles/dragon.png</File>
+    <File>C:/Users/Aug/source/repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/sprites/obstacles/minotaur.png</File>
+    <File>C:/Users/Aug/source/repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/sprites/obstacles/spikes.png</File>
+    <File>C:/Users/Aug/source/repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/sprites/obstacles/warrior.png</File>
+    <File>C:/Users/Aug/source/repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/sprites/player/celeb.png</File>
+    <File>C:/Users/Aug/source/repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/sprites/player/die.png</File>
+    <File>C:/Users/Aug/source/repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/sprites/player/idle.png</File>
+    <File>C:/Users/Aug/source/repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/sprites/player/jump.png</File>
+    <File>C:/Users/Aug/source/repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/sprites/player/run.png</File>
+    <File>C:/Users/Aug/source/repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/Winner.png</File>
   </SourceFiles>
   <DestFiles>
     <File xsi:nil="true" />

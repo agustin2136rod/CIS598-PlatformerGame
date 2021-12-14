@@ -173,11 +173,23 @@ namespace CollectTheCoins.Handlers
                 foreach (var bat in bats) bat.LoadContent(Content);
             }
 
+            if (index == 8)
+            {
+                minotaur = new MinotaurSprite() { Position = new Vector2(725, 387), Direction = MinotaurDirection.Left };
+                minotaur.LoadContent(Content, new Vector2(725, 387), new Vector2(59, 387));
+                bats = new BatSprite[]
+                {
+                    new BatSprite() {Position = new Vector2(515, 160), Direction = BatDirection.Down },
+                    new BatSprite() {Position = new Vector2(165, 250), Direction = BatDirection.Up},
+                };
+                foreach (var bat in bats) bat.LoadContent(Content);
+            }
+
             if (index == 9)
             {
-                dragon = new DragonSprite() { Position = new Vector2(400, 145), Direction = DragonDirection.Down };
+                dragon = new DragonSprite() { Position = new Vector2(500, 100), Direction = DragonDirection.Down };
                 dragon.LoadContent(Content);
-                dragon2 = new DragonSprite() { Position = new Vector2(200, 200), Direction = DragonDirection.Down };
+                dragon2 = new DragonSprite() { Position = new Vector2(100, 200), Direction = DragonDirection.Up };
                 dragon2.LoadContent(Content);
             }
 
