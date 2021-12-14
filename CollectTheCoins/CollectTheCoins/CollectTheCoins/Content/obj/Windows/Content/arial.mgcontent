@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/Aug/source/repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/arial.spritefont</SourceFile>
-  <SourceTime>2021-10-26T15:42:30.0056496-05:00</SourceTime>
-  <DestFile>C:/Users/Aug/source/repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/bin/Windows/Content/arial.xnb</DestFile>
-  <DestTime>2021-11-03T13:06:26.377365-05:00</DestTime>
+  <SourceFile>C:/Users/agustinr/Source/Repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/arial.spritefont</SourceFile>
+  <SourceTime>2021-12-14T09:29:25.6295383-06:00</SourceTime>
+  <DestFile>C:/Users/agustinr/Source/Repos/CIS598-PlatformerGame/CollectTheCoins/CollectTheCoins/CollectTheCoins/Content/bin/Windows/Content/arial.xnb</DestFile>
+  <DestTime>2021-12-14T09:29:45.83963-06:00</DestTime>
   <Importer>FontDescriptionImporter</Importer>
   <ImporterTime>2020-08-10T16:17:54-05:00</ImporterTime>
   <Processor>FontDescriptionProcessor</Processor>
