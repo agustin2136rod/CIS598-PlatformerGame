@@ -35,7 +35,7 @@ namespace CollectTheCoins.Screens
         private bool continuePressed;
         private Texture2D instructions;
         private KeyboardState keyboardState;
-        private int levelIndex = -1;
+        private int levelIndex = 9;
         private const int numberOfLevels = 11;
         private VolumeHandler gameVolume;
         private MediaHandler mediaHandler;
@@ -258,7 +258,7 @@ namespace CollectTheCoins.Screens
                 _spriteBatch.Draw(instructions, center - winSize / 2, Color.White);
             }
 
-            if (level.AtExit && level.Coins.Count == 0 && levelIndex != 3)
+            if (level.AtExit && level.Coins.Count == 0 && levelIndex != 10)
             {
                 _spriteBatch.Draw(win, center - winSize / 2, Color.White);
                 mediaHandler.Stop();
@@ -276,7 +276,7 @@ namespace CollectTheCoins.Screens
                 mediaHandler.Stop();
             }
 
-            if (level.AtExit && level.Coins.Count == 0 && levelIndex == 3)
+            if (level.AtExit && level.Coins.Count == 0 && levelIndex == 10)
             {
                 _spriteBatch.Draw(done, center - winSize / 2, Color.White);
                 mediaHandler.Stop();

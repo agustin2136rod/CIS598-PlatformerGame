@@ -344,7 +344,7 @@ namespace CollectTheCoins
             if (Velocity.X > 0) flip = SpriteEffects.FlipHorizontally;
             else if (Velocity.X < 0) flip = SpriteEffects.None;
 #if DEBUG
-            spriteBatch.Draw(pixel, BoundingRectangle, Color.White);
+            //spriteBatch.Draw(pixel, BoundingRectangle, Color.White);
 #endif
             spritePlayer.Draw(gameTime, spriteBatch, Position, flip);
         }
