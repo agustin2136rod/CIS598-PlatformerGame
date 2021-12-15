@@ -11,8 +11,12 @@ using CollectTheCoins.StateManagement;
 
 namespace CollectTheCoins.Screens
 {
+    /// <summary>
+    /// This class deals with a menuscreen when paused or in the main menu
+    /// </summary>
     public abstract class MenuScreen : GameScreen
     {
+        //Set up all private variables
         private readonly List<MenuEntry> _menuEntries = new List<MenuEntry>();
         private int _selectedEntry;
         private readonly string _menuTitle;
@@ -25,6 +29,10 @@ namespace CollectTheCoins.Screens
         // Gets the list of menu entries, so derived classes can add or change the menu contents.
         protected IList<MenuEntry> MenuEntries => _menuEntries;
 
+        /// <summary>
+        /// Constructor for the class
+        /// </summary>
+        /// <param name="menuTitle">title of the menu</param>
         protected MenuScreen(string menuTitle)
         {
             _menuTitle = menuTitle;
@@ -74,11 +82,20 @@ namespace CollectTheCoins.Screens
                 OnCancel(playerIndex);
         }
 
+        /// <summary>
+        /// Method that handles when a player selects a menu entry 
+        /// </summary>
+        /// <param name="entryIndex">the index of the menu entry</param>
+        /// <param name="playerIndex">which player is controlling the selection</param>
         protected virtual void OnSelectEntry(int entryIndex, PlayerIndex playerIndex)
         {
             _menuEntries[entryIndex].OnSelectEntry(playerIndex);
         }
 
+        /// <summary>
+        /// Method when exit is selected
+        /// </summary>
+        /// <param name="playerIndex">which player is exiting</param>
         protected virtual void OnCancel(PlayerIndex playerIndex)
         {
             ExitScreen();
@@ -121,6 +138,12 @@ namespace CollectTheCoins.Screens
             }
         }
 
+        /// <summary>
+        /// Method to update the menuscreen
+        /// </summary>
+        /// <param name="gameTime">game time progressions</param>
+        /// <param name="otherScreenHasFocus">if another screen is active</param>
+        /// <param name="coveredByOtherScreen">if this screen is covered by another</param>
         public override void Update(GameTime gameTime, bool otherScreenHasFocus, bool coveredByOtherScreen)
         {
             base.Update(gameTime, otherScreenHasFocus, coveredByOtherScreen);
@@ -133,6 +156,10 @@ namespace CollectTheCoins.Screens
             }
         }
 
+        /// <summary>
+        /// Method to draw the sprites on the game screen
+        /// </summary>
+        /// <param name="gameTime">game time progressions</param>
         public override void Draw(GameTime gameTime)
         {
             // make sure our entries are in the right place before we draw them

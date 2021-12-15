@@ -12,6 +12,7 @@ namespace CollectTheCoins.Screens
     // in various hopefully useful ways.
     public class OptionsMenuScreen : MenuScreen
     {
+        //set up private variables 
         private readonly MenuEntry _creator;
         private readonly MenuEntry _languageMenuEntry;
         private readonly MenuEntry _repo;
@@ -19,6 +20,9 @@ namespace CollectTheCoins.Screens
         private static readonly string Language = "C#";
         private static readonly string Repo = "https://github.com/agustin2136rod/CIS598-PlatformerGame";
 
+        /// <summary>
+        /// constructor for the class
+        /// </summary>
         public OptionsMenuScreen() : base("Remarks")
         {
             _creator = new MenuEntry(string.Empty);

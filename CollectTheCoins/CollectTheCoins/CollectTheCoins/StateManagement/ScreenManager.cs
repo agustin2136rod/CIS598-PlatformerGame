@@ -17,7 +17,7 @@ namespace CollectTheCoins.StateManagement
     /// </summary>
     public class ScreenManager : DrawableGameComponent
     {
-
+        //set up private variables 
         private readonly List<GameScreen> _screens = new List<GameScreen>();
         private readonly List<GameScreen> _tmpScreensList = new List<GameScreen>();
 
@@ -157,6 +157,10 @@ namespace CollectTheCoins.StateManagement
             _screens.Add(screen);
         }
 
+        /// <summary>
+        /// Method to remove a screen from the screen's list
+        /// </summary>
+        /// <param name="screen">the screen to remove</param>
         public void RemoveScreen(GameScreen screen)
         {
             // If we have a graphics device, tell the screen to unload its content 
@@ -184,10 +188,17 @@ namespace CollectTheCoins.StateManagement
             SpriteBatch.End();
         }
 
+        /// <summary>
+        /// Method to deactivate a screen
+        /// </summary>
         public void Deactivate()
         {
         }
 
+        /// <summary>
+        /// method to activate the screen
+        /// </summary>
+        /// <returns></returns>
         public bool Activate()
         {
             return false;

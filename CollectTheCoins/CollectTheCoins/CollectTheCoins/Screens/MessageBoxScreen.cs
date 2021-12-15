@@ -14,6 +14,7 @@ namespace CollectTheCoins.Screens
     // A popup message box screen, used to display "are you sure?" confirmation messages.
     public class MessageBoxScreen : GameScreen
     {
+        //Set up private variables
         private readonly string _message;
         private Texture2D _gradientTexture;
         private readonly InputAction _menuSelect;
@@ -21,6 +22,7 @@ namespace CollectTheCoins.Screens
         private bool _isInstructions;
         private string usageText;
 
+        //event handlers
         public event EventHandler<PlayerEventIndexEventArgs> Accepted;
         public event EventHandler<PlayerEventIndexEventArgs> Cancelled;
 
@@ -66,6 +68,11 @@ namespace CollectTheCoins.Screens
             _gradientTexture = content.Load<Texture2D>("screens/gradient");
         }
 
+        /// <summary>
+        /// Method to handle the input from the player
+        /// </summary>
+        /// <param name="gameTime">game time progressions</param>
+        /// <param name="input">input from the player</param>
         public override void HandleInput(GameTime gameTime, InputState input)
         {
             PlayerIndex playerIndex;
@@ -98,6 +105,10 @@ namespace CollectTheCoins.Screens
             }
         }
 
+        /// <summary>
+        /// Method to draw on the gamescreen
+        /// </summary>
+        /// <param name="gameTime">game time progressions</param>
         public override void Draw(GameTime gameTime)
         {
             var spriteBatch = ScreenManager.SpriteBatch;

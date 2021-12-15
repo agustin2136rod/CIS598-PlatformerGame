@@ -14,6 +14,7 @@ namespace CollectTheCoins.Screens
     // giving the player options to resume or quit.
     public class PauseMenuScreen : MenuScreen
     {
+        //private variables used in the class
         private VolumeHandler _volume;
         private GameServiceContainer _services;
         private MediaHandler _media;
@@ -22,6 +23,12 @@ namespace CollectTheCoins.Screens
             "\nPressing Up, 'W', or 'Space' key will make the \nplayer jump. The objective is to " +
             "\ncollect all the coins, avoid the obstacles, \nand reach the exit sign before time expires.\n";
 
+        /// <summary>
+        /// Constructor for the class
+        /// </summary>
+        /// <param name="gameService">the services</param>
+        /// <param name="volume">volume handler for the game</param>
+        /// <param name="media">media handler for the game</param>
         public PauseMenuScreen(GameServiceContainer gameService, VolumeHandler volume, MediaHandler media) : base("Paused")
         {
             _services = gameService;
@@ -49,6 +56,11 @@ namespace CollectTheCoins.Screens
             MenuEntries.Add(quitGameMenuEntry);
         }
 
+        /// <summary>
+        /// Method for when 'quit game' is selected
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void QuitGameMenuEntrySelected(object sender, PlayerEventIndexEventArgs e)
         {
             const string message = "Are you sure you want to quit this game?";
@@ -59,6 +71,11 @@ namespace CollectTheCoins.Screens
             ScreenManager.AddScreen(confirmQuitMessageBox, ControllingPlayer);
         }
 
+        /// <summary>
+        /// Method for when 'see instructions' menu entry is selected
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SeeInstructionsGameMenuEntrySelected(object sender, PlayerEventIndexEventArgs e)
         {
             var confirmSeenInstructionsMessageBox = new MessageBoxScreen(instructionsForGame, true);
@@ -68,6 +85,11 @@ namespace CollectTheCoins.Screens
             ScreenManager.AddScreen(confirmSeenInstructionsMessageBox, ControllingPlayer);
         }
 
+        /// <summary>
+        /// Method for when 'restart game' menu entry is selected
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void RestartGameMenuEntrySelected(object sender, PlayerEventIndexEventArgs e)
         {
             const string message = "Are you sure you want to restart this game?";
@@ -78,6 +100,9 @@ namespace CollectTheCoins.Screens
             ScreenManager.AddScreen(confirmRestartMessageBox, ControllingPlayer);
         }
 
+        /// <summary>
+        /// Method to change the volume of the game
+        /// </summary>
         private void SetVolumeEntryText()
         {
             if (_volume.Volume <= 1.0f)
@@ -90,6 +115,11 @@ namespace CollectTheCoins.Screens
             }
         }
 
+        /// <summary>
+        /// Method for 'change volume' menu entry selected
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ChangeVolumeMenuEntrySelected(object sender, PlayerEventIndexEventArgs e)
         {
             _volume.IncrementVolume();
@@ -103,6 +133,11 @@ namespace CollectTheCoins.Screens
             LoadingScreen.Load(ScreenManager, false, null, new BackgroundScreen(), new MainMenuScreen(_services));
         }
 
+        /// <summary>
+        /// Messagebox to ask for confirmation if the player wants to restart the game
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ConfirmRestartMessageBoxAccepted(object sender, PlayerEventIndexEventArgs e)
         {
             LoadingScreen.Load(ScreenManager, false, PlayerIndex.One, new GameplayScreen(_services));

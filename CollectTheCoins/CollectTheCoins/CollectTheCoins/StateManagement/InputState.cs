@@ -19,6 +19,7 @@ namespace CollectTheCoins.StateManagement
     /// </summary> 
     public class InputState
     {
+        //set up private variables 
         private const int MaxInputs = 1;
         public readonly KeyboardState[] CurrentKeyboardStates;
         private readonly KeyboardState[] _lastKeyboardStates;
