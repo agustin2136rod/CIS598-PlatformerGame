@@ -51,6 +51,12 @@ namespace CollectTheCoins.Screens
             screenManager.AddScreen(loadingScreen, controllingPlayer);
         }
 
+        /// <summary>
+        /// Update the screen
+        /// </summary>
+        /// <param name="gameTime">game time progressions</param>
+        /// <param name="otherScreenHasFocus">Whether other screen has focus</param>
+        /// <param name="coveredByOtherScreen">if this screen is covered by another</param>
         public override void Update(GameTime gameTime, bool otherScreenHasFocus, bool coveredByOtherScreen)
         {
             base.Update(gameTime, otherScreenHasFocus, coveredByOtherScreen);
@@ -74,6 +80,10 @@ namespace CollectTheCoins.Screens
             }
         }
 
+        /// <summary>
+        /// Draw the sprites on the screen
+        /// </summary>
+        /// <param name="gameTime">game time progressions</param>
         public override void Draw(GameTime gameTime)
         {
             // If we are the only active screen, that means all the previous screens

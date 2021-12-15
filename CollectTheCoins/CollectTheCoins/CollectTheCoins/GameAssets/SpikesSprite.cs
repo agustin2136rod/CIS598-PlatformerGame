@@ -69,10 +69,6 @@ namespace CollectTheCoins.GameAssets
         public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(texture, Position, Color.White);
-#if DEBUG
-            //Rectangle rectangle = new Rectangle((int)BoundingRectangle.X, (int)BoundingRectangle.Y, 35, 20);
-            //spriteBatch.Draw(pixel, rectangle, Color.White);
-#endif
         }
     }
 }

@@ -16,9 +16,13 @@ namespace CollectTheCoins.Screens
     // of whatever transitions the screens on top of it may be doing.
     public class BackgroundScreen : GameScreen
     {
+        //objects used in the class
         private ContentManager _content;
         private Texture2D _backgroundTexture;
 
+        /// <summary>
+        /// contstructor
+        /// </summary>
         public BackgroundScreen()
         {
             TransitionOnTime = TimeSpan.FromSeconds(0.5);
@@ -40,6 +44,9 @@ namespace CollectTheCoins.Screens
             _backgroundTexture = _content.Load<Texture2D>("screens/gamebackground");
         }
 
+        /// <summary>
+        /// unload the content
+        /// </summary>
         public override void Unload()
         {
             _content.Unload();
@@ -54,6 +61,10 @@ namespace CollectTheCoins.Screens
             base.Update(gameTime, otherScreenHasFocus, false);
         }
 
+        /// <summary>
+        /// Draw the background screen
+        /// </summary>
+        /// <param name="gameTime">Game time Progressions</param>
         public override void Draw(GameTime gameTime)
         {
             var spriteBatch = ScreenManager.SpriteBatch;

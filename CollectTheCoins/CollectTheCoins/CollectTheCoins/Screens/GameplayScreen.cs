@@ -18,6 +18,7 @@ namespace CollectTheCoins.Screens
 {
     public class GameplayScreen : GameScreen
     {
+        //set up all private variables and objects
         private ContentManager _content;
         private SpriteFont _gameFont;
         private GameServiceContainer _services;
@@ -35,7 +36,7 @@ namespace CollectTheCoins.Screens
         private bool continuePressed;
         private Texture2D instructions;
         private KeyboardState keyboardState;
-        private int levelIndex = 9;
+        private int levelIndex = -1;
         private const int numberOfLevels = 11;
         private VolumeHandler gameVolume;
         private MediaHandler mediaHandler;
@@ -46,6 +47,10 @@ namespace CollectTheCoins.Screens
         private float _pauseAlpha;
         private readonly InputAction _pauseAction;
 
+        /// <summary>
+        /// constructor for the gamescreen
+        /// </summary>
+        /// <param name="gameService">services</param>
         public GameplayScreen(GameServiceContainer gameService)
         {
             TransitionOnTime = TimeSpan.FromSeconds(1.5);
@@ -99,12 +104,17 @@ namespace CollectTheCoins.Screens
             globalTransformation = Matrix.CreateScale(screenScalingFactor);
         }
 
-
+        /// <summary>
+        /// Deactivate the screen
+        /// </summary>
         public override void Deactivate()
         {
             base.Deactivate();
         }
 
+        /// <summary>
+        /// Unload the content
+        /// </summary>
         public override void Unload()
         {
             _content.Unload();
@@ -210,6 +220,10 @@ namespace CollectTheCoins.Screens
             }
         }
 
+        /// <summary>
+        /// Draw the sprites for the gamescreen
+        /// </summary>
+        /// <param name="gameTime"></param>
         public override void Draw(GameTime gameTime)
         {
             // This game has a blue background. Why? Because!
