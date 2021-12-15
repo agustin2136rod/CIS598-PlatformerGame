@@ -45,6 +45,7 @@ namespace CollectTheCoins.Handlers
         private bool isTimePaused = false;
         private bool timerRunning = false;
         private bool enemyCollidedWithCharacter = false;
+        private VolumeHandler gameVolume;
 
         /// <summary>
         /// getter to determine whether a character collided with an enemy 
@@ -441,8 +442,9 @@ namespace CollectTheCoins.Handlers
         /// <param name="gameTime">elapsed game time</param>
         /// <param name="keyboardState">which keys are being pressed</param>
         /// <param name="orientation">the screen orientation</param>
-        public void Update (GameTime gameTime, KeyboardState keyboardState)
+        public void Update (GameTime gameTime, KeyboardState keyboardState, VolumeHandler volume)
         {
+            gameVolume = volume;
             if (time.RemainingTime == TimeSpan.Zero)
             {
                 Player.ApplyPhysics(gameTime);
@@ -457,7 +459,7 @@ namespace CollectTheCoins.Handlers
             {
                 if (!isTimePaused)
                 {
-                    Player.Update(gameTime, keyboardState);
+                    Player.Update(gameTime, keyboardState, gameVolume);
                     if (bats != null)
                     {
                         foreach (var bat in bats) bat.Update(gameTime);
@@ -612,7 +614,7 @@ namespace CollectTheCoins.Handlers
 
                 if (coin.BoundingCircle.CollidesWith(Player.BoundingRectangle))
                 {
-                    coinCollected.Play(0.2f, 0f, 0f);
+                    coinCollected.Play(gameVolume.Volume, 0f, 0f);
                     coins.RemoveAt(i--);
                 }
             }

@@ -38,6 +38,7 @@ namespace CollectTheCoins.Screens
         private int levelIndex = -1;
         private const int numberOfLevels = 11;
         private VolumeHandler gameVolume;
+        private MediaHandler mediaHandler;
         
 
         private readonly Random _random = new Random();
@@ -73,9 +74,10 @@ namespace CollectTheCoins.Screens
             ScalePresentation();
             backgroundMusic = _content.Load<Song>("sounds/BoxCat Games - Epic Song");
             gameVolume = new VolumeHandler(0.7f);
-            MediaPlayer.Volume = gameVolume.Volume;
-            MediaPlayer.Play(backgroundMusic);
-            MediaPlayer.IsRepeating = true;
+            mediaHandler = new MediaHandler();
+            mediaHandler.setVolume(gameVolume.Volume);
+            mediaHandler.Play(backgroundMusic);
+            mediaHandler.SetRepeating();
             LoadLevel();
 
             // once the load has finished, we use ResetElapsedTime to tell the game's
@@ -112,8 +114,8 @@ namespace CollectTheCoins.Screens
         // stop updating when the pause menu is active, or if you tab away to a different application.
         public override void Update(GameTime gameTime, bool otherScreenHasFocus, bool coveredByOtherScreen)
         {
-            level.Update(gameTime, keyboardState);
-            MediaPlayer.Volume = gameVolume.Volume;
+            level.Update(gameTime, keyboardState, gameVolume);
+            mediaHandler.setVolume(gameVolume.Volume);
 
             base.Update(gameTime, otherScreenHasFocus, false);
         }
@@ -167,7 +169,7 @@ namespace CollectTheCoins.Screens
 
             if (_pauseAction.Occurred(input, ControllingPlayer, out player))
             {
-                ScreenManager.AddScreen(new PauseMenuScreen(_services, gameVolume), ControllingPlayer);
+                ScreenManager.AddScreen(new PauseMenuScreen(_services, gameVolume, mediaHandler), ControllingPlayer);
                 level.PauseLevelTimer();
             }
             else
@@ -175,7 +177,7 @@ namespace CollectTheCoins.Screens
                 if (level.IsTimePaused)
                 {
                     level.ResumeLevelTimer();
-                    MediaPlayer.Volume = gameVolume.Volume;
+                    mediaHandler.setVolume(gameVolume.Volume);
                 }
                 if (!continuePressed && proceed)
                 {
@@ -183,8 +185,8 @@ namespace CollectTheCoins.Screens
                     {
                         level.Start();
                         level.StartLevelTimer();
-                        MediaPlayer.Volume = gameVolume.Volume;
-                        MediaPlayer.Play(backgroundMusic);
+                        mediaHandler.setVolume(gameVolume.Volume);
+                        mediaHandler.Play(backgroundMusic);
                     }
                     else if (level.TimeLeft == TimeSpan.Zero)
                     {
@@ -192,15 +194,15 @@ namespace CollectTheCoins.Screens
                         {
                             LoadLevel();
                             level.StartLevelTimer();
-                            MediaPlayer.Volume = gameVolume.Volume;
-                            MediaPlayer.Play(backgroundMusic);
+                            mediaHandler.setVolume(gameVolume.Volume);
+                            mediaHandler.Play(backgroundMusic);
                         }
                         else
                         {
                             ReloadCurrentLevel();
                             level.StartLevelTimer();
-                            MediaPlayer.Volume = gameVolume.Volume;
-                            MediaPlayer.Play(backgroundMusic);
+                            mediaHandler.setVolume(gameVolume.Volume);
+                            mediaHandler.Play(backgroundMusic);
                         }
                     }
                 }
@@ -259,25 +261,25 @@ namespace CollectTheCoins.Screens
             if (level.AtExit && level.Coins.Count == 0 && levelIndex != 3)
             {
                 _spriteBatch.Draw(win, center - winSize / 2, Color.White);
-                MediaPlayer.Stop();
+                mediaHandler.Stop();
             }
 
             if (level.TimeLeft == TimeSpan.Zero && !level.AtExit)
             {
                 _spriteBatch.Draw(fail, center - winSize / 2, Color.White);
-                MediaPlayer.Stop();
+                mediaHandler.Stop();
             }
 
             if (level.EnemyCollidedWithCharacter && level.TimeLeft == TimeSpan.Zero && !level.AtExit)
             {
                 _spriteBatch.Draw(died, center - winSize / 2, Color.White);
-                MediaPlayer.Stop();
+                mediaHandler.Stop();
             }
 
             if (level.AtExit && level.Coins.Count == 0 && levelIndex == 3)
             {
                 _spriteBatch.Draw(done, center - winSize / 2, Color.White);
-                MediaPlayer.Stop();
+                mediaHandler.Stop();
             }
         }
     }

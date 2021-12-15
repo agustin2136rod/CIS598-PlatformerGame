@@ -35,6 +35,7 @@ namespace CollectTheCoins
         private bool onGround;
         private Rectangle bounds;
         private Texture2D pixel;
+        private VolumeHandler gameVolume;
 
         // Constants for controlling horizontal movement
         private const float MoveAcceleration = 13000.0f;
@@ -159,8 +160,9 @@ namespace CollectTheCoins
         /// <param name="gameTime">elapsed game time</param>
         /// <param name="keyboardState">tracks which keys are pressed</param>
         /// <param name="orientation">screen orientation</param>
-        public void Update(GameTime gameTime, KeyboardState keyboardState)
+        public void Update(GameTime gameTime, KeyboardState keyboardState, VolumeHandler volume)
         {
+            gameVolume = volume;
             GetInput(keyboardState);
 
             ApplyPhysics(gameTime);
@@ -247,7 +249,7 @@ namespace CollectTheCoins
                 if ((!hasJumped && OnGround) || jumpTime > 0.0f)
                 {
                     if (jumpTime == 0.0f)
-                        jumpSound.Play(0.2f, 0f, 0f);
+                        jumpSound.Play(gameVolume.Volume, 0f, 0f);
 
                     jumpTime += (float)gameTime.ElapsedGameTime.TotalSeconds;
                     spritePlayer.Play(jumpAnimation);

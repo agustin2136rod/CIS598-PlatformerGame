@@ -16,15 +16,17 @@ namespace CollectTheCoins.Screens
     {
         private VolumeHandler _volume;
         private GameServiceContainer _services;
+        private MediaHandler _media;
         private readonly MenuEntry _volumeMenuEntry;
         private const string instructionsForGame = "Use the Arrow or 'WASD' keys to move \nthe player around. " +
             "\nPressing Up, 'W', or 'Space' key will make the \nplayer jump. The objective is to " +
             "\ncollect all the coins, avoid the obstacles, \nand reach the exit sign before time expires.\n";
 
-        public PauseMenuScreen(GameServiceContainer gameService, VolumeHandler volume) : base("Paused")
+        public PauseMenuScreen(GameServiceContainer gameService, VolumeHandler volume, MediaHandler media) : base("Paused")
         {
             _services = gameService;
             _volume = volume;
+            _media = media;
 
             var resumeGameMenuEntry = new MenuEntry("Resume Game");
             var quitGameMenuEntry = new MenuEntry("Quit Game");
@@ -97,6 +99,7 @@ namespace CollectTheCoins.Screens
         // This uses the loading screen to transition from the game back to the main menu screen.
         private void ConfirmQuitMessageBoxAccepted(object sender, PlayerEventIndexEventArgs e)
         {
+            _media.Stop();
             LoadingScreen.Load(ScreenManager, false, null, new BackgroundScreen(), new MainMenuScreen(_services));
         }
 
