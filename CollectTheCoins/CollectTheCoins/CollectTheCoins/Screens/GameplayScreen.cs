@@ -37,6 +37,7 @@ namespace CollectTheCoins.Screens
         private Texture2D instructions;
         private KeyboardState keyboardState;
         private int levelIndex = -1;
+
         private const int numberOfLevels = 11;
         private VolumeHandler gameVolume;
         private MediaHandler mediaHandler;
